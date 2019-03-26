@@ -1,0 +1,81 @@
+h3 {
+  color: chartreuse;
+  font-family: "Courier New";
+}
+button {
+  margin-top: 10px;
+  border: none;
+  background-color: #fff;
+  font-family: "Mistral";
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 25px;
+  transition: 0.5s;
+}
+button:hover {
+  box-shadow: 0 5px 20px black;
+}
+button:active {
+  transition: 1ms;
+  box-shadow: 0 1px 10px black;
+  color: #fff;
+  background-color: darkgreen;
+}
+#userInput {
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  transition: 0.5s;
+  margin-left: 35%;
+}
+#userInput:hover {
+  box-shadow: 0 5px 20px black;
+}
+#userInput:active {
+  transition: 1ms;
+  box-shadow: 0 1px 10px black;
+}
+#conclusion {
+  font-family: "Trebuchet MS";
+  background-color: #fff;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+#conclusion:hover {
+  box-shadow: 0 5px 20px black;
+}
+#conclusion:active {
+  transition: 1ms;
+  color: #fff;
+  background-color: darkgreen;
+  box-shadow: 0 1px 10px black;
+}
+#text {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  width: 70%;
+  height: 200px;
+  border-radius: 10px;
+  text-align: center;
+  color: chartreuse;
+  transition: 0.5s;
+}
+#text:hover {
+  box-shadow: 0 5px 20px black;
+}
+#text:active {
+  transition: 1ms;
+  box-shadow: 0 1px 10px black;
+}
+#buttt {
+  margin-left: 38%
+}

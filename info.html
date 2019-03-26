@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <script>window.$ = window.jQuery = require('./jquery-3.3.1.min.js');</script>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style_font.css" />
+  <style>
+    .inf {
+      position: fixed;
+      color: #fff;
+      top: 96%
+    }
+    #icon-info {
+      width: 125px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>Большой босс</title>
+</head>
+
+<body>
+  <header>
+    <div class="toolbar-drag" class="toolbar">
+      <img src="./favicon.ico" id="favicon" alt="">
+      <b>Teredo</b>
+    </div>
+    <div class="toolbar-actions" class="toolbar">
+      <div class="winButton" onclick="minim()" id="minimize"><img src="./image/rollup.png" style="pointer-events: none;" width="15px"
+          alt="" /></div>
+      <div class="winButton" onclick="cl()" id="close"><img src="./image/close.png" style="pointer-events: none;" width="15px"
+          alt="" /></div>
+    </div>
+    <a href="./index.html" class="link"><img src="./image/glob.png" width="14" alt="" style="pointer-events: none;" />
+      Главная</a>
+    <a href="./info.html" class="link"><img src="./image/inf.png" width="14" alt="" style="pointer-events: none;" />
+      О программе</a>
+  </header>
+  <h1>О программе</h1>
+  <h2>Teredo</h2>
+  <img src="./favicon.png" id="icon-info" alt="" style="pointer-events: none;" />
+  <h2>Автор: Дмитрий Жутков</h2>
+  <h2>Версия: 0.1.0</h2>
+  <h2>От: ???</h2>
+  <br />
+  <p>
+    Программа была создана с целью упростить пользователям в разных задачах и
+    для развлечения.
+  </p>
+  <script src="./script/app.js"></script>
+</body>
+
+</html>

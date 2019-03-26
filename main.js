@@ -1,8 +1,14 @@
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
+function createWindow() {
   // Создаем окно браузера.
-  let win = new BrowserWindow({ width: 800, height: 700, frame: false, resizable: false, icon: __dirname + '/favicon.ico' })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 700,
+    frame: false,
+    resizable: false,
+    icon: __dirname + '/favicon.ico'
+  })
   win.once('ready-to-show', () => {
     win.show()
   })
@@ -12,3 +18,7 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+  app.quit();
+});

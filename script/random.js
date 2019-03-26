@@ -1,4 +1,7 @@
 function random_text() {
+    var audio = new Audio();
+    audio.src = './sound/click.mp3';
+    audio.autoplay = true;
     document.getElementById('txtbox').textContent = 'Пожалуйста, подождите...';
     var timerID = setTimeout(random,  2000);
     var timerID2 = setTimeout(random_descr, 2000)
@@ -55,9 +58,15 @@ function random() {
 }
 
 function random_res() {
+    var audio = new Audio();
+    audio.src = './sound/click.mp3';
+    audio.autoplay = true;
     document.getElementById('txtbox').textContent = 'Нажмите "Крутить", чтобы узнать, что выпадет';
 }
 function changeText() {
+    var audio = new Audio();
+    audio.src = './sound/click.mp3';
+    audio.autoplay = true;
     var userInput = document.getElementById('userInput').value;
     document.getElementById('FDR').textContent = userInput;
 }

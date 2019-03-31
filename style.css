@@ -16,6 +16,14 @@ p {
 b {
   font-family: "Trebuchet MS";
 }
+#thanks h2 {
+  color: chartreuse;
+  font-family: "Trebuchet MS";
+}
+i {
+  font-family: "Courier New";
+  color: chartreuse;
+}
 h2 {
   font-family: "Trebuchet MS";
   color: #fff;
@@ -32,7 +40,7 @@ header {
 .link {
   margin-top: 50px;
   font-family: "Trebuchet MS";
-  margin-left: 10px;
+  margin-left: 15px;
   margin-right: 10px;
   text-decoration: none;
   border-radius: 5px;
@@ -59,6 +67,7 @@ header {
   cursor: pointer;
   border-radius: 10px;
   margin-left: 45px;
+  margin-bottom: 10px;
   width: 25%;
   transition: 0.5s;
 }
@@ -72,8 +81,8 @@ header {
   box-shadow: 0 1px 10px black;
 }
 .winButton {
-  display: inline-block;
   padding-top: 5px;
+  float: right;
   width: auto;
   padding-left: 10px;
   cursor: pointer;
@@ -95,7 +104,7 @@ header {
 }
 .toolbar-drag {
     display: inline-block;
-  width: 90.2%;
+  width: 86.8%;
   margin: 0px;
   -webkit-app-region: drag;
   content: " ";
@@ -106,4 +115,23 @@ header {
   width: 14px;
   margin-left: 5px;
   margin-top: 5px;
+}
+#conclusion {
+  width: auto
+}
+#thanks {
+  text-align: center;
+  border-radius: 10px;
+  background-color: black;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.5s;
+}
+#thanks:hover {
+  box-shadow: 0 5px 20px black;
+}
+#thanks:active {
+  transition: 1ms;
+  box-shadow: 0 1px 10px black;
 }

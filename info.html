@@ -12,6 +12,7 @@
       color: #fff;
       top: 96%
     }
+
     #icon-info {
       width: 125px;
       display: block;
@@ -26,31 +27,44 @@
 <body>
   <header>
     <div class="toolbar-drag" class="toolbar">
-      <img src="./favicon.ico" id="favicon" alt="">
+      <img src="favicon.ico" id="favicon" alt="" />
       <b>Teredo</b>
     </div>
     <div class="toolbar-actions" class="toolbar">
-      <div class="winButton" onclick="minim()" id="minimize"><img src="./image/rollup.png" style="pointer-events: none;" width="15px"
-          alt="" /></div>
-      <div class="winButton" onclick="cl()" id="close"><img src="./image/close.png" style="pointer-events: none;" width="15px"
-          alt="" /></div>
+      <div class="winButton" id="close" onclick="cl()" title="Закрыть программу">
+        <img src="./image/close.png" style="pointer-events: none;" width="15px" alt="" />
+      </div>
+      <div class="winButton" onclick="minim()" id="minimize" title="Скрыть программу">
+        <img src="./image/rollup.png" style="pointer-events: none;" width="15px" alt="" />
+      </div>
+      <div class="winButton" id="back" title="Назад">
+        <img src="./image/back.png" style="pointer-events: none;" width="15px" alt="">
+      </div>
     </div>
-    <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt="" style="pointer-events: none;" />
+    <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt=""
+        style="pointer-events: none;" />
       Главная</a>
-    <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt="" style="pointer-events: none;" />
+    <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt=""
+        style="pointer-events: none;" />
       О программе</a>
   </header>
   <h1>О программе</h1>
   <h2>&copy; 2019 Teredo</h2>
   <img src="./favicon.png" id="icon-info" alt="" style="pointer-events: none;" />
   <h2>Автор: Дмитрий Жутков</h2>
-  <h2>Версия: 0.2.0</h2>
-  <h2>От: 26 марта 2019 года</h2>
+  <h2>Версия: 0.3.0</h2>
+  <h2>От: 31 марта 2019 года</h2>
   <br />
   <p>
     Программа была создана с целью упростить пользователям в разных задачах и
     для развлечения.
   </p>
+  <div id="thanks">
+    <h2>Благодарности:</h2>
+    <i>Арам Оганнисян</i><br>
+    <i>Сергей Шамановский</i><br>
+    <i>Данил Зиннатов</i>
+  </div>
   <script src="./script/app.js"></script>
 </body>
 

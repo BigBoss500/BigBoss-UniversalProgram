@@ -5,6 +5,7 @@ h3 {
 button {
   margin-top: 10px;
   border: none;
+  width: 20%;
   background-color: #fff;
   font-family: "Mistral";
   font-weight: bold;
@@ -77,5 +78,5 @@ button:active {
   box-shadow: 0 1px 10px black;
 }
 #buttt {
-  margin-left: 38%
+  margin-left: 30%
 }

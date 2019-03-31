@@ -16,22 +16,30 @@
       <b>Teredo</b>
     </div>
     <div class="toolbar-actions" class="toolbar">
-      <div class="winButton" onclick="minim()" id="minimize">
-        <img src="./image/rollup.png" style="pointer-events: none;" width="15px" alt="" />
-      </div>
-      <div class="winButton" id="close" onclick="cl()">
+      <div class="winButton" id="close" onclick="cl()" title="Закрыть программу">
         <img src="./image/close.png" style="pointer-events: none;" width="15px" alt="" />
       </div>
+      <div class="winButton" onclick="minim()" id="minimize" title="Скрыть программу">
+        <img src="./image/rollup.png" style="pointer-events: none;" width="15px" alt="" />
+      </div>
+      <div class="winButton" id="back" title="Назад">
+        <img src="./image/back.png" style="pointer-events: none;" width="15px" alt="">
+      </div>
     </div>
-    <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt="" style="pointer-events: none;" />
+    <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt=""
+        style="pointer-events: none;" />
       Главная</a>
-    <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt="" style="pointer-events: none;" />
+    <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt=""
+        style="pointer-events: none;" />
       О программе</a>
   </header>
   <h1>Добро пожаловать!</h1>
   <p>Чтобы использовать приложение, нажмите кнопки ниже.</p>
-  <a href="./random.html" onclick="AuCLick()" class="butt"> <img src="./image/random.png" width="20px" alt=""> Рулетка</a>
-  <div class="butt" onclick="AuCLick()" id="run"><img src="./image/vkuserinfo.png" width="20px" alt=""> VK User Info</div>
+  <a href="./random.html" onclick="AuCLick()" class="butt"> <img src="./image/random.png" width="20px" alt="">
+    Рулетка</a>
+  <div class="butt" onclick="AuCLick()" id="run"><img src="./image/vkuserinfo.png" width="20px" alt=""> VK User Info
+  </div>
+  <a href="./convert.html" onclick="AuCLick()" class="butt"><img src="./image/convert.png" width="20px" alt=""> Конвертер</a>
   <script src="./script/app.js"></script>
   <script src="./script/Query.js"></script>
 </body>

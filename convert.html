@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <script>window.$ = window.jQuery = require('./jquery-3.3.1.min.js');</script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style_font.css" />
+    <title>Teredo</title>
+</head>
+
+<body>
+    <header>
+        <div class="toolbar-drag" class="toolbar">
+            <img src="favicon.ico" id="favicon" alt="" />
+            <b>Teredo</b>
+        </div>
+        <div class="toolbar-actions" class="toolbar">
+            <div class="winButton" id="close" onclick="cl()" title="Закрыть программу">
+                <img src="./image/close.png" style="pointer-events: none;" width="15px" alt="" />
+            </div>
+            <div class="winButton" onclick="minim()" id="minimize" title="Скрыть программу">
+                <img src="./image/rollup.png" style="pointer-events: none;" width="15px" alt="" />
+            </div>
+            <div class="winButton" id="back" title="Назад">
+                <img src="./image/back.png" style="pointer-events: none;" width="15px" alt="">
+            </div>
+        </div>
+        <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt=""
+                style="pointer-events: none;" />
+            Главная</a>
+        <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt=""
+                style="pointer-events: none;" />
+            О программе</a>
+    </header>
+    <h1>Конвертер</h1>
+    <p>Выберите, что хотите конвертировать.</p>
+    <a href="./currenty.html" onclick="AuCLick()" class="butt"><img src="./image/convert/currency.png" style="pointer-events: none;" width="20px" alt=""> Валюта</a>
+    <a href="./temp.html" onclick="AuCLick()" class="butt"><img src="./image/convert/temp.png" style="pointer-events: none;" width="20px" alt=""> Температура</a>
+    <a href="./lenght.html" onclick="AuCLick()" class="butt"><img src="./image/convert/length.png" style="pointer-events: none;" width="20px" alt=""> Длина</a>
+    <a href="./mass.html" onclick="AuCLick()" class="butt"><img src="./image/convert/mass.png" style="pointer-events: none;" width="20px" alt=""> Масса</a>
+    <script src="./script/app.js"></script>
+</body>
+
+</html>

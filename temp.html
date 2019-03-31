@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <script>window.$ = window.jQuery = require('./jquery-3.3.1.min.js');</script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style_font.css" />
+    <link rel="stylesheet" href="./style/style_convert.css">
+    <title>Terdo</title>
+</head>
+
+<body>
+    <header>
+        <div class="toolbar-drag" class="toolbar">
+            <img src="favicon.ico" id="favicon" alt="" />
+            <b>Teredo</b>
+        </div>
+        <div class="toolbar-actions" class="toolbar">
+            <div class="winButton" id="close" onclick="cl()" title="Закрыть программу">
+                <img src="./image/close.png" style="pointer-events: none;" width="15px" alt="" />
+            </div>
+            <div class="winButton" onclick="minim()" id="minimize" title="Скрыть программу">
+                <img src="./image/rollup.png" style="pointer-events: none;" width="15px" alt="" />
+            </div>
+            <div class="winButton" id="back" title="Назад">
+                <img src="./image/back.png" style="pointer-events: none;" width="15px" alt="">
+            </div>
+        </div>
+        <a href="./index.html" onclick="AuCLick()" class="link"><img src="./image/glob.png" width="14" alt=""
+                style="pointer-events: none;" />
+            Главная</a>
+        <a href="./info.html" onclick="AuCLick()" class="link"><img src="./image/inf.png" width="14" alt=""
+                style="pointer-events: none;" />
+            О программе</a>
+    </header>
+    <h1>Конвертер температуры</h1>
+    <form name="converter" id="conver">
+        <pre>
+                Число значащих цифр:  <input class="form" name="precision" value="3" maxlength="12" onKeyUp="UpdateF(0)">
+                Цельсии:              <input class="form" name="celsius" maxlength="12" onKeyUp="UpdateF(1)">
+                Кельвин:              <input class="form" name="kelvin" maxlength="12" onKeyUp="UpdateF(2)">
+                Фаренгейт:            <input class="form" name="fahrengeit" maxlength="12" onKeyUp="UpdateF(3)">
+        </pre>
+    </form>
+    <script src="./script/app.js"></script>
+    <script src="./script/convert_temp.js"></script>
+</body>
+
+</html>

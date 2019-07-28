@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
         mc:Ignorable="d"
-        Title="VK User Info" Height="404" Width="454" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" Background="Black">
+        Title="VK User Info" Height="404" Width="454" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" Background="Black" Icon="images/program/Jekyll.ico">
     <Grid Background="#FF400042" Margin="1" Height="400" Width="450">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,14 +17,9 @@
             </Border.Effect>
         </Border>
         <Label Content="VK User Info" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.5,-1.583,0,0" Foreground="Black" Panel.ZIndex="2" FontFamily="Trebuchet MS" Height="26.749" FontWeight="Bold" FontSize="14" Width="99.53"/>
-        <Image Source="Teredo16.png" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16" OpacityMask="Black" Margin="4.75,3.75,0,0" Panel.ZIndex="2"/>
+        <Image Source="images/program/Jekyll.ico" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16" OpacityMask="Black" Margin="4.75,3.75,0,0" Panel.ZIndex="2"/>
         <Border BorderThickness="1" Height="22" VerticalAlignment="Bottom" MouseLeftButtonDown="Drag" Panel.ZIndex="4" Background="#00000000" Grid.ColumnSpan="2" Margin="0,0,63,378" HorizontalAlignment="Right" Width="387"/>
-        <Button x:Name="CloseButton" Style="{DynamicResource WindowButton}" Margin="193,-0.709,-1.016,378" VerticalAlignment="Bottom" Height="22.709" Click="Close" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Grid.Column="1" HorizontalAlignment="Left" Width="33.016">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
+        <Button x:Name="CloseButton" Style="{DynamicResource WindowButton}" Margin="193,-0.709,-1.016,374.834" VerticalAlignment="Bottom" Height="25.875" Click="Close" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Grid.Column="1" HorizontalAlignment="Left" Width="33.016" ToolTip="Закрыть окно">
             <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18" Source="images/program/close.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -46,7 +41,7 @@
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="IDtext" HorizontalAlignment="Left" Height="22" Margin="45,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99" FontFamily="Courier New" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" BorderBrush="{x:Null}" Cursor="Hand">
+        <TextBox x:Name="IDtext" HorizontalAlignment="Left" Height="22" Margin="45,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99" FontFamily="Courier New" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" Grid.Column="1" BorderBrush="{x:Null}" Cursor="Hand" KeyDown="IDtext_KeyDown" ToolTip="ID в формате &quot;цифры&quot;">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -56,23 +51,14 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="2" Direction="-90"/>
             </TextBox.Effect>
         </TextBox>
-        <Button Content="Узнать" HorizontalAlignment="Left" Click="VKUser" Height="22" Margin="146,53,0,0" VerticalAlignment="Top" Width="69" FontFamily="Trebuchet MS" FontSize="14" Grid.Column="1" Background="White" BorderBrush="{x:Null}" Cursor="Hand">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-            <Button.Effect>
-                <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
-            </Button.Effect>
+        <Button Style="{DynamicResource ButtonStyle1}" Click="VKUser" Height="22" Margin="144,53,3,325" FontFamily="Trebuchet MS" FontSize="14" Grid.Column="1" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Узнать о пользователе ВК">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="images/program/conclusion.png" Margin="0,0,3,0" Width="16"/>
+                <TextBlock Text="Узнать" Width="46"/>
+            </StackPanel>
         </Button>
         <Label Content="Введите ID пользователя VK:" HorizontalAlignment="Left" Margin="4.75,50.048,0,0" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" Grid.ColumnSpan="2" Height="28.127" Width="269.2"/>
-        <Button x:Name="RollupButton" Style="{DynamicResource WindowButton}" Margin="162,-0.709,0,378" Click="Rollup" Panel.ZIndex="2" Cursor="Hand" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="White" Grid.Column="1" HorizontalAlignment="Left" Width="31" Height="22.709" VerticalAlignment="Bottom">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
+        <Button x:Name="RollupButton" Style="{DynamicResource WindowButton}" Margin="162,-0.709,0,374.834" Click="Rollup" Panel.ZIndex="2" Cursor="Hand" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="White" Grid.Column="1" HorizontalAlignment="Left" Width="31" Height="25.875" VerticalAlignment="Bottom" ToolTip="Свернуть окно">
             <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18" Source="images/program/rollup.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
                 <Image.RenderTransform>
                     <TransformGroup>

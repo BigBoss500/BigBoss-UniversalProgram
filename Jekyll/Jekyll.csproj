@@ -8,12 +8,16 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Jekyll</RootNamespace>
     <AssemblyName>Jekyll</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +30,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -39,6 +42,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +55,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -60,7 +67,7 @@
     <StartupObject>Jekyll.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Teredo.ico</ApplicationIcon>
+    <ApplicationIcon>jekyll.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -74,12 +81,16 @@
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <DelaySign>true</DelaySign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -98,14 +109,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Convert.xaml.cs">
-      <DependentUpon>Convert.xaml</DependentUpon>
+    <Compile Include="AutoClicker.xaml.cs">
+      <DependentUpon>AutoClicker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Currency.cs">
-      <DependentUpon>Convert.xaml</DependentUpon>
+    <Compile Include="Converter.xaml.cs">
+      <DependentUpon>Converter.xaml</DependentUpon>
     </Compile>
     <Compile Include="News.xaml.cs">
       <DependentUpon>News.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Random_FM.xaml.cs">
+      <DependentUpon>Random_FM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="TopSecret.xaml.cs">
+      <DependentUpon>TopSecret.xaml</DependentUpon>
     </Compile>
     <Compile Include="vkuserinfo.xaml.cs">
       <DependentUpon>vkuserinfo.xaml</DependentUpon>
@@ -113,7 +131,11 @@
     <Compile Include="Random.xaml.cs">
       <DependentUpon>Random.xaml</DependentUpon>
     </Compile>
-    <Page Include="Convert.xaml">
+    <Page Include="AutoClicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Converter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +170,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Random.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Random_FM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopSecret.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,7 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\program\back.png" />
-    <Resource Include="images\program\clicker.png" />
     <Resource Include="images\program\close.png" />
     <Resource Include="images\program\conclusion.png" />
     <Resource Include="images\program\convert.png" />
@@ -203,18 +232,10 @@
     <Resource Include="images\program\random_on.png" />
     <Resource Include="images\program\rollup.png" />
     <Resource Include="images\program\sovet.png" />
-    <Resource Include="images\program\Teredo.png" />
     <Resource Include="images\program\vkuserinfo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\program\engineer.png" />
     <Resource Include="images\program\random_off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Teredo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Teredo16.png" />
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="Properties\SplashScreen1.png" />
@@ -243,6 +264,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\program\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\clicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\Jekyll.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="jekyll.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\jekyll.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />

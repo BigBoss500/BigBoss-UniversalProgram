@@ -26,3 +26,37 @@ E:\Teredo C#\Teredo\Teredo\obj\Debug\News.baml
 E:\Teredo C#\Teredo\Teredo\obj\Debug\vkuserinfo.g.cs
 E:\Teredo C#\Teredo\Teredo\obj\Debug\vkuserinfo.baml
 E:\Teredo C#\Teredo\Teredo\obj\Debug\App.baml
+E:\Jekyll\Jekyll\build\Jekyll.exe.config
+E:\Jekyll\Jekyll\build\Jekyll.exe
+E:\Jekyll\Jekyll\build\Jekyll.pdb
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.csprojAssemblyReference.cache
+E:\Jekyll\Jekyll\obj\Debug\globalPage.g.cs
+E:\Jekyll\Jekyll\obj\Debug\Info.g.cs
+E:\Jekyll\Jekyll\obj\Debug\MainWindow.g.cs
+E:\Jekyll\Jekyll\obj\Debug\News.g.cs
+E:\Jekyll\Jekyll\obj\Debug\Random.g.cs
+E:\Jekyll\Jekyll\obj\Debug\vkuserinfo.g.cs
+E:\Jekyll\Jekyll\obj\Debug\App.g.cs
+E:\Jekyll\Jekyll\obj\Debug\Jekyll_MarkupCompile.cache
+E:\Jekyll\Jekyll\obj\Debug\Jekyll_MarkupCompile.lref
+E:\Jekyll\Jekyll\obj\Debug\App.baml
+E:\Jekyll\Jekyll\obj\Debug\globalPage.baml
+E:\Jekyll\Jekyll\obj\Debug\Info.baml
+E:\Jekyll\Jekyll\obj\Debug\MainWindow.baml
+E:\Jekyll\Jekyll\obj\Debug\News.baml
+E:\Jekyll\Jekyll\obj\Debug\Random.baml
+E:\Jekyll\Jekyll\obj\Debug\vkuserinfo.baml
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.g.resources
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.Properties.Resources.resources
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.csproj.GenerateResource.cache
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.csproj.CoreCompileInputs.cache
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.exe
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.pdb
+E:\Jekyll\Jekyll\obj\Debug\AutoClicker.g.cs
+E:\Jekyll\Jekyll\obj\Debug\AutoClicker.baml
+E:\Jekyll\Jekyll\obj\Debug\Converter.g.cs
+E:\Jekyll\Jekyll\obj\Debug\Converter.baml
+E:\Jekyll\Jekyll\obj\Debug\TopSecret.g.cs
+E:\Jekyll\Jekyll\obj\Debug\TopSecret.baml
+E:\Jekyll\Jekyll\obj\Debug\Random_FM.g.cs
+E:\Jekyll\Jekyll\obj\Debug\Random_FM.baml

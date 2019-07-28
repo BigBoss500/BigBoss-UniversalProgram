@@ -1,4 +1,4 @@
-﻿<Page x:Class="Jekyll.Convert"
+﻿<Page x:Class="Jekyll.Converter"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,21 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Convert">
-    <Page.Resources>
-        <Storyboard x:Key="OnLoaded1"/>
-    </Page.Resources>
-    <Page.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="tabItem">
-            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
-        </EventTrigger>
-    </Page.Triggers>
 
     <Grid Background="#FF400042">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="63,262,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="674" Height="33" RenderTransformOrigin="0.566,0.727" Grid.ColumnSpan="2" Panel.ZIndex="4" FontSize="14"/>
+        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="63,332,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="674" Height="33" RenderTransformOrigin="0.566,0.727" Grid.ColumnSpan="2" Panel.ZIndex="4" FontSize="14"/>
         <Label Content="Конвертер" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
         <TabControl HorizontalAlignment="Left" Height="326" Margin="63,69,0,0" VerticalAlignment="Top" Width="674" Grid.ColumnSpan="2" BorderBrush="White">
             <TabControl.Resources>
@@ -68,21 +60,21 @@
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Grid.Resources>
-                    <TextBox x:Name="Celcion" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="235,41.999,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Celcion" x:FieldModifier="public" TextChanged="CelcionC" HorizontalAlignment="Left" Height="23" Text="" Margin="235,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="Farengate" HorizontalAlignment="Left" Height="23" Margin="235,69.999,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Farengate" TextChanged="FarengateC" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="Kelvin" HorizontalAlignment="Left" Height="23" Margin="235,97.999,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Kelvin" TextChanged="KelvinC" HorizontalAlignment="Left" Height="23" Margin="235,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -93,27 +85,6 @@
                     <Label Content="Цельсии:" HorizontalAlignment="Left" Margin="167.4,41.702,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
                     <Label Content="Фаренгейт:" HorizontalAlignment="Left" Margin="153,70.295,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
                     <Label Content="Кельвин:" HorizontalAlignment="Left" Margin="167.4,97.999,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,41.999,0,0" VerticalAlignment="Top" Click="CelcionC" Width="96.191" Height="23" Cursor="Hand" Background="#FFDDDDDD" BorderBrush="#FF707070">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,70,0,0" VerticalAlignment="Top" Click="FarengateC" Width="96" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,98,0,0" VerticalAlignment="Top" Click="KelvinC" Width="96" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
                 </Grid>
             </TabItem>
             <TabItem  FontFamily="Trebuchet MS" HorizontalAlignment="Center" FontSize="14">
@@ -134,14 +105,7 @@
                         <ColumnDefinition Width="12*"/>
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="344,42,0,0" VerticalAlignment="Top" Click="MiligrammC" Width="96" Height="23" Cursor="Hand" Grid.Column="1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Miligramm" HorizontalAlignment="Left" Height="23" Margin="187,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <TextBox x:Name="Miligramm" TextChanged="MiligrammC" HorizontalAlignment="Left" Height="23" Margin="187,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -149,14 +113,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Милиграмм:" HorizontalAlignment="Left" Margin="105,42,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="344,71,0,0" VerticalAlignment="Top" Click="GrammC" Width="96" Height="23" Cursor="Hand" Grid.Column="1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Gramm" HorizontalAlignment="Left" Height="23" Margin="187,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <TextBox x:Name="Gramm" TextChanged="GrammC" HorizontalAlignment="Left" Height="23" Margin="187,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -164,14 +121,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Грамм:" HorizontalAlignment="Left" Margin="134,70,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="344,99,0,0" VerticalAlignment="Top" Click="KilogrammC" Width="96" Height="23" Cursor="Hand" Grid.Column="1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Kilogramm" HorizontalAlignment="Left" Height="23" Margin="187,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <TextBox x:Name="Kilogramm" TextChanged="KilogrammC" HorizontalAlignment="Left" Height="23" Margin="187,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -179,14 +129,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Килограмм:" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="344,127,0,0" VerticalAlignment="Top" Click="TonnC" Width="96" Height="23" Cursor="Hand" Grid.Column="1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Tonn" HorizontalAlignment="Left" Height="23" Margin="187,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <TextBox x:Name="Tonn" TextChanged="TonnC" HorizontalAlignment="Left" Height="23" Margin="187,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -210,14 +153,7 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="White" Margin="0,0,0,3">
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Click="ByteC" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Byte" HorizontalAlignment="Left" Height="24" Margin="79,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Byte" TextChanged="ByteC" HorizontalAlignment="Left" Height="24" Margin="79,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -225,14 +161,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Байт:" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="236,38,0,0" VerticalAlignment="Top" Click="KilobyteC" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="KiloByte" HorizontalAlignment="Left" Height="24" Margin="79,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="KiloByte" TextChanged="KilobyteC" HorizontalAlignment="Left" Height="24" Margin="79,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -240,14 +169,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Килобайт:" HorizontalAlignment="Left" Margin="6,38,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="236,66,0,0" Click="MegabyteC" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="MegaByte" HorizontalAlignment="Left" Height="24" Margin="79,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="MegaByte" TextChanged="MegabyteC" HorizontalAlignment="Left" Height="24" Margin="79,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -255,14 +177,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Мегабайт:" HorizontalAlignment="Left" Margin="6,66,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="236,94,0,0" Click="GigabyteC" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="GigaByte" HorizontalAlignment="Left" Height="24" Margin="79,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="GigaByte" TextChanged="GigabyteC" HorizontalAlignment="Left" Height="24" Margin="79,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -270,14 +185,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Гигабайт:" HorizontalAlignment="Left" Margin="6,94,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="236,123,0,0" Click="TerabyteC" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="TeraByte" HorizontalAlignment="Left" Height="24" Margin="79,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="TeraByte" TextChanged="TerabyteC" HorizontalAlignment="Left" Height="24" Margin="79,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -285,14 +193,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Терабайт:" HorizontalAlignment="Left" Margin="6,123,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="565,10,0,0" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Bit" HorizontalAlignment="Left" Height="24" Margin="408,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Bit" TextChanged="BitC" HorizontalAlignment="Left" Height="24" Margin="408,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -300,14 +201,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Бит:" HorizontalAlignment="Left" Margin="371,10,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="565,38,0,0" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="KiloBit" HorizontalAlignment="Left" Height="24" Margin="408,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="KiloBit" TextChanged="KilobitC" HorizontalAlignment="Left" Height="24" Margin="408,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -315,14 +209,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Килобит:" HorizontalAlignment="Left" Margin="343,38,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="65" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="565,66,0,0" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="MegaBit" HorizontalAlignment="Left" Height="24" Margin="408,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="MegaBit" TextChanged="MegabitC" HorizontalAlignment="Left" Height="24" Margin="408,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -330,14 +217,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Мегабит:" HorizontalAlignment="Left" Margin="342,66,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="565,94,0,0" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="GigaBit" HorizontalAlignment="Left" Height="24" Margin="408,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="GigaBit" TextChanged="GigabitC" HorizontalAlignment="Left" Height="24" Margin="408,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -345,14 +225,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Гигабит:" HorizontalAlignment="Left" Margin="342,94,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="565,123,0,0" VerticalAlignment="Top" Width="96" Height="24" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="TeraBit" HorizontalAlignment="Left" Height="24" Margin="408,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="TeraBit" TextChanged="TerabitC" HorizontalAlignment="Left" Height="24" Margin="408,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -377,14 +250,7 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="White" Margin="0,0,0,3">
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,41.999,0,0" VerticalAlignment="Top" Click="MillimetrC" Width="96.191" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Millimetr" HorizontalAlignment="Left" Height="23" Margin="235,41.999,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Millimetr" TextChanged="MillimetrC" HorizontalAlignment="Left" Height="23" Margin="235,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -392,14 +258,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Миллиметр:" HorizontalAlignment="Left" Margin="135,44,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,70,0,0" VerticalAlignment="Top" Click="SantimetrC" Width="96" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Santimetr" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Santimetr" TextChanged="SantimetrC" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -407,14 +266,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Сантиметр:" HorizontalAlignment="Left" Margin="135,70,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,99,0,0" VerticalAlignment="Top" Click="MetrC" Width="96" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Metr" HorizontalAlignment="Left" Height="23" Margin="235,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Metr" TextChanged="MetrC" HorizontalAlignment="Left" Height="23" Margin="235,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -422,14 +274,7 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Метр:" HorizontalAlignment="Left" Margin="177,97,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="51"/>
-                    <Button Content="Перевести" HorizontalAlignment="Left" Margin="392,128,0,0" VerticalAlignment="Top" Click="KilometrC" Width="96" Height="23" Cursor="Hand">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="10"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <TextBox x:Name="Kilometr" HorizontalAlignment="Left" Height="23" Margin="235,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="152" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Kilometr" TextChanged="KilometrC" HorizontalAlignment="Left" Height="23" Margin="235,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -437,6 +282,14 @@
                         </TextBox.Resources>
                     </TextBox>
                     <Label Content="Километр:" HorizontalAlignment="Left" Margin="144,128,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="84"/>
+                    <TextBox x:Name="Step" TextChanged="StepC" HorizontalAlignment="Left" Height="23" Margin="235,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="Шаг(среднее):" HorizontalAlignment="Left" Margin="111,159,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="119"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
@@ -446,13 +299,13 @@
                         <Label Content="Валюта"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0,0,0,2">
+                <Grid Background="White" Margin="0,0,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="Curr1" HorizontalAlignment="Left" Margin="3,87,0,0" VerticalAlignment="Top" Width="180
-                              " Grid.Column="1" Height="22">
+                    <ComboBox x:Name="Curr1" HorizontalAlignment="Left" Margin="144,87,0,0" VerticalAlignment="Top" Width="180
+                              " Height="22" SelectionChanged="Curr1_SelectionChanged">
                         <ComboBox.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -460,7 +313,7 @@
                             </LinearGradientBrush>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox x:Name="Curr2" HorizontalAlignment="Left" Margin="139,87,0,0" VerticalAlignment="Top" Width="180" BorderBrush="White" Height="22">
+                    <ComboBox x:Name="Curr2" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="180" BorderBrush="White" Height="22" Grid.Column="1" SelectionChanged="Curr2_SelectionChanged">
                         <ComboBox.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -468,6 +321,44 @@
                             </LinearGradientBrush>
                         </ComboBox.Background>
                     </ComboBox>
+                    <TextBox x:Name="Number" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="208,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.ColumnSpan="2" TextChanged="Number_TextChanged">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label x:Name="Res" Content="..." HorizontalAlignment="Left" Margin="0,142,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="668" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Courier New"/>
+                    <Label Content="=" HorizontalAlignment="Left" Margin="0,114,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="668" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16"/>
+                    <Label Content="Из" HorizontalAlignment="Left" Margin="117,87,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="в" HorizontalAlignment="Left" Margin="324,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" Grid.ColumnSpan="2" Width="20"/>
+                </Grid>
+            </TabItem>
+            <TabItem FontFamily="Trebuchet MS" FontSize="14">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/program/convert/currency.png" Width="16"/>
+                        <Label Content="Двоичный"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White" Margin="0,0,0,0">
+                    <TextBox x:Name="Decimal" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="174,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DecimalC">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="Double" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="332,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DoubleC">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="Десятичный:" HorizontalAlignment="Left" Margin="199,101,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="Двоичный:" HorizontalAlignment="Left" Margin="365,101,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+
                 </Grid>
             </TabItem>
         </TabControl>

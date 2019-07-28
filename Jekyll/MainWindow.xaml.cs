@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Jekyll
 {
@@ -26,35 +15,26 @@ namespace Jekyll
             frame.Navigate(new globalPage()); // открытие страницы
         }
 
-        private void MessageFunction(object sender, RoutedEventArgs e) //в случае, если функция ещё не внедрена
-        {
-            MessageBox.Show("В данный момент функция не работает", "Функция");
-        }
-        private void Drag(object sender, RoutedEventArgs e) //перемещение
-        {
-            this.DragMove();
-        }
-        private void Global(object sender, RoutedEventArgs e)
-        {
-            frame.Navigate(new globalPage());
-        }
+        private void Drag(object sender, RoutedEventArgs e) => DragMove(); //перемещение
+        private void Global(object sender, RoutedEventArgs e) => frame.Navigate(new globalPage());
         private void Info(object sender, RoutedEventArgs e)
         {
             Info subWindow = new Info();
             subWindow.Show();
         }
-        private void Close(object sender, RoutedEventArgs e) //завершение программы
+        private void Close(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Properties.Settings.Default.Save();
+            Environment.Exit(1);
         }
-        private void Rollup(object sender, RoutedEventArgs e) //свернуть программу
+        private void Rollup(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
+        private void Back(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            if (frame.NavigationService.CanGoBack)
+            {
+                frame.NavigationService.GoBack();
+            }
         }
-
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) => Environment.Exit(1);
     }
 }

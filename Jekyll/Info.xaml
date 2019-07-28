@@ -5,25 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
         mc:Ignorable="d"
-        Title="Info" Height="354" Width="454" Background="Black" Visibility="Visible" AllowsTransparency="True" WindowStyle="None">
+        Title="О программе" Height="354" Width="454" Background="Black" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Width="450" Height="350" Margin="0" Background="#FF400042">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border x:Name="header" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Width="450" Background="White" CornerRadius="0,0,10,10" Panel.ZIndex="1" Margin="0,0,0,318" Grid.ColumnSpan="2">
+        <Border x:Name="header" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Width="450" Background="White" CornerRadius="0,0,10,10" Panel.ZIndex="1" Margin="0,0,0,318">
             <Border.Effect>
                 <DropShadowEffect Direction="266" BlurRadius="10"/>
             </Border.Effect>
         </Border>
         <Label Content="О программе" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,-2,0,0" Foreground="Black" Panel.ZIndex="2" FontFamily="Trebuchet MS" Height="27" FontWeight="Bold" FontSize="14" Width="100"/>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="418" MouseLeftButtonDown="Drag" Panel.ZIndex="4" Background="#00000000" Grid.ColumnSpan="2"/>
-        <Button x:Name="CloseButton" HorizontalAlignment="Left" Margin="193,0,0,0" VerticalAlignment="Top" Width="32" Height="22" Click="Close" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Grid.Column="1">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="25" Width="418" MouseLeftButtonDown="Drag" Panel.ZIndex="4" Background="#00000000" Margin="0,0,0,325"/>
+        <Button x:Name="CloseButton" Style="{DynamicResource WindowButton}" HorizontalAlignment="Left" Margin="418,-1,-7,323" Width="33" Height="28" Click="Close" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" ToolTip="Закрыть окно">
             <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18" Source="images/program/close.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -35,26 +29,61 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Image Source="Teredo16.png" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16" OpacityMask="Black" Margin="5,4,0,0" Panel.ZIndex="2"/>
-        <Label Content="Jekyll v0.8.0" HorizontalAlignment="Left" Margin="0,37,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="18" Grid.ColumnSpan="2" Height="31" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Image HorizontalAlignment="Left" Height="74" Margin="188,68,0,0" VerticalAlignment="Top" Width="74" Source="images/program/Teredo.png" Grid.ColumnSpan="2"/>
-        <Label Content="Автор: Дмитрий Жутков" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="2" Height="31" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="Программа была создана для облегчение задач и для развлечения." HorizontalAlignment="Left" Margin="0,190.266,0,0" VerticalAlignment="Top" Width="450" Background="{x:Null}" Foreground="White" FontFamily="Courier New" HorizontalContentAlignment="Center" UseLayoutRounding="False" Grid.ColumnSpan="2" Height="29.734" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-        <Label Content="Ссылки:" HorizontalAlignment="Left" Margin="0,327,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontWeight="Bold" Height="23" Width="54"/>
-        <Label Content="Версия: от 20 июня 2019 года" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" FontWeight="Bold" Height="29" Width="450" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button HorizontalAlignment="Left" Margin="50,329,0,0" VerticalAlignment="Top" Click="VK" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21">
+        <Image Source="images/program/Jekyll.ico" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16" OpacityMask="Black" Margin="5,4,0,0" Panel.ZIndex="2"/>
+        <Label x:Name="Version" HorizontalAlignment="Left" Margin="0,37,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="18" Height="31" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="74" Margin="188,68,0,0" VerticalAlignment="Top" Source="images/program/jekyll.png" />
+        <Label Content="Автор: Дмитрий Жутков" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" FontWeight="Bold" Height="31" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Программа была создана для облегчение задач и для развлечения." HorizontalAlignment="Left" Margin="0,190.266,0,0" VerticalAlignment="Top" Width="450" Background="{x:Null}" Foreground="White" FontFamily="Courier New" HorizontalContentAlignment="Center" UseLayoutRounding="False" Height="29.734" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Label Content="Ссылки:" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontWeight="Bold" Height="25" Width="65" FontSize="14"/>
+        <Label x:Name="data" Content="Версия: от 28 июля 2019 года" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" FontWeight="Bold" Height="29" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="75,319,0,0" VerticalAlignment="Top" Click="VK" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21" ToolTip="Перейти на группу ВК программы">
             <Image HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="17" Source="images/program/VK_Blue_Logo_transparent.png"/>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="71,329,0,0" VerticalAlignment="Top" Click="GitHub" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21">
+        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="99,319,0,0" VerticalAlignment="Top" Click="GitHub" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21" ToolTip="Перейти на репозитории программы">
             <Image HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="17" Source="images/program/GitHub-Mark-Light-32px.png"/>
         </Button>
-        <Button x:Name="Download" Grid.ColumnSpan="2" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Margin="160.354,245.86,0,0" VerticalAlignment="Top" Width="129.334" Height="32.61" Background="White" BorderBrush="{x:Null}" UseLayoutRounding="False" IsHitTestVisible="False">
+        <Button x:Name="Download" Click="Update" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Margin="160,246,0,0" VerticalAlignment="Top" Width="130" Height="32" Background="White" BorderBrush="{x:Null}" Visibility="Hidden" ToolTip="Скачать и установить обновление">
             <StackPanel Orientation="Horizontal">
                 <Image Source="images/program/download.png" Margin="0,0,2,0" Width="38" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label Width="75.678" FontFamily="Mistral" FontWeight="Bold" FontSize="16" Height="29.875">Загрузить</Label>
             </StackPanel>
         </Button>
-        <Label Content="Подождите.." HorizontalAlignment="Left" Margin="0,220,0,0" VerticalAlignment="Top" Width="450" Grid.ColumnSpan="2" FontFamily="Courier New" FontSize="14" HorizontalContentAlignment="Center" Foreground="White"/>
+        <Label x:Name="TextUpd" Content="Подождите..." HorizontalAlignment="Left" Margin="0,220,0,0" VerticalAlignment="Top" Width="450" FontFamily="Courier New" FontSize="14" HorizontalContentAlignment="Center" Foreground="White"/>
+        <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="15" Margin="28,278,0,0" VerticalAlignment="Top" Width="394" LargeChange="38" Foreground="#FF440079" Value="-1" Visibility="Hidden"/>
+        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Click="NameR" Margin="305,314,0,0" VerticalAlignment="Top" Width="135" FontSize="14" BorderBrush="{x:Null}" Background="White" FontFamily="Trebuchet MS" Height="26" ToolTip="Посмотреть список благодарностей">
+            <StackPanel Orientation="Horizontal" Width="119" HorizontalAlignment="Left">
+                <Image Source="images/program/conclusion.png" Margin="0,0,3,0" Width="16"/>
+                <TextBlock Text="Благодарности" Height="18"/>
+            </StackPanel>
+        </Button>
+        <TextBox x:Name="RdmGlobal" Margin="40,68,40,54" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="14" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" SelectionBrush="{x:Null}" Text="Список благодарностей:&#xA;&#xA;Егор Федотов (инф. блок на гл. странице)&#xD;&#xA;Арам Оганнисян (конвертер шагов в длину)" Visibility="Hidden">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
+            </TextBox.Effect>
+        </TextBox>
+        <Button x:Name="CloseButton_Copy" Style="{DynamicResource WindowButton}" HorizontalAlignment="Left" Margin="372,73,0,0" VerticalAlignment="Top" Width="33" Height="28" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Click="CloseButton_Copy_Click" Visibility="Hidden" ToolTip="Закрыть">
+            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18" Source="images/program/close.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.516"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}"  Margin="165,314,0,0" VerticalAlignment="Top" Width="120" FontSize="14" BorderBrush="{x:Null}" Background="White" FontFamily="Trebuchet MS" Height="26" ToolTip="Помогите автору в дальнейшем развитии программы, задонатив любую сумму от 1-го рубля" Click="Button_Click">
+            <StackPanel Orientation="Horizontal" Width="100" HorizontalAlignment="Left">
+                <Image Source="images/program/convert/currency.png" Margin="0,0,3,0" Width="16"/>
+                <TextBlock Text="Поддержать" Height="18"/>
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

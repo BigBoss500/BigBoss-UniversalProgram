@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml;
 
 namespace Jekyll
@@ -23,19 +12,16 @@ namespace Jekyll
         public Window1()
         {
             InitializeComponent();
+            IDtext.Text = Properties.Settings.Default.VKIDText;
         }
-        private void Close(object sender, RoutedEventArgs e) //завершение окна
+        private void Close(object sender, RoutedEventArgs e) //завершение окна и сохранение данных
         {
-            this.Close();
+            Properties.Settings.Default.VKIDText = IDtext.Text;
+            Properties.Settings.Default.Save();
+            Close();
         }
-        private void Drag(object sender, RoutedEventArgs e) //перемещение
-        {
-            this.DragMove();
-        }
-        private void Rollup(object sender, RoutedEventArgs e) //свернуть программу
-        {
-            WindowState = WindowState.Minimized;
-        }
+        private void Drag(object sender, RoutedEventArgs e) => DragMove();
+        private void Rollup(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
 
         private void VKUser(object sender, RoutedEventArgs e)
         {
@@ -57,7 +43,7 @@ namespace Jekyll
             objNSMan.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
             objNSMan.AddNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
             string NameText, created, modifed, weblock, bdata, Out, sub, fr, gen, land, city, inter, site, bio, title;
-            var line = System.Environment.NewLine;
+            string line = System.Environment.NewLine;
             try//пользователь
             {
                 XmlNode NameP = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:name", objNSMan);
@@ -108,7 +94,7 @@ namespace Jekyll
             try//день рождение
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:dateOfBirth", objNSMan);
-                bdata = "Дата рождения: " + pars.InnerText.Replace("-",".") + line;
+                bdata = "Дата рождения: " + pars.InnerText.Replace("-", ".") + line;
             }
             catch
             {
@@ -196,6 +182,11 @@ namespace Jekyll
                 title = "Статус: не найдено" + line;
             }
             ParseXML.Text = NameText + weblock + created + modifed + Out + gen + bdata + sub + fr + land + city + site + title + inter + bio;
+        }
+
+        private void IDtext_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) VKUser(this,e);
         }
     }
 }

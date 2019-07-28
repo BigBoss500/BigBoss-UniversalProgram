@@ -1,6 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2019\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="16.0">
+ <Targets>
+  <Target Name="E:\Jekyll\Jekyll\bin\Release\Jekyll.exe">
+   <Modules>
+    <Module Name="jekyll.exe">
+     <Namespaces>
+      <Namespace Name="Jekyll">
+       <Types>
+        <Type Name="AutoClicker" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#mouse_event(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2019-07-28 14:58:12Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Так как метод является методом P/Invoke, 'AutoClicker.mouse_event(int, int, int, int, int)' должен быть определен в классе с именем NativeMethods, SafeNativeMethods или UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message Id="4" TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901" Status="Active" Created="2019-07-28 14:58:12Z" FixCategory="Breaking">
+             <Issue Name="Parameter" Certainty="95" Level="Error">Как объявлено в вашем коде, параметр 'dwExtraInfo' для P/Invoke 'AutoClicker.mouse_event(int, int, int, int, int)' будет иметь размер 4 байт для 64-разрядных платформ. Это неправильно, поскольку текущее объявление в машинном коде для данного API указывает, что его размер должен быть 8 байт для 64-разрядных платформ. Обратитесь к документации MSDN Platform SDK и выясните, какой тип данных следует использовать вместо 'int'.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2019-07-28 14:58:12Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Измените уровень доступа P/Invoke 'AutoClicker.mouse_event(int, int, int, int, int)', чтобы он не был виден извне своей сборки.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RegisterHotKey(System.IntPtr,System.Int32,System.UInt32,System.UInt32)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2019-07-28 14:58:12Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Так как метод является методом P/Invoke, 'AutoClicker.RegisterHotKey(IntPtr, int, uint, uint)' должен быть определен в классе с именем NativeMethods, SafeNativeMethods или UnsafeNativeMethods.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UnregisterHotKey(System.IntPtr,System.Int32)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2019-07-28 14:58:12Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Так как метод является методом P/Invoke, 'AutoClicker.UnregisterHotKey(IntPtr, int)' должен быть определен в классе с именем NativeMethods, SafeNativeMethods или UnsafeNativeMethods.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060">
+   <Name>Переместите методы P/Invoke в класс NativeMethods</Name>
+   <Description>В этом типе содержатся члены с атрибутом DllImport. Члены с атрибутом DllImport должны содержаться в классах с именем NativeMethods, SafeNativeMethods или UnsafeNativeMethods.</Description>
+   <Resolution Name="Default">Так как метод является методом P/Invoke, {0} должен быть определен в классе с именем NativeMethods, SafeNativeMethods или UnsafeNativeMethods.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182161.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="PInvokeDeclarationsShouldBePortable" Category="Microsoft.Portability" CheckId="CA1901">
+   <Name>Объявления P/Invoke должны быть переносимыми</Name>
+   <Description>.</Description>
+   <Resolution Name="Parameter">Как объявлено в вашем коде, параметр {0} для P/Invoke {1} будет иметь размер {2} байт для {3} платформ. Это неправильно, поскольку текущее объявление в машинном коде для данного API указывает, что его размер должен быть {4} байт для {3} платформ. Обратитесь к документации MSDN Platform SDK и выясните, какой тип данных следует использовать вместо {5}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182284(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="portabilityrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401">
+   <Name>Методы P/Invoke не должны быть видимыми</Name>
+   <Description>Уровень взаимодействия не должен быть открытым. Не следует применять атрибут DllImport к открыто доступным членам (открытым или защищенным).</Description>
+   <Resolution Name="Default">Измените уровень доступа P/Invoke {0}, чтобы он не был виден извне своей сборки.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182209.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">CriticalError</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="16.0.0.0" />
+  </Rule>
+ </Rules>
  <Localized>
   <String Key="Category">Категория</String>
   <String Key="Certainty">Достоверность</String>

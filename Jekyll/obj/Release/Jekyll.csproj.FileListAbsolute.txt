@@ -29,3 +29,39 @@ E:\Teredo C#\Teredo\Teredo\obj\Release\Jekyll.csproj.GenerateResource.cache
 E:\Teredo C#\Teredo\Teredo\obj\Release\Jekyll.csproj.CoreCompileInputs.cache
 E:\Teredo C#\Teredo\Teredo\obj\Release\Jekyll.exe
 E:\Teredo C#\Teredo\Teredo\obj\Release\Jekyll.pdb
+E:\Jekyll\Jekyll\bin\Release\Jekyll.exe.config
+E:\Jekyll\Jekyll\bin\Release\Jekyll.exe
+E:\Jekyll\Jekyll\bin\Release\Jekyll.pdb
+E:\Jekyll\Jekyll\bin\Release\Jekyll.exe.CodeAnalysisLog.xml
+E:\Jekyll\Jekyll\bin\Release\Jekyll.exe.lastcodeanalysissucceeded
+E:\Jekyll\Jekyll\obj\Release\Jekyll.csprojAssemblyReference.cache
+E:\Jekyll\Jekyll\obj\Release\globalPage.g.cs
+E:\Jekyll\Jekyll\obj\Release\Info.g.cs
+E:\Jekyll\Jekyll\obj\Release\MainWindow.g.cs
+E:\Jekyll\Jekyll\obj\Release\News.g.cs
+E:\Jekyll\Jekyll\obj\Release\Random.g.cs
+E:\Jekyll\Jekyll\obj\Release\vkuserinfo.g.cs
+E:\Jekyll\Jekyll\obj\Release\App.g.cs
+E:\Jekyll\Jekyll\obj\Release\Jekyll_MarkupCompile.cache
+E:\Jekyll\Jekyll\obj\Release\Jekyll_MarkupCompile.lref
+E:\Jekyll\Jekyll\obj\Release\App.baml
+E:\Jekyll\Jekyll\obj\Release\globalPage.baml
+E:\Jekyll\Jekyll\obj\Release\Info.baml
+E:\Jekyll\Jekyll\obj\Release\MainWindow.baml
+E:\Jekyll\Jekyll\obj\Release\News.baml
+E:\Jekyll\Jekyll\obj\Release\Random.baml
+E:\Jekyll\Jekyll\obj\Release\vkuserinfo.baml
+E:\Jekyll\Jekyll\obj\Release\Jekyll.g.resources
+E:\Jekyll\Jekyll\obj\Release\Jekyll.Properties.Resources.resources
+E:\Jekyll\Jekyll\obj\Release\Jekyll.csproj.GenerateResource.cache
+E:\Jekyll\Jekyll\obj\Release\Jekyll.csproj.CoreCompileInputs.cache
+E:\Jekyll\Jekyll\obj\Release\Jekyll.exe
+E:\Jekyll\Jekyll\obj\Release\Jekyll.pdb
+E:\Jekyll\Jekyll\obj\Release\random_fm.g.cs
+E:\Jekyll\Jekyll\obj\Release\random_fm.baml
+E:\Jekyll\Jekyll\obj\Release\AutoClicker.g.cs
+E:\Jekyll\Jekyll\obj\Release\Converter.g.cs
+E:\Jekyll\Jekyll\obj\Release\AutoClicker.baml
+E:\Jekyll\Jekyll\obj\Release\Converter.baml
+E:\Jekyll\Jekyll\obj\Release\TopSecret.g.cs
+E:\Jekyll\Jekyll\obj\Release\TopSecret.baml

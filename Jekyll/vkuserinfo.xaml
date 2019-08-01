@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
         mc:Ignorable="d"
-        Title="VK User Info" Height="404" Width="454" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" Background="Black" Icon="images/program/Jekyll.ico">
+        Title="VK User Info" Height="440" Width="490" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" Icon="images/program/Jekyll.ico">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
     <Grid Background="#FF400042" Margin="1" Height="400" Width="450">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -70,5 +73,10 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="450" Panel.ZIndex="-20" Background="#FF400042" BorderBrush="#FF400042" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect Direction="266" BlurRadius="15"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>

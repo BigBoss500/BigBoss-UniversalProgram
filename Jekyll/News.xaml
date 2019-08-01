@@ -9,7 +9,7 @@
       Title="Новости">
 
     <Grid Background="#FF400042">
-        <Label Content="Новости" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Mistral" FontSize="36" Foreground="White" Height="59" Width="800" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Новости" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Height="59" Width="800" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <WebBrowser HorizontalAlignment="Left" Height="499" Margin="0,59,0,0" VerticalAlignment="Top" Width="800" ScrollViewer.VerticalScrollBarVisibility="Auto" Source="https://bigboss500.github.io/teredo/news.html"/>
     </Grid>
 </Page>

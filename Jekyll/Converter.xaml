@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Jekyll"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="558" d:DesignWidth="800"
       Title="Convert">
 
     <Grid Background="#FF400042">
@@ -13,9 +13,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="63,332,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="674" Height="33" RenderTransformOrigin="0.566,0.727" Grid.ColumnSpan="2" Panel.ZIndex="4" FontSize="14"/>
-        <Label Content="Конвертер" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TabControl HorizontalAlignment="Left" Height="326" Margin="63,69,0,0" VerticalAlignment="Top" Width="674" Grid.ColumnSpan="2" BorderBrush="White">
+        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="20,332,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="760" Height="33" RenderTransformOrigin="0.566,0.727" Grid.ColumnSpan="2" Panel.ZIndex="4" FontSize="14"/>
+        <Label Content="Конвертер" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+        <TabControl HorizontalAlignment="Left" Height="479" Margin="10,69,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2" BorderBrush="White">
             <TabControl.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="0,0,10,10"/>
@@ -60,21 +60,21 @@
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Grid.Resources>
-                    <TextBox x:Name="Celcion" x:FieldModifier="public" TextChanged="CelcionC" HorizontalAlignment="Left" Height="23" Text="" Margin="235,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Celcion" x:FieldModifier="public" TextChanged="CelcionC" HorizontalAlignment="Left" Height="23" Text="" Margin="302,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="Farengate" TextChanged="FarengateC" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Farengate" TextChanged="FarengateC" HorizontalAlignment="Left" Height="23" Margin="302,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="Kelvin" TextChanged="KelvinC" HorizontalAlignment="Left" Height="23" Margin="235,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Kelvin" TextChanged="KelvinC" HorizontalAlignment="Left" Height="23" Margin="302,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
@@ -82,9 +82,9 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Label Content="Цельсии:" HorizontalAlignment="Left" Margin="167.4,41.702,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
-                    <Label Content="Фаренгейт:" HorizontalAlignment="Left" Margin="153,70.295,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
-                    <Label Content="Кельвин:" HorizontalAlignment="Left" Margin="167.4,97.999,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
+                    <Label Content="Цельсии:" HorizontalAlignment="Left" Margin="234,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
+                    <Label Content="Фаренгейт:" HorizontalAlignment="Left" Margin="220,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
+                    <Label Content="Кельвин:" HorizontalAlignment="Left" Margin="234,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
                 </Grid>
             </TabItem>
             <TabItem  FontFamily="Trebuchet MS" HorizontalAlignment="Center" FontSize="14">
@@ -105,38 +105,38 @@
                         <ColumnDefinition Width="12*"/>
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="Miligramm" TextChanged="MiligrammC" HorizontalAlignment="Left" Height="23" Margin="187,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <TextBox x:Name="Miligramm" TextChanged="MiligrammC" HorizontalAlignment="Left" Height="23" Margin="245,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Милиграмм:" HorizontalAlignment="Left" Margin="105,42,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1"/>
-                    <TextBox x:Name="Gramm" TextChanged="GrammC" HorizontalAlignment="Left" Height="23" Margin="187,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <Label Content="Милиграмм:" HorizontalAlignment="Left" Margin="163,58,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1"/>
+                    <TextBox x:Name="Gramm" TextChanged="GrammC" HorizontalAlignment="Left" Height="23" Margin="245,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Грамм:" HorizontalAlignment="Left" Margin="134,70,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
-                    <TextBox x:Name="Kilogramm" TextChanged="KilogrammC" HorizontalAlignment="Left" Height="23" Margin="187,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <Label Content="Грамм:" HorizontalAlignment="Left" Margin="192,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
+                    <TextBox x:Name="Kilogramm" TextChanged="KilogrammC" HorizontalAlignment="Left" Height="23" Margin="245,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килограмм:" HorizontalAlignment="Left" Margin="105,100,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
-                    <TextBox x:Name="Tonn" TextChanged="TonnC" HorizontalAlignment="Left" Height="23" Margin="187,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
+                    <Label Content="Килограмм:" HorizontalAlignment="Left" Margin="163,116,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
+                    <TextBox x:Name="Tonn" TextChanged="TonnC" HorizontalAlignment="Left" Height="23" Margin="245,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Тонн:" HorizontalAlignment="Left" Margin="141,127,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
+                    <Label Content="Тонн:" HorizontalAlignment="Left" Margin="199,143,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
@@ -153,86 +153,86 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="White" Margin="0,0,0,3">
-                    <TextBox x:Name="Byte" TextChanged="ByteC" HorizontalAlignment="Left" Height="24" Margin="79,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Byte" TextChanged="ByteC" HorizontalAlignment="Left" Height="24" Margin="134,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Байт:" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24"/>
-                    <TextBox x:Name="KiloByte" TextChanged="KilobyteC" HorizontalAlignment="Left" Height="24" Margin="79,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Байт:" HorizontalAlignment="Left" Margin="90,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24"/>
+                    <TextBox x:Name="KiloByte" TextChanged="KilobyteC" HorizontalAlignment="Left" Height="24" Margin="134,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килобайт:" HorizontalAlignment="Left" Margin="6,38,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <TextBox x:Name="MegaByte" TextChanged="MegabyteC" HorizontalAlignment="Left" Height="24" Margin="79,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Килобайт:" HorizontalAlignment="Left" Margin="61,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
+                    <TextBox x:Name="MegaByte" TextChanged="MegabyteC" HorizontalAlignment="Left" Height="24" Margin="134,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Мегабайт:" HorizontalAlignment="Left" Margin="6,66,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <TextBox x:Name="GigaByte" TextChanged="GigabyteC" HorizontalAlignment="Left" Height="24" Margin="79,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Мегабайт:" HorizontalAlignment="Left" Margin="61,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
+                    <TextBox x:Name="GigaByte" TextChanged="GigabyteC" HorizontalAlignment="Left" Height="24" Margin="134,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Гигабайт:" HorizontalAlignment="Left" Margin="6,94,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <TextBox x:Name="TeraByte" TextChanged="TerabyteC" HorizontalAlignment="Left" Height="24" Margin="79,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Гигабайт:" HorizontalAlignment="Left" Margin="61,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
+                    <TextBox x:Name="TeraByte" TextChanged="TerabyteC" HorizontalAlignment="Left" Height="24" Margin="134,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Терабайт:" HorizontalAlignment="Left" Margin="6,123,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
-                    <TextBox x:Name="Bit" TextChanged="BitC" HorizontalAlignment="Left" Height="24" Margin="408,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Терабайт:" HorizontalAlignment="Left" Margin="61,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
+                    <TextBox x:Name="Bit" TextChanged="BitC" HorizontalAlignment="Left" Height="24" Margin="463,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Бит:" HorizontalAlignment="Left" Margin="371,10,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24"/>
-                    <TextBox x:Name="KiloBit" TextChanged="KilobitC" HorizontalAlignment="Left" Height="24" Margin="408,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Бит:" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24"/>
+                    <TextBox x:Name="KiloBit" TextChanged="KilobitC" HorizontalAlignment="Left" Height="24" Margin="463,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килобит:" HorizontalAlignment="Left" Margin="343,38,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="65" Height="24"/>
-                    <TextBox x:Name="MegaBit" TextChanged="MegabitC" HorizontalAlignment="Left" Height="24" Margin="408,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Килобит:" HorizontalAlignment="Left" Margin="398,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="65" Height="24"/>
+                    <TextBox x:Name="MegaBit" TextChanged="MegabitC" HorizontalAlignment="Left" Height="24" Margin="463,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Мегабит:" HorizontalAlignment="Left" Margin="342,66,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
-                    <TextBox x:Name="GigaBit" TextChanged="GigabitC" HorizontalAlignment="Left" Height="24" Margin="408,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Мегабит:" HorizontalAlignment="Left" Margin="397,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
+                    <TextBox x:Name="GigaBit" TextChanged="GigabitC" HorizontalAlignment="Left" Height="24" Margin="463,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Гигабит:" HorizontalAlignment="Left" Margin="342,94,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
-                    <TextBox x:Name="TeraBit" TextChanged="TerabitC" HorizontalAlignment="Left" Height="24" Margin="408,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Гигабит:" HorizontalAlignment="Left" Margin="397,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
+                    <TextBox x:Name="TeraBit" TextChanged="TerabitC" HorizontalAlignment="Left" Height="24" Margin="463,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Терабит:" HorizontalAlignment="Left" Margin="342,123,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
+                    <Label Content="Терабит:" HorizontalAlignment="Left" Margin="397,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
 
                 </Grid>
             </TabItem>
@@ -250,46 +250,46 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="White" Margin="0,0,0,3">
-                    <TextBox x:Name="Millimetr" TextChanged="MillimetrC" HorizontalAlignment="Left" Height="23" Margin="235,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <TextBox x:Name="Millimetr" TextChanged="MillimetrC" HorizontalAlignment="Left" Height="23" Margin="322,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Миллиметр:" HorizontalAlignment="Left" Margin="135,44,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
-                    <TextBox x:Name="Santimetr" TextChanged="SantimetrC" HorizontalAlignment="Left" Height="23" Margin="235,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Миллиметр:" HorizontalAlignment="Left" Margin="222,59,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
+                    <TextBox x:Name="Santimetr" TextChanged="SantimetrC" HorizontalAlignment="Left" Height="23" Margin="322,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Сантиметр:" HorizontalAlignment="Left" Margin="135,70,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
-                    <TextBox x:Name="Metr" TextChanged="MetrC" HorizontalAlignment="Left" Height="23" Margin="235,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Сантиметр:" HorizontalAlignment="Left" Margin="222,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
+                    <TextBox x:Name="Metr" TextChanged="MetrC" HorizontalAlignment="Left" Height="23" Margin="322,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Метр:" HorizontalAlignment="Left" Margin="177,97,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="51"/>
-                    <TextBox x:Name="Kilometr" TextChanged="KilometrC" HorizontalAlignment="Left" Height="23" Margin="235,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Метр:" HorizontalAlignment="Left" Margin="264,112,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="51"/>
+                    <TextBox x:Name="Kilometr" TextChanged="KilometrC" HorizontalAlignment="Left" Height="23" Margin="322,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Километр:" HorizontalAlignment="Left" Margin="144,128,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="84"/>
-                    <TextBox x:Name="Step" TextChanged="StepC" HorizontalAlignment="Left" Height="23" Margin="235,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                    <Label Content="Километр:" HorizontalAlignment="Left" Margin="231,143,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="84"/>
+                    <TextBox x:Name="Step" TextChanged="StepC" HorizontalAlignment="Left" Height="23" Margin="322,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Шаг(среднее):" HorizontalAlignment="Left" Margin="111,159,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="119"/>
+                    <Label Content="Шаг(среднее):" HorizontalAlignment="Left" Margin="198,174,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="119"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
@@ -304,7 +304,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="Curr1" HorizontalAlignment="Left" Margin="144,87,0,0" VerticalAlignment="Top" Width="180
+                    <ComboBox x:Name="Curr1" HorizontalAlignment="Left" Margin="197,102,0,0" VerticalAlignment="Top" Width="180
                               " Height="22" SelectionChanged="Curr1_SelectionChanged">
                         <ComboBox.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -313,7 +313,7 @@
                             </LinearGradientBrush>
                         </ComboBox.Background>
                     </ComboBox>
-                    <ComboBox x:Name="Curr2" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="180" BorderBrush="White" Height="22" Grid.Column="1" SelectionChanged="Curr2_SelectionChanged">
+                    <ComboBox x:Name="Curr2" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="180" BorderBrush="White" Height="22" SelectionChanged="Curr2_SelectionChanged" Grid.Column="1">
                         <ComboBox.Background>
                             <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                                 <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -321,17 +321,17 @@
                             </LinearGradientBrush>
                         </ComboBox.Background>
                     </ComboBox>
-                    <TextBox x:Name="Number" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="208,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.ColumnSpan="2" TextChanged="Number_TextChanged">
+                    <TextBox x:Name="Number" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="261,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.ColumnSpan="2" TextChanged="Number_TextChanged">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label x:Name="Res" Content="..." HorizontalAlignment="Left" Margin="0,142,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="668" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Courier New"/>
-                    <Label Content="=" HorizontalAlignment="Left" Margin="0,114,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="668" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16"/>
-                    <Label Content="Из" HorizontalAlignment="Left" Margin="117,87,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
-                    <Label Content="в" HorizontalAlignment="Left" Margin="324,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" Grid.ColumnSpan="2" Width="20"/>
+                    <Label x:Name="Res" Content="..." HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="764" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Courier New"/>
+                    <Label Content="=" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="754" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16"/>
+                    <Label Content="Из" HorizontalAlignment="Left" Margin="170,102,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="в" HorizontalAlignment="Left" Margin="377,101,0,0" VerticalAlignment="Top" FontFamily="Courier New" Grid.ColumnSpan="2" Width="20"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
@@ -342,22 +342,22 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,0,0,0">
-                    <TextBox x:Name="Decimal" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="174,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DecimalC">
+                    <TextBox x:Name="Decimal" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="231,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DecimalC">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="Double" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="332,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DoubleC">
+                    <TextBox x:Name="Double" x:FieldModifier="public" HorizontalAlignment="Left" Height="23" Text="" Margin="389,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" TextChanged="DoubleC">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Десятичный:" HorizontalAlignment="Left" Margin="199,101,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
-                    <Label Content="Двоичный:" HorizontalAlignment="Left" Margin="365,101,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="Десятичный:" HorizontalAlignment="Left" Margin="256,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="Двоичный:" HorizontalAlignment="Left" Margin="422,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
 
                 </Grid>
             </TabItem>

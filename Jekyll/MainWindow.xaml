@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
         mc:Ignorable="d"
-        Title="Jekyll" Height="604" Width="804" Icon="/images/program/Jekyll.ico" WindowStartupLocation="CenterScreen" Foreground="{x:Null}" WindowStyle="None" ResizeMode="NoResize" Closing="Window_Closing" Background="Black">
+        Title="Jekyll" Height="630" Width="830" Icon="/images/program/Jekyll.ico" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Foreground="{x:Null}" WindowStyle="None" ResizeMode="NoResize" Closing="Window_Closing">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
     <Grid Height="600" Width="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="409*"/>
@@ -42,6 +45,11 @@
         <Button x:Name="RollupButton_Copy" Style="{DynamicResource WindowButton}"  Margin="264,-1,86,569" Width="43"  Height="32" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Background="White" ToolTip="Вернуться на предыдущую страницу" Click="Back" Grid.Column="1">
             <Image Height="18" Source="/images/program/back.png" Cursor="Hand" Panel.ZIndex="2"/>
         </Button>
+        <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800" Panel.ZIndex="-20" Background="White">
+            <Border.Effect>
+                <DropShadowEffect Direction="266" BlurRadius="15"/>
+            </Border.Effect>
+        </Border>
 
     </Grid>
 

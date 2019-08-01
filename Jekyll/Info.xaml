@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
         mc:Ignorable="d"
-        Title="О программе" Height="354" Width="454" Background="Black" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="О программе" Height="380" Width="480" Visibility="Visible" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
     <Grid Width="450" Height="350" Margin="0" Background="#FF400042">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -56,7 +59,7 @@
                 <TextBlock Text="Благодарности" Height="18"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="RdmGlobal" Margin="40,68,40,54" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="14" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" SelectionBrush="{x:Null}" Text="Список благодарностей:&#xA;&#xA;Егор Федотов (инф. блок на гл. странице)&#xD;&#xA;Арам Оганнисян (конвертер шагов в длину)" Visibility="Hidden">
+        <TextBox x:Name="RdmGlobal" Margin="40,68,40,54" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="14" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" SelectionBrush="{x:Null}" Text="Список благодарностей:&#xA;&#xA;Егор Федотов (инф. блок на гл. странице)&#xA;Арам Оганнисян (конвертер шагов в длину)&#xA;&#xA;Донаты:&#xA;Сергей Шамановский (20 ₽)&#xA;Максим Гребельский (1 ₽)" Visibility="Hidden">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -84,6 +87,10 @@
                 <TextBlock Text="Поддержать" Height="18"/>
             </StackPanel>
         </Button>
-
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="450" Panel.ZIndex="-20" Background="#FF400042" BorderBrush="#FF400042">
+            <Border.Effect>
+                <DropShadowEffect Direction="266" BlurRadius="15"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>

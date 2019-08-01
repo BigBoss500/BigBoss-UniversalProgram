@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
-        Title="Автокликер" Height="404" Width="454" Visibility="Visible" WindowStyle="None"
-        AllowsTransparency="true" Background="Black">
+        Title="Автокликер" Height="440" Width="490" Visibility="Visible" WindowStyle="None"
+        AllowsTransparency="true">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
     <Window.InputBindings>
         <KeyBinding Key="F2" Command="{Binding AutoClick}" />
     </Window.InputBindings>
@@ -79,5 +82,10 @@
         <Label x:Name="Error_Copy2" Content="F2 - начать/остановить автоклик"
            Margin="0,73,0,295" HorizontalContentAlignment="Center"
            FontFamily="Courier New" FontSize="16" Foreground="White"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="450" Panel.ZIndex="-20" Background="#FF400042" BorderBrush="#FF400042" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect Direction="266" BlurRadius="15"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>

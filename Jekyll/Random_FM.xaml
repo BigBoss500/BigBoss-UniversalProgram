@@ -70,7 +70,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Рулетка" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center"/>
+        <Label Content="Рулетка" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center"/>
         <ListBox x:Name="List" HorizontalAlignment="Left" Height="372" Margin="10,110,0,0" VerticalAlignment="Top" Width="224" BorderBrush="{x:Null}" Grid.RowSpan="2" HorizontalContentAlignment="Center" FontFamily="Courier New">
             <ListBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -81,19 +81,19 @@
         <Button Style="{DynamicResource ButtonStyle1}" Margin="10,208,566,43" Click="ButtClick" FontSize="20" BorderBrush="{x:Null}" Background="White" ToolTip="Удалить все элементы из списка" Grid.Row="1">
             <StackPanel Orientation="Horizontal" Width="160">
                 <Image Source="images/program/random_off.png" Margin="0,0,3,0"/>
-                <TextBlock FontFamily="Mistral" FontWeight="Bold" FontSize="18"><Run Text="Стереть вс"/><Run Text="ё"/></TextBlock>
+                <TextBlock FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="18"><Run Text="Стереть вс"/><Run Text="ё"/></TextBlock>
             </StackPanel>
         </Button>
         <Button Style="{DynamicResource ButtonStyle1}" Margin="10,241,678,10" FontSize="20" BorderBrush="{x:Null}" Background="White" ToolTip="Сохранить список элементов в XML-файлы" Grid.Row="1" Click="SaveXML">
             <StackPanel Orientation="Horizontal" Width="90">
                 <Image Source="images/program/export.png" Margin="0,0,3,0"/>
-                <TextBlock Text="Экспорт" FontFamily="Mistral" FontWeight="Bold" FontSize="18"/>
+                <TextBlock Text="Экспорт" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="18"/>
             </StackPanel>
         </Button>
         <Button Style="{DynamicResource ButtonStyle1}" Margin="127,241,566,10" FontSize="20" BorderBrush="{x:Null}" Background="White" ToolTip="Загрузить элементы из XML-файла в список" Grid.Row="1" Click="OpenXML">
             <StackPanel Orientation="Horizontal" Width="87">
                 <Image Source="images/program/download.png" Margin="0,0,3,0"/>
-                <TextBlock Text="Импорт" FontFamily="Mistral" FontWeight="Bold" FontSize="18"/>
+                <TextBlock Text="Импорт" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="18"/>
             </StackPanel>
         </Button>
         <TextBox x:Name="RdmGlobal"  Height="170" Margin="323,170,43,218" TextWrapping="Wrap" Text="Нажмите &quot;Крутить&quot;" Width="434" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Trebuchet MS" FontSize="20" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" Grid.RowSpan="2">
@@ -109,19 +109,19 @@
         <Button Style="{DynamicResource ButtonStyle1}" Margin="389,74,275,169"  Width="136" FontSize="20" BorderBrush="{x:Null}" Background="White" Height="36" ToolTip="Выбрать элемент из списка" Grid.Row="1" Click="Button_Click_1">
             <StackPanel Orientation="Horizontal" Width="116">
                 <Image Source="images/program/random_on.png" Margin="0,0,3,0" Width="32"/>
-                <TextBlock Text="Крутить" Height="29" FontFamily="Mistral" FontWeight="Bold" FontSize="22"/>
+                <TextBlock Text="Крутить" Height="29" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
             </StackPanel>
         </Button>
         <Button Style="{DynamicResource ButtonStyle1}" Margin="555,74,109,169" Width="136" FontSize="20" BorderBrush="{x:Null}" Background="White" Height="36" ToolTip="Обнулить данные о выпаде элемента из списка" Grid.Row="1" Click="Button_Click_2">
             <StackPanel Orientation="Horizontal" Width="118">
                 <Image Source="images/program/random_off.png" Margin="0,0,3,0" Width="32"/>
-                <TextBlock Text="Обнулить" Height="29" FontFamily="Mistral" FontWeight="Bold" FontSize="22"/>
+                <TextBlock Text="Обнулить" Height="29" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
             </StackPanel>
         </Button>
         <Button x:Name="button" HorizontalAlignment="Left" Margin="595,234,0,0" VerticalAlignment="Top" Width="195" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" ToolTip="Перейти в обычный режим рулетки" Grid.Row="1" Click="Button_Click">
             <StackPanel Orientation="Horizontal" Width="180" Height="31" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image Source="images/program/random.png" Margin="0,0,2,0" Width="38" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Обычный режим" FontFamily="Mistral" Padding="0" FontSize="22" FontWeight="Bold" UseLayoutRounding="True" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="0,3,0,0"/>
+                <TextBlock Text="Обычный режим" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" Padding="0" FontSize="22" FontWeight="Bold" UseLayoutRounding="True" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="0,3,0,0"/>
             </StackPanel>
         </Button>
         <Label x:Name="ListName" Content="" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" Foreground="White" Width="224" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -144,7 +144,7 @@
         <Button x:Name="button_Copy" Click="OpenOptions" HorizontalAlignment="Left" Margin="445,234,0,0" VerticalAlignment="Top" Width="145" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" ToolTip="Открыть панель настроек" Grid.Row="1">
             <StackPanel Orientation="Horizontal" Width="131" Height="31" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image Source="images/program/setting.png" Margin="0,0,2,0" Width="38" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Настройки" FontFamily="Mistral" Padding="0" FontSize="22" FontWeight="Bold" UseLayoutRounding="True" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="0,3,0,0"/>
+                <TextBlock Text="Настройки" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" Padding="0" FontSize="22" FontWeight="Bold" UseLayoutRounding="True" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="0,3,0,0"/>
             </StackPanel>
         </Button>
 

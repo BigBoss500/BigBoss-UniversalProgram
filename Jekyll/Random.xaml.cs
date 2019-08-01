@@ -2,21 +2,32 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Jekyll
 {
     public partial class Random : Page
     {
-        public Random() => InitializeComponent();
+        public Random()
+        {
+            InitializeComponent();
+            Var.Content = "Всего вариантов выпадения: " + a.Length;
+        }
 
-        private void NameR(object sender, RoutedEventArgs e) => NameL.Content = "Будем крутить для: " + name.Text;
+        public string[] a = new string[50];
+
+        private void RdmClear(object sender, RoutedEventArgs e) => RdmGlobal.Text = "Нажмите \"Крутить\", чтобы испытать удачу";
+        private void Free_Mode(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Random_FM.xaml", UriKind.Relative));
+        private void Rename(object sender, RoutedEventArgs e) => NameR();
+
+        void NameR() => NameL.Content = "Будем крутить для: " + name.Text;
+
         private void RandomObject(object sender, RoutedEventArgs e)
         {
             RdmGlobal.Text = "Пожалуйста, подождите...";
             new Thread(() =>
             {
                 Thread.Sleep(1000);
-                string[] a = new string[50];
                 a[0] = "Повiсточка на бан";
                 a[1] = "Photoshop";
                 a[2] = "Тёрка за $6999";
@@ -72,7 +83,11 @@ namespace Jekyll
                 Dispatcher.Invoke(() => RdmGlobal.Text = "Выпадает: " + System.Environment.NewLine + str);
             }).Start();
         }
-        private void RdmClear(object sender, RoutedEventArgs e) => RdmGlobal.Text = "Нажмите \"Крутить\", чтобы испытать удачу";
-        private void Free_Mode(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Random_FM.xaml", UriKind.Relative));
+
+        private void Name_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                NameR();
+        }
     }
 }

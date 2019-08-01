@@ -13,6 +13,9 @@ namespace Jekyll
         {
             InitializeComponent();
             Text();
+            if ("19.02" == DateTime.Now.ToString("dd.MM"))
+                Text1.Content = "У автора сегодня день рождения!";
+                
         }
         public string l = Environment.NewLine;
         private void Open(object sender, RoutedEventArgs e) => _ = new Window1();

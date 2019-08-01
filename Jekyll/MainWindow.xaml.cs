@@ -31,9 +31,7 @@ namespace Jekyll
         private void Back(object sender, RoutedEventArgs e)
         {
             if (frame.NavigationService.CanGoBack)
-            {
                 frame.NavigationService.GoBack();
-            }
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) => Environment.Exit(1);
     }

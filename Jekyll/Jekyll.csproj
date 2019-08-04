@@ -115,6 +115,9 @@
     <Compile Include="Converter.xaml.cs">
       <DependentUpon>Converter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IdentifierIP.xaml.cs">
+      <DependentUpon>IdentifierIP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="News.xaml.cs">
       <DependentUpon>News.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="globalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IdentifierIP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,12 +261,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\program\VK_Blue_Logo_transparent.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\program\GitHub-Mark-Light-32px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\personage\dmitry.png" />
     <Resource Include="images\personage\oriale.png" />
   </ItemGroup>
@@ -283,6 +284,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\program\jekyll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\ip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\GitHub-Mark-32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\program\VK_Blue_Logo_transparent.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />

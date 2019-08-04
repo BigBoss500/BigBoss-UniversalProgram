@@ -132,26 +132,28 @@ namespace Jekyll
         {
             Complete.Content = null;
             Error.Content = null;
-            SaveFileDialog d = new SaveFileDialog
+            using (SaveFileDialog d = new SaveFileDialog
             {
                 Filter = "XML-файлы (*.xml)|*.xml"
-            };
-            if (d.ShowDialog() == DialogResult.OK)
+            })
             {
-                try
+                if (d.ShowDialog() == DialogResult.OK)
                 {
-                    string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
-                    XDocument doc = new XDocument(
-                    new XElement("Elements",
-                        from n in string_array select new XElement("Element", n)
-                    ));
-                    doc.Save(d.FileName);
-                    Complete.Content = $"Файл успешно сохранен! Путь: {d.FileName}";
-                    ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
-                }
-                catch (Exception ex)
-                {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    try
+                    {
+                        string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
+                        XDocument doc = new XDocument(
+                        new XElement("Elements",
+                            from n in string_array select new XElement("Element", n)
+                        ));
+                        doc.Save(d.FileName);
+                        Complete.Content = $"Файл успешно сохранен! Путь: {d.FileName}";
+                        ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        Error.Content = $"Исключение: {ex.Message}";
+                    }
                 }
             }
         }
@@ -159,35 +161,37 @@ namespace Jekyll
         {
             Complete.Content = null;
             Error.Content = null;
-            OpenFileDialog d = new OpenFileDialog
+            using (OpenFileDialog d = new OpenFileDialog
             {
                 Filter = "XML-файлы (*.xml)|*.xml"
-            };
-            if (d.ShowDialog() == DialogResult.OK)
+            })
             {
-                try
+                if (d.ShowDialog() == DialogResult.OK)
                 {
-                    string[] list = XDocument.Load(d.FileName).Root.Elements("Element").Select(elem => elem.Value).ToArray();
-                    if (TrueImp.IsChecked == true) AllClear();
-                    for (int k = 0; k < list.Length; k++)
+                    try
                     {
-                        List.Items.Add(list[k]);
+                        string[] list = XDocument.Load(d.FileName).Root.Elements("Element").Select(elem => elem.Value).ToArray();
+                        if (TrueImp.IsChecked == true) AllClear();
+                        for (int k = 0; k < list.Length; k++)
+                        {
+                            List.Items.Add(list[k]);
+                        }
+                        ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
+                        Properties.Settings.Default.FileName = ListName.Content.ToString();
+                        Properties.Settings.Default.ListItem.Clear();
+                        string[] p = (from object item in List.Items select item.ToString()).ToArray();
+                        for (int k = 0; k < p.Length; k++)
+                        {
+                            Properties.Settings.Default.ListItem.Add(p[k]);
+                        }
+                        Complete.Content = "Файл успешно загружен!";
                     }
-                    ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
-                    Properties.Settings.Default.FileName = ListName.Content.ToString();
-                    Properties.Settings.Default.ListItem.Clear();
-                    string[] p = (from object item in List.Items select item.ToString()).ToArray();
-                    for (int k = 0; k < p.Length; k++)
+                    catch (Exception ex)
                     {
-                        Properties.Settings.Default.ListItem.Add(p[k]);
+                        Error.Content = $"Исключение: {ex.Message}";
                     }
-                    Complete.Content = "Файл успешно загружен!";
-                }
-                catch (Exception ex)
-                {
-                    Error.Content = $"Исключение: {ex.Message}";
-                }
 
+                }
             }
         }
 

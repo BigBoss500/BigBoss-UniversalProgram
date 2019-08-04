@@ -39,11 +39,11 @@
         <Label Content="Программа была создана для облегчение задач и для развлечения." HorizontalAlignment="Left" Margin="0,190.266,0,0" VerticalAlignment="Top" Width="450" Background="{x:Null}" Foreground="White" FontFamily="Courier New" HorizontalContentAlignment="Center" UseLayoutRounding="False" Height="29.734" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Label Content="Ссылки:" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontWeight="Bold" Height="25" Width="65" FontSize="14"/>
         <Label x:Name="data" Content="Версия: от 28 июля 2019 года" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" FontWeight="Bold" Height="29" Width="450" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="75,319,0,0" VerticalAlignment="Top" Click="VK" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21" ToolTip="Перейти на группу ВК программы">
+        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="75,319,0,0" VerticalAlignment="Top" Click="VK" Width="21" BorderBrush="{x:Null}" Background="White" Cursor="Hand" Height="21" ToolTip="Перейти на группу ВК программы" Foreground="{x:Null}">
             <Image HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="17" Source="images/program/VK_Blue_Logo_transparent.png"/>
         </Button>
-        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="99,319,0,0" VerticalAlignment="Top" Click="GitHub" Width="21" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" Height="21" ToolTip="Перейти на репозитории программы">
-            <Image HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="17" Source="images/program/GitHub-Mark-Light-32px.png"/>
+        <Button HorizontalAlignment="Left" Style="{DynamicResource WindowButton}" Margin="99,319,0,0" VerticalAlignment="Top" Click="GitHub" Width="21" BorderBrush="{x:Null}" Background="White" Cursor="Hand" Height="21" ToolTip="Перейти на репозитории программы">
+            <Image HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="17" Source="images/program/GitHub-Mark-32px.png"/>
         </Button>
         <Button x:Name="Download" Click="Update" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Margin="160,246,0,0" VerticalAlignment="Top" Width="130" Height="32" Background="White" BorderBrush="{x:Null}" Visibility="Hidden" ToolTip="Скачать и установить обновление">
             <StackPanel Orientation="Horizontal">

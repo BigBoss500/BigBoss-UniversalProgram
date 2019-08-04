@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -98,6 +99,15 @@ namespace Jekyll
                 mouse_event(2, 0, 0, 0, 0);
                 mouse_event(4, 0, 0, 0, 0);
                 Thread.Sleep(time);
+            }
+        }
+
+        private void IDtext_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(IDtext.Text, "[^0-9]"))
+            {
+                IDtext.Text = IDtext.Text.Remove(IDtext.Text.Length - 1);
+                IDtext.SelectionStart = IDtext.Text.Length;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 using System.Xml;
 
@@ -36,6 +37,8 @@ namespace Jekyll
                 ParseXML.Text = "Проверьте подключение к интернету, чтобы использовать эту функцию";
                 return;
             }
+
+
 
             XmlNamespaceManager objNSMan = new XmlNamespaceManager(doc.NameTable);
             objNSMan.AddNamespace("foaf", "http://xmlns.com/foaf/0.1/");
@@ -187,6 +190,15 @@ namespace Jekyll
         private void IDtext_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) VKUser(this,e);
+        }
+
+        private void IDtext_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(IDtext.Text, "[^0-9]"))
+            {
+                IDtext.Text = IDtext.Text.Remove(IDtext.Text.Length - 1);
+                IDtext.SelectionStart = IDtext.Text.Length;
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Windows.Controls;
 using System.Xml.Linq;
 
@@ -20,14 +19,11 @@ namespace Jekyll
         {
             if (Celcion.IsSelectionActive)
             {
-                float c, f, k;
                 try
                 {
-                    c = float.Parse(Celcion.Text);
-                    f = (c * 9 / 5) + 32;
-                    k = c + 273.15F;
-                    Farengate.Text = f.ToString();
-                    Kelvin.Text = k.ToString();
+                    float c = float.Parse(Celcion.Text);
+                    Farengate.Text = ((c * 9 / 5) + 32).ToString();
+                    Kelvin.Text = (c + 273.15F).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -40,14 +36,11 @@ namespace Jekyll
         {
             if (Farengate.IsSelectionActive)
             {
-                float c, f, k;
                 try
                 {
-                    f = float.Parse(Farengate.Text);
-                    c = (f - 32) * 5 / 9;
-                    k = (f - 32) * 5 / 9 + 273.15F;
-                    Celcion.Text = c.ToString();
-                    Kelvin.Text = k.ToString();
+                    float f = float.Parse(Farengate.Text);
+                    Celcion.Text = ((f - 32) * 5 / 9).ToString();
+                    Kelvin.Text = ((f - 32) * 5 / 9 + 273.15F).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -60,14 +53,11 @@ namespace Jekyll
         {
             if (Kelvin.IsSelectionActive)
             {
-                float c, f, k;
                 try
                 {
-                    k = float.Parse(Kelvin.Text);
-                    c = k - 273.15F;
-                    f = (k - 273.15F) * 9 / 5 + 32;
-                    Celcion.Text = c.ToString();
-                    Farengate.Text = f.ToString();
+                    float k = float.Parse(Kelvin.Text);
+                    Celcion.Text = (k - 273.15F).ToString();
+                    Farengate.Text = ((k - 273.15F) * 9 / 5 + 32).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -81,16 +71,12 @@ namespace Jekyll
         {
             if (Miligramm.IsSelectionActive)
             {
-                float m, g, k, t;
                 try
                 {
-                    m = float.Parse(Miligramm.Text);
-                    g = m / 1000;
-                    k = m / 1000000;
-                    t = m / 1000000000;
-                    Gramm.Text = g.ToString();
-                    Kilogramm.Text = k.ToString();
-                    Tonn.Text = t.ToString();
+                    float m = float.Parse(Miligramm.Text);
+                    Gramm.Text = (m / 1000).ToString();
+                    Kilogramm.Text = (m / 1000000).ToString();
+                    Tonn.Text = (m / 1000000000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -103,16 +89,12 @@ namespace Jekyll
         {
             if (Gramm.IsSelectionActive)
             {
-                float g, m, k, t;
                 try
                 {
-                    g = float.Parse(Gramm.Text);
-                    m = g * 1000;
-                    k = g / 1000;
-                    t = g / 1000000;
-                    Miligramm.Text = m.ToString();
-                    Kilogramm.Text = k.ToString();
-                    Tonn.Text = t.ToString();
+                    float g = float.Parse(Gramm.Text);
+                    Miligramm.Text = (g * 1000).ToString();
+                    Kilogramm.Text = (g / 1000).ToString();
+                    Tonn.Text = (g / 1000000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -125,16 +107,12 @@ namespace Jekyll
         {
             if (Kilogramm.IsSelectionActive)
             {
-                float k, m, g, t;
                 try
                 {
-                    k = float.Parse(Kilogramm.Text);
-                    m = k * 1000000;
-                    g = k * 1000;
-                    t = k / 1000;
-                    Miligramm.Text = m.ToString();
-                    Gramm.Text = g.ToString();
-                    Tonn.Text = t.ToString();
+                    float k = float.Parse(Kilogramm.Text);
+                    Miligramm.Text = (k * 1000000).ToString();
+                    Gramm.Text = (k * 1000).ToString();
+                    Tonn.Text = (k / 1000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -147,16 +125,12 @@ namespace Jekyll
         {
             if (Tonn.IsSelectionActive)
             {
-                float t, m, g, k;
                 try
                 {
-                    t = float.Parse(Tonn.Text);
-                    m = t * 1000000000;
-                    g = t * 1000000;
-                    k = t * 1000;
-                    Miligramm.Text = m.ToString();
-                    Gramm.Text = g.ToString();
-                    Kilogramm.Text = k.ToString();
+                    float t = float.Parse(Tonn.Text);
+                    Miligramm.Text = (t * 1000000000).ToString();
+                    Gramm.Text = (t * 1000000).ToString();
+                    Kilogramm.Text = (t * 1000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -170,18 +144,13 @@ namespace Jekyll
         {
             if (Millimetr.IsSelectionActive)
             {
-                float mil, s, m, k, st;
                 try
                 {
-                    mil = float.Parse(Millimetr.Text);
-                    s = mil / 10;
-                    m = mil / 1000;
-                    k = mil / 1E+6F;
-                    st = mil / 800;
-                    Santimetr.Text = s.ToString();
-                    Metr.Text = m.ToString();
-                    Kilometr.Text = k.ToString();
-                    Step.Text = st.ToString();
+                    float mil = float.Parse(Millimetr.Text);
+                    Santimetr.Text = (mil / 10).ToString();
+                    Metr.Text = (mil / 1000).ToString();
+                    Kilometr.Text = (mil / 1E+6F).ToString();
+                    Step.Text = (mil / 800).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -194,18 +163,13 @@ namespace Jekyll
         {
             if (Santimetr.IsSelectionActive)
             {
-                float mil, s, m, k, st;
                 try
                 {
-                    s = float.Parse(Santimetr.Text);
-                    mil = s * 10;
-                    m = s / 100;
-                    k = s / 1E+5F;
-                    st = s / 80;
-                    Millimetr.Text = mil.ToString();
-                    Metr.Text = m.ToString();
-                    Kilometr.Text = k.ToString();
-                    Step.Text = st.ToString();
+                    float s = float.Parse(Santimetr.Text);
+                    Millimetr.Text = (s * 10).ToString();
+                    Metr.Text = (s / 100).ToString();
+                    Kilometr.Text = (s / 1E+5F).ToString();
+                    Step.Text = (s / 80).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -218,18 +182,13 @@ namespace Jekyll
         {
             if (Metr.IsSelectionActive)
             {
-                float mil, s, m, k, st;
                 try
                 {
-                    m = float.Parse(Metr.Text);
-                    mil = m * 1000;
-                    s = m * 100;
-                    k = m / 1000;
-                    st = m * 1.25F;
-                    Millimetr.Text = mil.ToString();
-                    Santimetr.Text = s.ToString();
-                    Kilometr.Text = k.ToString();
-                    Step.Text = st.ToString();
+                    float m = float.Parse(Metr.Text);
+                    Millimetr.Text = (m * 1000).ToString();
+                    Santimetr.Text = (m * 100).ToString();
+                    Kilometr.Text = (m / 1000).ToString();
+                    Step.Text = (m * 1.25F).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -242,18 +201,13 @@ namespace Jekyll
         {
             if (Kilometr.IsSelectionActive)
             {
-                float mil, s, m, k, st;
                 try
                 {
-                    k = float.Parse(Kilometr.Text);
-                    mil = k * 1E+6F;
-                    s = k * 100000;
-                    m = k * 1000;
-                    st = k * 1250;
-                    Millimetr.Text = mil.ToString();
-                    Santimetr.Text = s.ToString();
-                    Metr.Text = m.ToString();
-                    Step.Text = st.ToString();
+                    float k = float.Parse(Kilometr.Text);
+                    Millimetr.Text = (k * 1E+6F).ToString();
+                    Santimetr.Text = (k * 100000).ToString();
+                    Metr.Text = (k * 1000).ToString();
+                    Step.Text = (k * 1250).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -266,18 +220,13 @@ namespace Jekyll
         {
             if (Step.IsSelectionActive)
             {
-                float mil, s, m, k, st;
                 try
                 {
-                    st = float.Parse(Step.Text);
-                    mil = st * 800;
-                    s = st * 80;
-                    m = st / 1.25F;
-                    k = st / 1250;
-                    Millimetr.Text = mil.ToString();
-                    Santimetr.Text = s.ToString();
-                    Metr.Text = m.ToString();
-                    Kilometr.Text = k.ToString();
+                    float st = float.Parse(Step.Text);
+                    Millimetr.Text = (st * 800).ToString();
+                    Santimetr.Text = (st * 80).ToString();
+                    Metr.Text = (st / 1.25F).ToString();
+                    Kilometr.Text = (st / 1250).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -291,28 +240,18 @@ namespace Jekyll
         {
             if (Byte.IsSelectionActive)
             {
-                float b, k, m, g, t, bi, ki, mi, gi, ti;
                 try
                 {
-                    b = float.Parse(Byte.Text);
-                    k = b / 1024;
-                    m = b / 1048576;
-                    g = b / 1073741824;
-                    t = b / 1099511627776;
-                    bi = b * 8;
-                    ki = b / 125;
-                    mi = b / 125000;
-                    gi = b / 1.25e+8F;
-                    ti = b / 1.25e+11F;
-                    KiloByte.Text = k.ToString();
-                    MegaByte.Text = m.ToString();
-                    GigaByte.Text = g.ToString();
-                    TeraByte.Text = t.ToString();
-                    Bit.Text = bi.ToString();
-                    KiloBit.Text = ki.ToString();
-                    MegaBit.Text = mi.ToString();
-                    GigaBit.Text = g.ToString();
-                    TeraBit.Text = ti.ToString();
+                    float b = float.Parse(Byte.Text);
+                    KiloByte.Text = (b / 1024).ToString();
+                    MegaByte.Text = (b / 1048576).ToString();
+                    GigaByte.Text = (b / 1073741824).ToString();
+                    TeraByte.Text = (b / 1099511627776).ToString();
+                    Bit.Text = (b * 8).ToString();
+                    KiloBit.Text = (b / 125).ToString();
+                    MegaBit.Text = (b / 125000).ToString();
+                    GigaBit.Text = (b / 1.25e+8F).ToString();
+                    TeraBit.Text = (b / 1.25e+11F).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -325,28 +264,18 @@ namespace Jekyll
         {
             if (KiloByte.IsSelectionActive)
             {
-                float b, k, m, g, t, bi, ki, mi, gi, ti;
                 try
                 {
-                    k = float.Parse(KiloByte.Text);
-                    b = k * 1024;
-                    m = k / 1024;
-                    g = k / 1048576;
-                    t = k / 1073741824;
-                    bi = k * 8000;
-                    ki = k * 8;
-                    mi = k / 125;
-                    gi = k / 125000;
-                    ti = k / 1.25e+8F;
-                    Byte.Text = b.ToString();
-                    MegaByte.Text = m.ToString();
-                    GigaByte.Text = g.ToString();
-                    TeraByte.Text = t.ToString();
-                    Bit.Text = bi.ToString();
-                    KiloBit.Text = ki.ToString();
-                    MegaBit.Text = mi.ToString();
-                    GigaBit.Text = gi.ToString();
-                    TeraBit.Text = ti.ToString();
+                    float k = float.Parse(KiloByte.Text);
+                    Byte.Text = (k * 1024).ToString();
+                    MegaByte.Text = (k / 1024).ToString();
+                    GigaByte.Text = (k / 1048576).ToString();
+                    TeraByte.Text = (k / 1073741824).ToString();
+                    Bit.Text = (k * 8000).ToString();
+                    KiloBit.Text = (k * 8).ToString();
+                    MegaBit.Text = (k / 125).ToString();
+                    GigaBit.Text = (k / 125000).ToString();
+                    TeraBit.Text = (k / 1.25e+8F).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -359,27 +288,18 @@ namespace Jekyll
         {
             if (MegaByte.IsSelectionActive)
             {
-                float b, k, m, g, t, bi, ki, mi, gi, ti;
                 try
                 {
-                    m = float.Parse(MegaByte.Text);
-                    b = m * 1048576;
-                    k = m * 1024;
-                    g = m / 1024;
-                    t = m / 1048576;
-                    bi = m * 8e+6F;
-                    ki = m * 8000;
-                    mi = m * 8;
-                    gi = m / 125;
-                    ti = m / 125000;
-                    Byte.Text = b.ToString();
-                    KiloByte.Text = k.ToString();
-                    GigaByte.Text = g.ToString();
-                    TeraByte.Text = t.ToString();
-                    Bit.Text = bi.ToString();
-                    KiloBit.Text = ki.ToString();
-                    MegaBit.Text = mi.ToString();
-                    TeraBit.Text = ti.ToString();
+                    float m = float.Parse(MegaByte.Text);
+                    Byte.Text = (m * 1048576).ToString();
+                    KiloByte.Text = (m * 1024).ToString();
+                    GigaByte.Text = (m / 1024).ToString();
+                    TeraByte.Text = (m / 1048576).ToString();
+                    Bit.Text = (m * 8e+6F).ToString();
+                    KiloBit.Text = (m * 8000).ToString();
+                    MegaBit.Text = (m * 8).ToString();
+                    GigaBit.Text = (m / 125).ToString();
+                    TeraBit.Text = (m / 125000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -392,28 +312,18 @@ namespace Jekyll
         {
             if (GigaByte.IsSelectionActive)
             {
-                float b, k, m, g, t, bi, ki, mi, gi, ti;
                 try
                 {
-                    g = float.Parse(GigaByte.Text);
-                    b = g * 1073741824;
-                    k = g * 1048576;
-                    m = g * 1024;
-                    t = g / 1024;
-                    bi = g * 8e+9F;
-                    ki = g * 8e+6F;
-                    mi = g * 8000;
-                    gi = g * 8;
-                    ti = g / 125;
-                    Byte.Text = b.ToString();
-                    KiloByte.Text = k.ToString();
-                    MegaByte.Text = m.ToString();
-                    TeraByte.Text = t.ToString();
-                    Bit.Text = bi.ToString();
-                    KiloBit.Text = ki.ToString();
-                    MegaBit.Text = mi.ToString();
-                    GigaBit.Text = gi.ToString();
-                    TeraBit.Text = ti.ToString();
+                    float g = float.Parse(GigaByte.Text);
+                    Byte.Text = (g * 1073741824).ToString();
+                    KiloByte.Text = (g * 1048576).ToString();
+                    MegaByte.Text = (g * 1024).ToString();
+                    TeraByte.Text = (g / 1024).ToString();
+                    Bit.Text = (g * 8e+9F).ToString();
+                    KiloBit.Text = (g * 8e+6F).ToString();
+                    MegaBit.Text = (g * 8000).ToString();
+                    GigaBit.Text = (g * 8).ToString();
+                    TeraBit.Text = (g / 125).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -426,28 +336,18 @@ namespace Jekyll
         {
             if (TeraByte.IsSelectionActive)
             {
-                float b, k, m, g, t, bi, ki, mi, gi, ti;
                 try
                 {
-                    t = float.Parse(TeraByte.Text);
-                    b = t * 1099511627776;
-                    k = t * 1073741824;
-                    m = t * 1048576;
-                    g = t * 1024;
-                    bi = t * 8e+12F;
-                    ki = t * 8e+9F;
-                    mi = t * 8e+6F;
-                    gi = t * 8000;
-                    ti = t * 8;
-                    Byte.Text = b.ToString();
-                    KiloByte.Text = k.ToString();
-                    MegaByte.Text = m.ToString();
-                    GigaByte.Text = g.ToString();
-                    Bit.Text = bi.ToString();
-                    KiloBit.Text = ki.ToString();
-                    MegaBit.Text = mi.ToString();
-                    GigaBit.Text = gi.ToString();
-                    TeraBit.Text = ti.ToString();
+                    float t = float.Parse(TeraByte.Text);
+                    Byte.Text = (t * 1099511627776).ToString();
+                    KiloByte.Text = (t * 1073741824).ToString();
+                    MegaByte.Text = (t * 1048576).ToString();
+                    GigaByte.Text = (t * 1024).ToString();
+                    Bit.Text = (t * 8e+12F).ToString();
+                    KiloBit.Text = (t * 8e+9F).ToString();
+                    MegaBit.Text = (t * 8e+6F).ToString();
+                    GigaBit.Text = (t * 8000).ToString();
+                    TeraBit.Text = (t * 8).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -462,25 +362,16 @@ namespace Jekyll
             {
                 try
                 {
-                    double num1 = float.Parse(Bit.Text);
-                    float num2 = (float)(num1 / 8.0);
-                    float num3 = (float)(num1 / 8000.0);
-                    float num4 = (float)(num1 / 8000000.0);
-                    float num5 = (float)(num1 / 8000000000.0);
-                    float num6 = (float)(num1 / 7999999967232.0);
-                    float num7 = (float)(num1 / 1000.0);
-                    float num8 = (float)(num1 / 1000000.0);
-                    float num9 = (float)(num1 / 1000000000.0);
-                    float num10 = (float)(num1 / 999999995904.0);
-                    Byte.Text = num2.ToString();
-                    KiloByte.Text = num3.ToString();
-                    MegaByte.Text = num4.ToString();
-                    GigaByte.Text = num5.ToString();
-                    TeraByte.Text = num6.ToString();
-                    KiloBit.Text = num7.ToString();
-                    MegaBit.Text = num8.ToString();
-                    GigaBit.Text = num9.ToString();
-                    TeraBit.Text = num10.ToString();
+                    float bit = float.Parse(Bit.Text);
+                    Byte.Text = (bit / 8).ToString();
+                    KiloByte.Text = (bit / 8000).ToString();
+                    MegaByte.Text = (bit / 8000000).ToString();
+                    GigaByte.Text = (bit / 8000000000).ToString();
+                    TeraByte.Text = (bit / 8000000000000).ToString();
+                    KiloBit.Text = (bit / 1000).ToString();
+                    MegaBit.Text = (bit / 1000000).ToString();
+                    GigaBit.Text = (bit / 1000000000).ToString();
+                    TeraBit.Text = (bit / 1000000000000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -495,25 +386,16 @@ namespace Jekyll
             {
                 try
                 {
-                    double num1 = float.Parse(KiloBit.Text);
-                    float num2 = (float)(num1 * 125.0);
-                    float num3 = (float)(num1 / 8.0);
-                    float num4 = (float)(num1 / 8000.0);
-                    float num5 = (float)(num1 / 8000000.0);
-                    float num6 = (float)(num1 / 8000000000.0);
-                    float num7 = (float)(num1 * 1000.0);
-                    float num8 = (float)(num1 / 1000.0);
-                    float num9 = (float)(num1 / 1000000.0);
-                    float num10 = (float)(num1 / 1000000000.0);
-                    Byte.Text = num2.ToString();
-                    KiloByte.Text = num3.ToString();
-                    MegaByte.Text = num4.ToString();
-                    GigaByte.Text = num5.ToString();
-                    TeraByte.Text = num6.ToString();
-                    Bit.Text = num7.ToString();
-                    MegaBit.Text = num8.ToString();
-                    GigaBit.Text = num9.ToString();
-                    TeraBit.Text = num10.ToString();
+                    float ki = float.Parse(KiloBit.Text);
+                    Byte.Text = (ki * 125).ToString();
+                    KiloByte.Text = (ki / 8).ToString();
+                    MegaByte.Text = (ki / 8000).ToString();
+                    GigaByte.Text = (ki / 8000000).ToString();
+                    TeraByte.Text = (ki / 8000000000).ToString();
+                    Bit.Text = (ki * 1000).ToString();
+                    MegaBit.Text = (ki / 1000).ToString();
+                    GigaBit.Text = (ki / 1000000).ToString();
+                    TeraBit.Text = (ki / 1000000000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -528,25 +410,16 @@ namespace Jekyll
             {
                 try
                 {
-                    double num1 = float.Parse(MegaBit.Text);
-                    float num2 = (float)(num1 * 125000.0);
-                    float num3 = (float)(num1 * 125.0);
-                    float num4 = (float)(num1 / 8.0);
-                    float num5 = (float)(num1 / 8000.0);
-                    float num6 = (float)(num1 / 8000000.0);
-                    float num7 = (float)(num1 * 1000000.0);
-                    float num8 = (float)(num1 * 1000.0);
-                    float num9 = (float)(num1 / 1000.0);
-                    float num10 = (float)(num1 / 1000000.0);
-                    Byte.Text = num2.ToString();
-                    KiloByte.Text = num3.ToString();
-                    MegaByte.Text = num4.ToString();
-                    GigaByte.Text = num5.ToString();
-                    TeraByte.Text = num6.ToString();
-                    Bit.Text = num7.ToString();
-                    KiloBit.Text = num8.ToString();
-                    GigaBit.Text = num9.ToString();
-                    TeraBit.Text = num10.ToString();
+                    float mi = float.Parse(MegaBit.Text);
+                    Byte.Text = (mi * 125000).ToString();
+                    KiloByte.Text = (mi * 125).ToString();
+                    MegaByte.Text = (mi / 8).ToString();
+                    GigaByte.Text = (mi / 8000).ToString();
+                    TeraByte.Text = (mi / 8000000).ToString();
+                    Bit.Text = (mi * 1000000).ToString();
+                    KiloBit.Text = (mi * 1000).ToString();
+                    GigaBit.Text = (mi / 1000).ToString();
+                    TeraBit.Text = (mi / 1000000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -561,25 +434,16 @@ namespace Jekyll
             {
                 try
                 {
-                    double num1 = float.Parse(GigaBit.Text);
-                    float num2 = (float)(num1 * 125000000.0);
-                    float num3 = (float)(num1 * 125000.0);
-                    float num4 = (float)(num1 * 125.0);
-                    float num5 = (float)(num1 / 8.0);
-                    float num6 = (float)(num1 / 8000.0);
-                    float num7 = (float)(num1 * 1000000000.0);
-                    float num8 = (float)(num1 * 1000000.0);
-                    float num9 = (float)(num1 * 1000.0);
-                    float num10 = (float)(num1 / 1000.0);
-                    Byte.Text = num2.ToString();
-                    KiloByte.Text = num3.ToString();
-                    MegaByte.Text = num4.ToString();
-                    GigaByte.Text = num5.ToString();
-                    TeraByte.Text = num6.ToString();
-                    Bit.Text = num7.ToString();
-                    KiloBit.Text = num8.ToString();
-                    MegaBit.Text = num9.ToString();
-                    TeraBit.Text = num10.ToString();
+                    float gi = float.Parse(GigaBit.Text);
+                    Byte.Text = (gi * 125000000).ToString();
+                    KiloByte.Text = (gi * 125000).ToString();
+                    MegaByte.Text = (gi * 125).ToString();
+                    GigaByte.Text = (gi / 8).ToString();
+                    TeraByte.Text = (gi / 8000).ToString();
+                    Bit.Text = (gi * 1000000000).ToString();
+                    KiloBit.Text = (gi * 1000000).ToString();
+                    MegaBit.Text = (gi * 1000).ToString();
+                    TeraBit.Text = (gi / 1000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -594,25 +458,16 @@ namespace Jekyll
             {
                 try
                 {
-                    double num1 = float.Parse(TeraBit.Text);
-                    float num2 = (float)(num1 * 124999999488.0);
-                    float num3 = (float)(num1 * 125000000.0);
-                    float num4 = (float)(num1 * 125000.0);
-                    float num5 = (float)(num1 * 125.0);
-                    float num6 = (float)(num1 / 8.0);
-                    float num7 = (float)(num1 * 999999995904.0);
-                    float num8 = (float)(num1 * 1000000000.0);
-                    float num9 = (float)(num1 * 1000000.0);
-                    float num10 = (float)(num1 * 1000.0);
-                    Byte.Text = num2.ToString();
-                    KiloByte.Text = num3.ToString();
-                    MegaByte.Text = num4.ToString();
-                    GigaByte.Text = num5.ToString();
-                    TeraByte.Text = num6.ToString();
-                    Bit.Text = num7.ToString();
-                    KiloBit.Text = num8.ToString();
-                    MegaBit.Text = num9.ToString();
-                    GigaBit.Text = num10.ToString();
+                    float ti = float.Parse(TeraBit.Text);
+                    Byte.Text = (ti * 125000000000).ToString();
+                    KiloByte.Text = (ti * 125000000).ToString();
+                    MegaByte.Text = (ti * 125000).ToString();
+                    GigaByte.Text = (ti * 125).ToString();
+                    TeraByte.Text = (ti / 8).ToString();
+                    Bit.Text = (ti * 1000000000000).ToString();
+                    KiloBit.Text = (ti * 1000000000).ToString();
+                    MegaBit.Text = (ti * 1000000).ToString();
+                    GigaBit.Text = (ti * 1000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
@@ -955,16 +810,11 @@ namespace Jekyll
             }
         }
 
-        private void Number_TextChanged(object sender, TextChangedEventArgs e) => CurrConvert();
-
         private void CurrConvert()
         {
             try
             {
-                float money1 = float.Parse(Curr1.SelectedValue.ToString());
-                float money2 = float.Parse(Curr2.SelectedValue.ToString());
-                float num = float.Parse(Number.Text);
-                Res.Content = Convert.ToString(money1 / money2 * num + " " + Curr2.Text);
+                Res.Content = Convert.ToString(float.Parse(Curr1.SelectedValue.ToString()) / float.Parse(Curr2.SelectedValue.ToString()) * float.Parse(Number.Text) + " " + Curr2.Text);
                 Error.Content = null;
             }
             catch (Exception ex)
@@ -973,39 +823,40 @@ namespace Jekyll
             }
         }
 
+        private void Number_TextChanged(object sender, TextChangedEventArgs e) => CurrConvert();
         private void Curr1_SelectionChanged(object sender, SelectionChangedEventArgs e) => CurrConvert();
-
         private void Curr2_SelectionChanged(object sender, SelectionChangedEventArgs e) => CurrConvert();
 
         private void DecimalC(object sender, TextChangedEventArgs e)
         {
-            try
+            if (Decimal.IsSelectionActive)
             {
-                if (Decimal.IsSelectionActive)
+                try
                 {
+
                     Double.Text = Convert.ToString(int.Parse(Decimal.Text), 2);
                     Error.Content = null;
                 }
-            }
-            catch (Exception ex)
-            {
-                Error.Content = $"Исключение: {ex.Message}";
+                catch (Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
             }
         }
-
         private void DoubleC(object sender, TextChangedEventArgs e)
         {
-            try
+            if (Double.IsSelectionActive)
             {
-                if (Double.IsSelectionActive)
+                try
                 {
+
                     Decimal.Text = Convert.ToInt32(Double.Text, 2).ToString();
                     Error.Content = null;
                 }
-            }
-            catch (Exception ex)
-            {
-                Error.Content = $"Исключение: {ex.Message}";
+                catch (Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
             }
         }
     }

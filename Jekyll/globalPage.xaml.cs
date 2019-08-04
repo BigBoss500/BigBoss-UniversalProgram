@@ -69,5 +69,7 @@ namespace Jekyll
         {
             if (e.Key == Key.M) TopSecret.Visibility = Visibility.Visible;
         }
+
+        private void IdentifierIP_Window(object sender, RoutedEventArgs e) => _ = new IdentifierIP();
     }
 }

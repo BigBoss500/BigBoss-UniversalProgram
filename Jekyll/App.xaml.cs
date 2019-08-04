@@ -11,29 +11,28 @@ namespace Jekyll
     /// </summary>
     public partial class App : Application
     {
-        private static object sync = new object();
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             try
             {
-                string pathToLog = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log");
-                if (!Directory.Exists(pathToLog))
-                    Directory.CreateDirectory(pathToLog); // Создаем директорию, если нужно
-                string filename = Path.Combine(pathToLog, string.Format("{0}_{1:dd.MM.yyy}.log",
-                AppDomain.CurrentDomain.FriendlyName, DateTime.Now));
-                string fullText = string.Format("[{0:dd.MM.yyy HH:mm:ss.fff}] [{1}.{2}()] {3} \n Версия Windows: {4} \r\n",
-                DateTime.Now, e.Exception.TargetSite.DeclaringType, e.Exception.TargetSite.Name, e.Exception, Environment.OSVersion.Version);
-                lock (sync)
+                string path = @"Log\" + string.Format("{0}_{1:dd.MM.yyy}.log", AppDomain.CurrentDomain.FriendlyName, DateTime.Now);
+                if (!Directory.Exists(@"Log\"))
+                    Directory.CreateDirectory(@"Log\"); // Создаем директорию, если нужно
+                using (StreamWriter stream = new StreamWriter(path, true))
                 {
-                    File.AppendAllText(filename, fullText, Encoding.GetEncoding("Windows-1251"));
+                    stream.WriteLine("[{0:dd.MM.yyy HH:mm:ss.fff}] [{1}.{2}()] {3} \n Операционная система: {4} \n Имеет 64-bit? — {6} \n Версия, используемой для программы, .NET Framework: {5} \r\n", 
+                        DateTime.Now, 
+                        e.Exception.TargetSite.DeclaringType, 
+                        e.Exception.TargetSite.Name, 
+                        e.Exception, 
+                        Environment.OSVersion,
+                        Environment.Version.ToString(),
+                        Environment.Is64BitOperatingSystem ? "Да" : "Нет");
                 }
             }
-            catch
-            {
-                // Перехватываем все и ничего не делаем
-            }
+            catch{}
             MessageBox.Show(
-                $"Исключение { e.Exception.GetType().ToString()} отключено. {System.Environment.NewLine} Причина: {e.Exception.Message} {System.Environment.NewLine} Подробности в лог-файле.", 
+                $"Исключение {e.Exception.GetType().ToString()} отключено. {Environment.NewLine}Причина: {e.Exception.Message} {Environment.NewLine}Подробности в лог-файле.", 
                 "Ошибка", 
                 MessageBoxButton.OK, 
                 MessageBoxImage.Error);

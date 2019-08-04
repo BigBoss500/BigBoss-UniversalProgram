@@ -61,7 +61,7 @@
         <TextBox x:Name="IDtext" Height="22" Text="500"
              Width="98" FontFamily="Courier New" HorizontalContentAlignment="Center"
              VerticalContentAlignment="Center" FontSize="14" Cursor="Hand"
-             ToolTip="ID в формате &quot;цифры&quot;" BorderBrush="{x:Null}" Margin="176,189">
+             ToolTip="ID в формате &quot;цифры&quot;" BorderBrush="{x:Null}" Margin="176,189" TextChanged="IDtext_TextChanged">
             <FrameworkElement.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="Border.CornerRadius" Value="10"/>

@@ -1,0 +1,10 @@
+E:\Jekyll\updater\bin\Debug\updater.exe.config
+E:\Jekyll\updater\bin\Debug\updater.exe
+E:\Jekyll\updater\bin\Debug\updater.pdb
+E:\Jekyll\updater\obj\Debug\updater.csprojAssemblyReference.cache
+E:\Jekyll\updater\obj\Debug\updater.Form1.resources
+E:\Jekyll\updater\obj\Debug\updater.Properties.Resources.resources
+E:\Jekyll\updater\obj\Debug\updater.csproj.GenerateResource.cache
+E:\Jekyll\updater\obj\Debug\updater.csproj.CoreCompileInputs.cache
+E:\Jekyll\updater\obj\Debug\updater.exe
+E:\Jekyll\updater\obj\Debug\updater.pdb

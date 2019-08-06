@@ -1,0 +1,110 @@
+[05.08.2019 17:15:20.001] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 81
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:17:49.361] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 81
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:20:10.449] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 81
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:20:59.519] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 78
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:31:52.450] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 79
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:35:30.262] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 81
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:37:40.480] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 81
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:39:05.463] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 82
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:39:22.882] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 82
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+
+[05.08.2019 17:52:01.735] [System.Diagnostics.Process.StartWithShellExecuteEx()] System.ComponentModel.Win32Exception (0x80004005): Указанный исполняемый файл не является действительным приложением для этой операционной системы.
+   в System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   в System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   в Jekyll.Info.Client_DownloadFileCompleted(Object sender, AsyncCompletedEventArgs e) в E:\Jekyll\Jekyll\Info.xaml.cs:строка 80
+   в System.Net.WebClient.OnDownloadFileCompleted(AsyncCompletedEventArgs e)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+

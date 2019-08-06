@@ -1,5 +1,5 @@
 <Global>
     <name>Jekyll</name>
     <version>1.1.0.0</version>
-    <url>https://github.com/BigBoss500/Jekyll/releases/download/v1.1.0/SetupJekyll.exe</url>
+    <url>https://raw.githubusercontent.com/BigBoss500/Jekyll/master/updater/bin/Debug/updater.exe</url>
 </Global>

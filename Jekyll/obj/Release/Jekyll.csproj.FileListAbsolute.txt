@@ -65,3 +65,5 @@ E:\Jekyll\Jekyll\obj\Release\AutoClicker.baml
 E:\Jekyll\Jekyll\obj\Release\Converter.baml
 E:\Jekyll\Jekyll\obj\Release\TopSecret.g.cs
 E:\Jekyll\Jekyll\obj\Release\TopSecret.baml
+E:\Jekyll\Jekyll\obj\Release\IdentifierIP.g.cs
+E:\Jekyll\Jekyll\obj\Release\IdentifierIP.baml

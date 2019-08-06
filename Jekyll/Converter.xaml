@@ -60,6 +60,9 @@
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
                     <TextBox x:Name="Celcion" x:FieldModifier="public" TextChanged="CelcionC" HorizontalAlignment="Left" Height="23" Text="" Margin="302,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -337,7 +340,7 @@
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/currency.png" Width="16"/>
+                        <Image Source="images/program/convert/double.png" Width="16"/>
                         <Label Content="Двоичный"/>
                     </StackPanel>
                 </TabItem.Header>
@@ -358,6 +361,49 @@
                     </TextBox>
                     <Label Content="Десятичный:" HorizontalAlignment="Left" Margin="256,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
                     <Label Content="Двоичный:" HorizontalAlignment="Left" Margin="422,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem FontFamily="Trebuchet MS" FontSize="14">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/program/convert/pressure.png" Width="16"/>
+                        <Label Content="Давление"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White" Margin="1,0,1,2">
+                    <TextBox x:Name="Paskal" x:FieldModifier="public" TextChanged="PaskalC" HorizontalAlignment="Left" Height="23" Text="" Margin="302,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="Bar" TextChanged="BarC" HorizontalAlignment="Left" Height="23" Margin="302,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="Atmospfere" TextChanged="AtmospfereC" HorizontalAlignment="Left" Height="23" Margin="302,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="Torr" TextChanged="TorrC" HorizontalAlignment="Left" Height="23" Margin="302,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="Паскаль:" HorizontalAlignment="Left" Margin="228,55,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="74" Height="30"/>
+                    <Label Content="Бар:" HorizontalAlignment="Left" Margin="262,83,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="42" Height="25"/>
+                    <Label Content="Атмосфера:" HorizontalAlignment="Left" Margin="212,111,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="91" Height="30"/>
+                    <Label Content="Торр:" HorizontalAlignment="Left" Margin="254,139,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="49" Height="27"/>
 
                 </Grid>
             </TabItem>

@@ -174,16 +174,16 @@
                 <DropShadowEffect Direction="266" BlurRadius="10"/>
             </Border.Effect>
             <Grid Background="#00000000">
-                <Button x:Name="CloseButt" Style="{DynamicResource WindowButton}" HorizontalAlignment="Left" Margin="224,1,0,0" VerticalAlignment="Top" Width="35" Height="25" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Padding="0" Grid.IsSharedSizeScope="True" ToolTip="Закрыть панель настроек" Click="CloseRename">
+                <Button x:Name="CloseButt" Style="{DynamicResource WindowButton}" HorizontalAlignment="Left" Margin="224,1,0,0" VerticalAlignment="Top" Width="35" Height="25" Panel.ZIndex="2" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="White" Padding="0" Grid.IsSharedSizeScope="True" ToolTip="Закрыть панель изменения" Click="CloseRename">
                     <Image Height="18" Source="images/program/close.png" Cursor="Hand" Panel.ZIndex="2"/>
                 </Button>
-                <Button HorizontalAlignment="Left" ToolTipService.ShowDuration="10000" Style="{DynamicResource ButtonStyle1}" Margin="161,26,0,0" VerticalAlignment="Top" Width="89" FontSize="14" BorderBrush="Black" Background="White" FontFamily="Trebuchet MS" Height="26" ToolTip="Добавить элемент в список" Click="Button_Click_3">
+                <Button HorizontalAlignment="Left" ToolTipService.ShowDuration="10000" Style="{DynamicResource ButtonStyle1}" Margin="161,26,0,0" VerticalAlignment="Top" Width="89" FontSize="14" BorderBrush="Black" Background="White" FontFamily="Trebuchet MS" Height="26" ToolTip="Изменить элемент" Click="Button_Click_3">
                     <StackPanel Orientation="Horizontal" Width="74" HorizontalAlignment="Left">
                         <Image Source="images/program/conclusion.png" Margin="0,0,3,0" Width="16"/>
                         <TextBlock Text="Изменить" Height="16" FontSize="12"/>
                     </StackPanel>
                 </Button>
-                <TextBox x:Name="name_Copy" Height="26" Margin="10,26,104,0" TextWrapping="Wrap" VerticalAlignment="Top" Cursor="Hand" FontFamily="Courier New" BorderBrush="{x:Null}" ToolTip="Введите здесь название элемента" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="Name_Copy_KeyDown">
+                <TextBox x:Name="name_Copy" Height="26" Margin="10,26,104,0" TextWrapping="Wrap" VerticalAlignment="Top" Cursor="Hand" FontFamily="Courier New" BorderBrush="{x:Null}" ToolTip="Введите здесь название элемента, которого вы хотите изменить" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="Name_Copy_KeyDown">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>

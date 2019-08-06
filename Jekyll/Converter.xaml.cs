@@ -477,6 +477,78 @@ namespace Jekyll
             }
         }
 
+        private void PaskalC(object sender, TextChangedEventArgs e)
+        {
+            if (Paskal.IsSelectionActive)
+            {
+                try
+                {
+                    float p = float.Parse(Paskal.Text);
+                    Bar.Text = (p / 100000).ToString();
+                    Atmospfere.Text = (p / 101325).ToString();
+                    Torr.Text = (p / 133.322F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
+            }
+        }
+        private void BarC(object sender, TextChangedEventArgs e)
+        {
+            if (Bar.IsSelectionActive)
+            {
+                try
+                {
+                    float b = float.Parse(Bar.Text);
+                    Paskal.Text = (b * 100000).ToString();
+                    Atmospfere.Text = (b / 1.013F).ToString();
+                    Torr.Text = (b * 750.062F).ToString();
+                    Error.Content = null;
+                }catch(Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
+            }
+        }
+        private void AtmospfereC(object sender, TextChangedEventArgs e)
+        {
+            if (Atmospfere.IsSelectionActive)
+            {
+                try
+                {
+                    float a = float.Parse(Atmospfere.Text);
+                    Paskal.Text = (a * 101325).ToString();
+                    Bar.Text = (a * 1.013F).ToString();
+                    Torr.Text = (a * 760).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
+            }
+        }
+        private void TorrC(object sender, TextChangedEventArgs e)
+        {
+            if (Torr.IsSelectionActive)
+            {
+                try
+                {
+                    float t = float.Parse(Torr.Text);
+                    Paskal.Text = (t * 133.322F).ToString();
+                    Atmospfere.Text = (t / 760).ToString();
+                    Bar.Text = (t / 750.062F).ToString();
+                    Error.Content = null;
+                }
+                catch(Exception ex)
+                {
+                    Error.Content = $"Исключение: {ex.Message}";
+                }
+            }
+        }
+
         private void Currenty()
         {
             try
@@ -859,5 +931,6 @@ namespace Jekyll
                 }
             }
         }
+
     }
 }

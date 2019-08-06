@@ -69,6 +69,10 @@ namespace Jekyll
         {
             Properties.Settings.Default.MillisValue = int.Parse(IDtext.Text);
             Properties.Settings.Default.Save();
+            if (click)
+            {
+                click = !click;
+            }
             Close();
         }
 

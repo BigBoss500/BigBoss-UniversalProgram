@@ -25,6 +25,7 @@ namespace updater
             {
                 foreach (Process proc in Process.GetProcessesByName("Jekyll"))
                     proc.Kill();
+                Thread.Sleep(2000);
                 File.Delete("Jekyll.exe");
                 File.Delete("Jekyll.exe.config");
                 using (WebClient wb = new WebClient())

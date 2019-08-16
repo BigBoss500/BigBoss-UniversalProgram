@@ -20,6 +20,7 @@ namespace updater
         {
             try
             {
+                string path = @"ru-RU\";
                 foreach (Process proc in Process.GetProcessesByName("Jekyll"))
                     proc.Kill();
                 Thread.Sleep(2000);
@@ -34,6 +35,9 @@ namespace updater
                     {
                         wb.DownloadFile(new Uri(url[k]), filename[k]);
                     }
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
+                    wb.DownloadFile("https://github.com/BigBoss500/Jekyll/raw/master/Jekyll/bin/Release/ru-RU/Jekyll.resources.dll", path + "Jekyll.resources.dll");
                     Completed();
                 }
             }

@@ -47,7 +47,6 @@ E:\Jekyll\Jekyll\obj\Debug\News.baml
 E:\Jekyll\Jekyll\obj\Debug\Random.baml
 E:\Jekyll\Jekyll\obj\Debug\vkuserinfo.baml
 E:\Jekyll\Jekyll\obj\Debug\Jekyll.g.resources
-E:\Jekyll\Jekyll\obj\Debug\Jekyll.Properties.Resources.resources
 E:\Jekyll\Jekyll\obj\Debug\Jekyll.csproj.GenerateResource.cache
 E:\Jekyll\Jekyll\obj\Debug\Jekyll.csproj.CoreCompileInputs.cache
 E:\Jekyll\Jekyll\obj\Debug\Jekyll.exe
@@ -58,7 +57,11 @@ E:\Jekyll\Jekyll\obj\Debug\Converter.g.cs
 E:\Jekyll\Jekyll\obj\Debug\Converter.baml
 E:\Jekyll\Jekyll\obj\Debug\TopSecret.g.cs
 E:\Jekyll\Jekyll\obj\Debug\TopSecret.baml
-E:\Jekyll\Jekyll\obj\Debug\Random_FM.g.cs
-E:\Jekyll\Jekyll\obj\Debug\Random_FM.baml
 E:\Jekyll\Jekyll\obj\Debug\IdentifierIP.g.cs
 E:\Jekyll\Jekyll\obj\Debug\IdentifierIP.baml
+E:\Jekyll\Jekyll\build\ru-RU\Jekyll.resources.dll
+E:\Jekyll\Jekyll\obj\Debug\ru-RU\Jekyll.resources.dll
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.Properties.Resources.resources
+E:\Jekyll\Jekyll\obj\Debug\Jekyll.Properties.Resources.ru-RU.resources
+E:\Jekyll\Jekyll\obj\Debug\RandomFM.g.cs
+E:\Jekyll\Jekyll\obj\Debug\RandomFM.baml

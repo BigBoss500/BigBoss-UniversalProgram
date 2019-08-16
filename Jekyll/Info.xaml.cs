@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -15,10 +16,12 @@ namespace Jekyll
     /// </summary>
     public partial class Info : Window
     {
-        public string s;
+        private string s;
         public Info()
         {
             InitializeComponent();
+            EasterEgg.DisplayNameEgg(NameE);
+            EasterEgg.Version(data);
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             Version.Content = "Jekyll v" + version.ToString();
             new Thread(() =>
@@ -28,8 +31,8 @@ namespace Jekyll
                     s = wb.DownloadString($"https://raw.githubusercontent.com/BigBoss500/Jekyll/master/Jekyll/version/version.xml");
                 }
                 Match vers = Regex.Match(s, "<version>(.*?)</version>");
-                float latest = float.Parse(vers.Groups[1].Value.Replace(".", ""));
-                float current = float.Parse(Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".", ""));
+                float latest = float.Parse(vers.Groups[1].Value.Replace(".", ""), new CultureInfo("en-US"));
+                float current = float.Parse(Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".", ""), new CultureInfo("en-US"));
                 if (latest > current)
                     Dispatcher.Invoke(() =>
                     {
@@ -63,7 +66,19 @@ namespace Jekyll
                 {
                     client.DownloadFileAsync(new Uri(url1.Groups[1].Value), fileName);
                 }
-                catch
+                catch (WebException)
+                {
+                    TextUpd.Content = "Не удалось загрузить обновление";
+                    progressBar1.Visibility = Visibility.Hidden;
+                    Download.Visibility = Visibility.Visible;
+                }
+                catch (ArgumentNullException)
+                {
+                    TextUpd.Content = "Не удалось загрузить обновление";
+                    progressBar1.Visibility = Visibility.Hidden;
+                    Download.Visibility = Visibility.Visible;
+                }
+                catch (InvalidOperationException)
                 {
                     TextUpd.Content = "Не удалось загрузить обновление";
                     progressBar1.Visibility = Visibility.Hidden;

@@ -5,43 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:res="clr-namespace:Jekyll.Properties"
       Title="globalPage" Height="558" KeyDown="Page_KeyDown" >
-
-
     <Grid Background="#FF400042" Width="800" Height="558">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Добро пожаловать!" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Grid.ColumnSpan="2" Width="780" HorizontalContentAlignment="Center"/>
-        <Label Content="Чтобы использовать приложение, используйте кнопки ниже." Margin="132,69,132,463" FontFamily="Courier New" Foreground="White" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label Content="{x:Static res:Resources.Welcome}" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Grid.ColumnSpan="3" Width="780" HorizontalContentAlignment="Center"/>
+        <Label Content="{x:Static res:Resources.LabelContent1}" Margin="10,69,10,463" FontFamily="Courier New" Foreground="White" FontSize="16" Grid.ColumnSpan="3" HorizontalContentAlignment="Center"/>
 
-        <Button x:Name="button" Click="Page_Random" HorizontalAlignment="Left" Margin="103,125,0,0" VerticalAlignment="Top" Width="137" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" ToolTip="Поиграть в рулетку">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="images/program/random.png" Margin="0,0,2,0" Width="38"/>
-                <TextBlock Text="Рулетка" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Width="80" Height="28"/>
+        <Button x:Name="button" Click="Page_Random" HorizontalAlignment="Left" Margin="58,125,0,0" VerticalAlignment="Top" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" ToolTip="{x:Static res:Resources.ButtonRouletteToolTip}" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="15,0">
+                <Image Source="images/program/random.png" Margin="0,0,2,0" Width="30.8"/>
+                <TextBlock Text="{x:Static res:Resources.ButtonRoulette}" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="28" HorizontalAlignment="Left"/>
             </StackPanel>
         </Button>
 
-        <Button Click="Page_Convert" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Margin="180,125,0,0" VerticalAlignment="Top" Width="141" Height="35" Background="White" BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand" ToolTip="Конвертировать значения">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="images/program/convert.png" Margin="0,0,3,0" Width="32"/>
-                <TextBlock Text="Конвертер" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="26.144" Width="81.417" Margin="0,-0.976"/>
+        <Button Click="Page_Convert" Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Left" Margin="165,125,0,0" VerticalAlignment="Top" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="{x:Static res:Resources.ButtonConverterToolTip}" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="15,0,14.8,0">
+                <Image Source="images/program/convert.png" Margin="0,0,3,0" Width="32" HorizontalAlignment="Left"/>
+                <TextBlock Text="{x:Static res:Resources.ButtonConverter}" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="26.144" Margin="0,-0.976" HorizontalAlignment="Left"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="99,180,0,0" VerticalAlignment="Top" Width="145" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Включить эффективный автокликер" Click="Button_Click">
-            <StackPanel Orientation="Horizontal">
+        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="54,180,0,0" VerticalAlignment="Top" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Включить эффективный автокликер" Click="Button_Click" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="15,0">
                 <Image Source="images/program/clicker.png" Margin="0,0,3,0" Width="34"/>
-                <TextBlock Text="Автокликер" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="27" Width="93"/>
+                <TextBlock Text="Autoclicker" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="27"/>
             </StackPanel>
         </Button>
-        <Button x:Name="button_Copy" Click="Open" HorizontalAlignment="Left" Margin="320,125,0,0" VerticalAlignment="Top" Width="160" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Grid.ColumnSpan="2" ToolTip="Узнать информацию о пользователе ВК">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="images/program/vkuserinfo.png" Margin="0,0,2,0" Width="38"/>
-                <TextBlock Text="VK User Info" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="27" Width="102"/>
+        <Button x:Name="button_Copy" Click="Open" HorizontalAlignment="Left" Margin="273,125,0,0" VerticalAlignment="Top" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Grid.ColumnSpan="2" ToolTip="Узнать информацию о пользователе ВК" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="15,0">
+                <Image Source="images/program/vkuserinfo.png" Margin="0,0,2,0" HorizontalAlignment="Left"/>
+                <TextBlock Text="VK User Info" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="27" HorizontalAlignment="Left"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="RdmGlobal" Margin="10,320,20,10" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" SelectionBrush="{x:Null}">
+        <TextBox x:Name="RdmGlobal" Margin="10,320,20,10" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True" SelectionBrush="{x:Null}" Grid.ColumnSpan="2">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -51,25 +51,26 @@
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TextBox.Effect>
         </TextBox>
-        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="182,180,0,0" VerticalAlignment="Top" Width="138" Click="Page_News" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Посмотреть новости" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
+        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="170,180,0,0" VerticalAlignment="Top" Click="Page_News" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="{x:Static res:Resources.ButtonNewsToolTip}" Grid.Column="2" HorizontalContentAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="15,0">
                 <Image Source="images/program/news.png" Margin="0,0,3,0" Width="34"/>
-                <TextBlock Text="Новости" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Width="78" Height="25"/>
+                <TextBlock Text="{x:Static res:Resources.ButtonNews}" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="TopSecret" HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="252,513,0,0" VerticalAlignment="Top" Width="138" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Как вы догодались?" Grid.Column="1" Click="Page_TopSecret" Visibility="Hidden">
+        <Button x:Name="TopSecret" HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="252,513,0,0" VerticalAlignment="Top" Width="138" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Как вы догодались?" Grid.Column="2" Click="Page_TopSecret" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Image Source="images/program/personage.png" Margin="0,0,3,0" Width="34" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock Text="Top Secret" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Width="80" Height="27"/>
             </StackPanel>
         </Button>
-        <Label x:Name="Text1" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2" FontSize="14" FontFamily="Courier New" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
-        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="320,180,0,0" VerticalAlignment="Top" Width="160" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Определить IP-адрес" Grid.ColumnSpan="2" Click="IdentifierIP_Window">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="images/program/ip.png" Margin="0,0,3,0" Width="34"/>
-                <TextBlock Text="Identifier IP" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Width="100" Height="25"/>
+        <Label x:Name="Text1" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="3" FontSize="14" FontFamily="Courier New" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        <Button HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle1}" Margin="275,180,0,0" VerticalAlignment="Top" Width="160" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" ToolTip="Определить IP-адрес" Grid.ColumnSpan="2" Click="IdentifierIP_Window" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="15,0" HorizontalAlignment="Left">
+                <Image Source="images/program/ip.png" Margin="0,0,3,0" HorizontalAlignment="Left"/>
+                <TextBlock Text="Identifier IP" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="22" FontWeight="Bold" Height="25" HorizontalAlignment="Left"/>
             </StackPanel>
         </Button>
+        <Image x:Name="ImageEgg" Grid.Column="2" HorizontalAlignment="Left" Height="150" Margin="165,300,0,0" VerticalAlignment="Top" Width="150" Source="images/personage/oriale.png" Visibility="Hidden"/>
 
     </Grid>
 </Page>

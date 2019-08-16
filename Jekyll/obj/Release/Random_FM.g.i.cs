@@ -38,7 +38,7 @@ namespace Jekyll {
     /// <summary>
     /// Random_FM
     /// </summary>
-    public partial class Random_FM : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector, System.Windows.Markup.IStyleConnector {
+    public partial class RandomFM : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector, System.Windows.Markup.IStyleConnector {
         
         
         #line 74 "..\..\Random_FM.xaml"

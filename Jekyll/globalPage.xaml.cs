@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
@@ -13,11 +14,10 @@ namespace Jekyll
         {
             InitializeComponent();
             Text();
-            if ("19.02" == DateTime.Now.ToString("dd.MM"))
-                Text1.Content = "У автора сегодня день рождения!";
-                
+            EasterEgg.DisplayEgg(Text1);
+            EasterEgg.DisplayImageEgg(ImageEgg);
         }
-        public string l = Environment.NewLine;
+        private string l = Environment.NewLine;
         private void Open(object sender, RoutedEventArgs e) => _ = new Window1();
 
         private void Button_Click(object sender, RoutedEventArgs e) => _ = new AutoClicker();
@@ -26,7 +26,7 @@ namespace Jekyll
         private void Page_Random(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Random.xaml", UriKind.Relative));
         private void Page_News(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("News.xaml", UriKind.Relative));
 
-        private void Text()
+        private async void Text()
         {
             string[] str =
             {
@@ -60,16 +60,18 @@ namespace Jekyll
                 "Если увидели баг, сразу сообщите автору.",
                 "Есть также секретная опция. Нажмите на меня и нажимайте любую клавишу на клавиатуре. Я бы мог подсказать, какая клавиша, но мне лень."
             };
-            string s = str[new System.Random().Next(0, str.Length)];
-            RdmGlobal.Text = s;
+            while (true)
+            {
+                string s = str[new System.Random().Next(0, str.Length)];
+                RdmGlobal.Text = s;
+                await Task.Delay(10000).ConfigureAwait(true);
+            }
         }
         private void Page_TopSecret(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("TopSecret.xaml", UriKind.Relative));
-
         private void Page_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.M) TopSecret.Visibility = Visibility.Visible;
         }
-
         private void IdentifierIP_Window(object sender, RoutedEventArgs e) => _ = new IdentifierIP();
     }
 }

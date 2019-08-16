@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -30,23 +31,25 @@ namespace Jekyll
         private void Drag(object sender, RoutedEventArgs e) => DragMove();
         private void Rollup(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
 
-        void IPParcer()
+        string s;
+
+        async void IPParcer()
         {
             try
             {
-                if (IDtext.Text == "")
+                if (IDtext.Text.Length == 0)
                 {
                     ParseXML.Text = "Нельзя ввести пустое поле";
                     return;
                 }
-                string st, s, country, sity, region, continent, latitude, longitude, timezone;
+                string st, country, sity, region, continent, latitude, longitude, timezone;
                 string line = Environment.NewLine;
 
                 st = IDtext.Text;
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = Encoding.UTF8;
-                    s = wc.DownloadString($"http://free.ipwhois.io/xml/{st}?lang=ru");
+                    await Task.Run(() => s = wc.DownloadString($"http://free.ipwhois.io/xml/{st}?lang=ru")).ConfigureAwait(true);
                 }
                 Match _1 = Regex.Match(s, "<country>(.*?)</country>");
                 Match _2 = Regex.Match(s, "<city>(.*?)</city>");

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace Jekyll
 {
@@ -13,7 +15,7 @@ namespace Jekyll
             InitializeComponent();
             Currenty();
         }
-        public XDocument doc;
+        private XDocument doc;
 
         private void CelcionC(object sender, TextChangedEventArgs e)
         {
@@ -21,12 +23,12 @@ namespace Jekyll
             {
                 try
                 {
-                    float c = float.Parse(Celcion.Text);
-                    Farengate.Text = ((c * 9 / 5) + 32).ToString();
-                    Kelvin.Text = (c + 273.15F).ToString();
+                    float c = float.Parse(Celcion.Text, new CultureInfo("en-US"));
+                    Farengate.Text = ((c * 9 / 5) + 32).ToString(new CultureInfo("en-US"));
+                    Kelvin.Text = (c + 273.15F).ToString(new CultureInfo("en-US"));
                     Error.Content = null;
                 }
-                catch (Exception ex)
+                catch (FormatException ex)
                 {
                     Error.Content = $"Исключение: {ex.Message}";
                 }
@@ -38,12 +40,12 @@ namespace Jekyll
             {
                 try
                 {
-                    float f = float.Parse(Farengate.Text);
-                    Celcion.Text = ((f - 32) * 5 / 9).ToString();
-                    Kelvin.Text = ((f - 32) * 5 / 9 + 273.15F).ToString();
+                    float f = float.Parse(Farengate.Text, new CultureInfo("en-US"));
+                    Celcion.Text = ((f - 32) * 5 / 9).ToString(new CultureInfo("en-US"));
+                    Kelvin.Text = ((f - 32) * 5 / 9 + 273.15F).ToString(new CultureInfo("en-US"));
                     Error.Content = null;
                 }
-                catch (Exception ex)
+                catch (FormatException ex)
                 {
                     Error.Content = $"Исключение: {ex.Message}";
                 }
@@ -55,12 +57,12 @@ namespace Jekyll
             {
                 try
                 {
-                    float k = float.Parse(Kelvin.Text);
-                    Celcion.Text = (k - 273.15F).ToString();
-                    Farengate.Text = ((k - 273.15F) * 9 / 5 + 32).ToString();
+                    float k = float.Parse(Kelvin.Text, new CultureInfo("en-US"));
+                    Celcion.Text = (k - 273.15F).ToString(new CultureInfo("en-US"));
+                    Farengate.Text = ((k - 273.15F) * 9 / 5 + 32).ToString(new CultureInfo("en-US"));
                     Error.Content = null;
                 }
-                catch (Exception ex)
+                catch (FormatException ex)
                 {
                     Error.Content = $"Исключение: {ex.Message}";
                 }
@@ -506,7 +508,8 @@ namespace Jekyll
                     Atmospfere.Text = (b / 1.013F).ToString();
                     Torr.Text = (b * 750.062F).ToString();
                     Error.Content = null;
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Error.Content = $"Исключение: {ex.Message}";
                 }
@@ -542,73 +545,73 @@ namespace Jekyll
                     Bar.Text = (t / 750.062F).ToString();
                     Error.Content = null;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Error.Content = $"Исключение: {ex.Message}";
                 }
             }
         }
 
-        private void Currenty()
+        private async void Currenty()
         {
             try
             {
-                doc = XDocument.Load("https://www.cbr-xml-daily.ru/daily.xml");
+                await Task.Run(() => doc = XDocument.Load("https://www.cbr-xml-daily.ru/daily.xml")).ConfigureAwait(true);
                 var USD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01235"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var EUR = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01239"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var UAH = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01720"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var BYN = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01090B"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var AMD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01060"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var AUD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01010"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var AZN = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01020A"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
+                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
+                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
                            }).SingleOrDefault();
                 var GBP = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01035"

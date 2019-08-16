@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Xml;
@@ -24,22 +25,19 @@ namespace Jekyll
         private void Drag(object sender, RoutedEventArgs e) => DragMove();
         private void Rollup(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
 
-        private void VKUser(object sender, RoutedEventArgs e)
+        private async void VKUser(object sender, RoutedEventArgs e)
         {
             string ID = IDtext.Text;
-            XmlDocument doc = new XmlDocument();
+            XmlDocument doc = new XmlDocument() { XmlResolver = null };
             try
             {
-                doc.Load("https://vk.com/foaf.php?id=" + ID);
+                await Task.Run(() => doc.Load("https://vk.com/foaf.php?id=" + ID)).ConfigureAwait(true);
             }
             catch
             {
                 ParseXML.Text = "Проверьте подключение к интернету, чтобы использовать эту функцию";
                 return;
             }
-
-
-
             XmlNamespaceManager objNSMan = new XmlNamespaceManager(doc.NameTable);
             objNSMan.AddNamespace("foaf", "http://xmlns.com/foaf/0.1/");
             objNSMan.AddNamespace("ya", "http://blogs.yandex.ru/schema/foaf/");

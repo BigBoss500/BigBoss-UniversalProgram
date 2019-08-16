@@ -57,8 +57,6 @@ E:\Jekyll\Jekyll\obj\Release\Jekyll.csproj.GenerateResource.cache
 E:\Jekyll\Jekyll\obj\Release\Jekyll.csproj.CoreCompileInputs.cache
 E:\Jekyll\Jekyll\obj\Release\Jekyll.exe
 E:\Jekyll\Jekyll\obj\Release\Jekyll.pdb
-E:\Jekyll\Jekyll\obj\Release\random_fm.g.cs
-E:\Jekyll\Jekyll\obj\Release\random_fm.baml
 E:\Jekyll\Jekyll\obj\Release\AutoClicker.g.cs
 E:\Jekyll\Jekyll\obj\Release\Converter.g.cs
 E:\Jekyll\Jekyll\obj\Release\AutoClicker.baml
@@ -67,3 +65,8 @@ E:\Jekyll\Jekyll\obj\Release\TopSecret.g.cs
 E:\Jekyll\Jekyll\obj\Release\TopSecret.baml
 E:\Jekyll\Jekyll\obj\Release\IdentifierIP.g.cs
 E:\Jekyll\Jekyll\obj\Release\IdentifierIP.baml
+E:\Jekyll\Jekyll\bin\Release\ru-RU\Jekyll.resources.dll
+E:\Jekyll\Jekyll\obj\Release\Jekyll.Properties.Resources.ru-RU.resources
+E:\Jekyll\Jekyll\obj\Release\ru-RU\Jekyll.resources.dll
+E:\Jekyll\Jekyll\obj\Release\RandomFM.g.cs
+E:\Jekyll\Jekyll\obj\Release\RandomFM.baml

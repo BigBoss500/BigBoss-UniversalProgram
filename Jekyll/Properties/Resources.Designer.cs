@@ -22,7 +22,7 @@ namespace Jekyll.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Jekyll.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Jekyll.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,165 @@ namespace Jekyll.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на A propos du programme.
+        /// </summary>
+        public static string ButtonAbout {
+            get {
+                return ResourceManager.GetString("ButtonAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Activer l&apos;autoclick efficace.
+        /// </summary>
+        public static string ButtonAutoclickerToolTip {
+            get {
+                return ResourceManager.GetString("ButtonAutoclickerToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Retour à la page précédente.
+        /// </summary>
+        public static string ButtonBackToolTip {
+            get {
+                return ResourceManager.GetString("ButtonBackToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fermer le programme.
+        /// </summary>
+        public static string ButtonCloseToolTip {
+            get {
+                return ResourceManager.GetString("ButtonCloseToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Convertisseur.
+        /// </summary>
+        public static string ButtonConverter {
+            get {
+                return ResourceManager.GetString("ButtonConverter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Convertir les valeurs.
+        /// </summary>
+        public static string ButtonConverterToolTip {
+            get {
+                return ResourceManager.GetString("ButtonConverterToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Accueil.
+        /// </summary>
+        public static string ButtonGlobal {
+            get {
+                return ResourceManager.GetString("ButtonGlobal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Définir une adresse IP.
+        /// </summary>
+        public static string ButtonIdentifierIPToolTip {
+            get {
+                return ResourceManager.GetString("ButtonIdentifierIPToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Minimiser le programme.
+        /// </summary>
+        public static string ButtonMinimToolTip {
+            get {
+                return ResourceManager.GetString("ButtonMinimToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Nouvelles.
+        /// </summary>
+        public static string ButtonNews {
+            get {
+                return ResourceManager.GetString("ButtonNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Voir les nouvelles.
+        /// </summary>
+        public static string ButtonNewsToolTip {
+            get {
+                return ResourceManager.GetString("ButtonNewsToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Roulette.
+        /// </summary>
+        public static string ButtonRoulette {
+            get {
+                return ResourceManager.GetString("ButtonRoulette", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Jouer à la roulette.
+        /// </summary>
+        public static string ButtonRouletteToolTip {
+            get {
+                return ResourceManager.GetString("ButtonRouletteToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Trouvez des informations sur l&apos;utilisateur VK.
+        /// </summary>
+        public static string ButtonVKUserInfoToolTip {
+            get {
+                return ResourceManager.GetString("ButtonVKUserInfoToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pour utiliser l&apos;application, utilisez les boutons ci-dessous..
+        /// </summary>
+        public static string LabelContent1 {
+            get {
+                return ResourceManager.GetString("LabelContent1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Voir les informations du programme.
+        /// </summary>
+        public static string ToolTipAbout {
+            get {
+                return ResourceManager.GetString("ToolTipAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Bienvenue!.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

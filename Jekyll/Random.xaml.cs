@@ -11,79 +11,95 @@ namespace Jekyll
         public Random()
         {
             InitializeComponent();
-            Var.Content = "Всего вариантов выпадения: " + a.Length;
+            Var.Content = local.Localization.RandomStringOptions + a.Length;
         }
 
-        private string[] a = new string[55];
+        private readonly string[] a =
+            {
+                "Повiсточка на бан",
+                "Photoshop",
+                "Тёрка за $6999",
+                "Калыван",
+                "Шанс на повтор рулетки",
+                "Решётка",
+                "Шанс найти в жизни девушку/парня",
+                "Подарок ВК",
+                "50 рублей",
+                "Самый крутой смартфон",
+                "Защита от DDoS-аттаки на телефон",
+                "Удача в жизни",
+                "Счастье в жизни",
+                "DDoS телефона",
+                "10 000 подписчиков на YouTube",
+                "100 000 подписчиков на YouTube",
+                "Алаеро",
+                "Баги в программах и играх",
+                "1 000 000 подписчиков на YouTube",
+                "Критическая ошибка",
+                "Инструкция \"Как поднять бабла\"",
+                "Не учиться",
+                "Орёл",
+                "Ничего",
+                "Очередная функция в программе Jekyll",
+                "По ОГЭ/ЕГЭ на отлично",
+                "Пинок",
+                "Лицензия на Minecraft",
+                "Котёнок",
+                "Много денег",
+                "Python, потому что почему-бы и нет",
+                "С#, очень прикольный язык, кстати",
+                "Повiстка в армию",
+                "Face",
+                "Windows 10",
+                "Премиум аккаунт",
+                "Мажорные предметы в играх",
+                "Музыка",
+                "PHP, теперь вы — домохозяйка",
+                "Посмотреть сериал",
+                "Canyon",
+                "Gnome",
+                "Посмотри сериал/фильм, шо ты сидишь на компе",
+                "Мощный компьютер",
+                "Lamborgini",
+                "BMW",
+                "Какая-нибудь игра",
+                "Google",
+                "Лицензия на какую-нибудь игру",
+                "Красивые картинки в интернете",
+                "Samsung Galaxy",
+                "Пинболл",
+                "Отряд",
+                "Диспетчер задач",
+                "Audi"
+            };
 
-        private void RdmClear(object sender, RoutedEventArgs e) => RdmGlobal.Text = "Нажмите \"Крутить\", чтобы испытать удачу";
-        private void Free_Mode(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("RandomFM.xaml", UriKind.Relative));
-        private void Rename(object sender, RoutedEventArgs e) => NameR();
+        private void RdmClear(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            RdmGlobal.Text = local.Localization.RandomTextBoxRdmGlobal;
+        }
 
-        void NameR() => NameL.Content = "Будем крутить для: " + name.Text;
+        private void Free_Mode(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            NavigationService.Navigate(new Uri("RouletteFM.xaml", UriKind.Relative));
+        }
+
+        private void Rename(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            NameR();
+        }
+
+        private void NameR() => NameL.Content = local.Localization.RandomStringName2 + name.Text;
 
         private async void RandomObject(object sender, RoutedEventArgs e)
         {
-            RdmGlobal.Text = "Пожалуйста, подождите...";
+            App.Sound();
+            RdmGlobal.Text = local.Localization.RandomButtonTwistExpectation;
             await Task.Delay(1000).ConfigureAwait(true);
-            a[0] = "Повiсточка на бан";
-            a[1] = "Photoshop";
-            a[2] = "Тёрка за $6999";
-            a[3] = "Калыван";
-            a[4] = "Шанс на повтор рулетки";
-            a[5] = "Решётка";
-            a[6] = "Шанс найти в жизни девушку/парня";
-            a[7] = "Подарок ВК";
-            a[8] = "50 рублей";
-            a[9] = "Самый крутой смартфон";
-            a[10] = "Защита от DDoS-аттаки на телефон";
-            a[11] = "Удача в жизни";
-            a[12] = "Счастье в жизни";
-            a[13] = "DDoS телефона";
-            a[14] = "10 000 подписчиков на YouTube";
-            a[15] = "100 000 подписчиков на YouTube";
-            a[16] = "Алаеро";
-            a[17] = "Баги в программах и играх";
-            a[18] = "1 000 000 подписчиков на YouTube";
-            a[19] = "Критическая ошибка";
-            a[20] = "Инструкция \"Как поднять бабла\"";
-            a[21] = "Не учиться";
-            a[22] = "Орёл";
-            a[23] = "Ничего";
-            a[24] = "Очередная функция в программе Jekyll";
-            a[25] = "По ОГЭ/ЕГЭ на отлично";
-            a[26] = "Пинок";
-            a[27] = "Лицензия на Minecraft";
-            a[28] = "Котёнок";
-            a[29] = "Много денег";
-            a[30] = "Python, потому что почему-бы и нет";
-            a[31] = "С#, очень прикольный язык, кстати";
-            a[32] = "Повiстка в армию";
-            a[33] = "Face";
-            a[34] = "Windows 10";
-            a[35] = "Премиум аккаунт";
-            a[36] = "Мажорные предметы в играх";
-            a[37] = "Музыка";
-            a[38] = "PHP, теперь вы - домохозяйка";
-            a[39] = "Посмотреть сериал";
-            a[40] = "Canyon";
-            a[41] = "Gnome";
-            a[42] = "Посмотри сериал/фильм, шо ты сидишь на компе";
-            a[43] = "Мощный компьютер";
-            a[44] = "Lamborgini";
-            a[45] = "BMW";
-            a[46] = "Какая-нибудь игра";
-            a[47] = "Google";
-            a[48] = "Лицензия на какую-нибудь игру";
-            a[49] = "Красивые картинки в интернете";
-            a[50] = "Samsung Galaxy";
-            a[51] = "Пинболл";
-            a[52] = "Отряд";
-            a[53] = "Диспетчер задач";
-            a[54] = "Audi";
-
             string str = a[new System.Random().Next(0, a.Length)];
-            RdmGlobal.Text = "Выпадает: " + Environment.NewLine + str;
+            RdmGlobal.Text = local.Localization.RandomButtonTwistOut + Environment.NewLine + str;
         }
 
         private void Name_KeyDown(object sender, KeyEventArgs e)

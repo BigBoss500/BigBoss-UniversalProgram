@@ -4,18 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Jekyll"
+      xmlns:loc="clr-namespace:Jekyll.local"
       mc:Ignorable="d" 
       d:DesignHeight="558" d:DesignWidth="800"
-      Title="Convert">
+      Title="{x:Static loc:Localization.ButtonConverter}">
 
     <Grid Background="#FF400042">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="20,332,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="760" Height="33" RenderTransformOrigin="0.566,0.727" Grid.ColumnSpan="2" Panel.ZIndex="4" FontSize="14"/>
-        <Label Content="Конвертер" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TabControl HorizontalAlignment="Left" Height="479" Margin="10,69,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2" BorderBrush="White">
+        <Label x:Name="Error" Content="" HorizontalAlignment="Left" Margin="20,332,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontFamily="Courier New" Foreground="Red" Width="760" Height="33" RenderTransformOrigin="0.566,0.727" Panel.ZIndex="4" FontSize="14"/>
+        <TabControl HorizontalAlignment="Left" Height="527" Margin="10,21,0,0" VerticalAlignment="Top" Width="780" BorderBrush="White">
             <TabControl.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="0,0,10,10"/>
@@ -33,10 +32,16 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="Green" />
+                                        <Setter TargetName="Border" Property="Background" Value="#ffa4ee" />
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <local:InvertEffect/>
+                                            </Setter.Value>
+                                        </Setter>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="Black"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -47,11 +52,26 @@
             <TabControl.Effect>
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TabControl.Effect>
-            <TabItem x:Name="tabItem" FontFamily="Trebuchet MS" FontSize="14" Background="White" Margin="-3.125,0,0,0">
+            <TabControl.Template>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                            <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Margin="0,4,0,0"/>
+                        </ScrollViewer>
+                        <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" Grid.Row="1"/>
+                        <Border Grid.Row="2" Background="White" Panel.ZIndex="-6" />
+                    </Grid>
+                </ControlTemplate>
+            </TabControl.Template>
+            <TabItem x:Name="tabItem" FontFamily="Trebuchet MS" FontSize="14" Background="White" Margin="-1,0,0,0">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/temp.png" Width="16"/>
-                        <Label Content="Температура"/>
+                        <Image Source="images/program/convert/temp.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterTemperature}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,0,0,2">
@@ -85,16 +105,16 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Label Content="Цельсии:" HorizontalAlignment="Left" Margin="234,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
-                    <Label Content="Фаренгейт:" HorizontalAlignment="Left" Margin="220,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
-                    <Label Content="Кельвин:" HorizontalAlignment="Left" Margin="234,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12"/>
+                    <Label Content="°C:" HorizontalAlignment="Left" Margin="280,62,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="°F:" HorizontalAlignment="Left" Margin="280,90,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="°K:" HorizontalAlignment="Left" Margin="280,118,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem  FontFamily="Trebuchet MS" HorizontalAlignment="Center" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/mass.png" Width="16"/>
-                        <Label Content="Масса"/>
+                        <Image Source="images/program/convert/mass.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterMass}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Background>
@@ -115,7 +135,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Милиграмм:" HorizontalAlignment="Left" Margin="163,58,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1"/>
+                    <Label Content="mg:" HorizontalAlignment="Left" Margin="223,63,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1" Padding="0" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
                     <TextBox x:Name="Gramm" TextChanged="GrammC" HorizontalAlignment="Left" Height="23" Margin="245,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -123,7 +143,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Грамм:" HorizontalAlignment="Left" Margin="192,86,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
                     <TextBox x:Name="Kilogramm" TextChanged="KilogrammC" HorizontalAlignment="Left" Height="23" Margin="245,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -131,7 +150,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килограмм:" HorizontalAlignment="Left" Margin="163,116,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
                     <TextBox x:Name="Tonn" TextChanged="TonnC" HorizontalAlignment="Left" Height="23" Margin="245,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand" Grid.Column="1">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -139,14 +157,16 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Тонн:" HorizontalAlignment="Left" Margin="199,143,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Grid.Column="1"/>
+                    <Label Content="g:" HorizontalAlignment="Left" Margin="163,91,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1" Padding="0" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="kg:" HorizontalAlignment="Left" Margin="163,120,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1" Padding="0" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="t:" HorizontalAlignment="Left" Margin="163,148,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="82" Grid.Column="1" Padding="0" Grid.IsSharedSizeScope="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/byte.png" Width="16"/>
-                        <Label Content="Данные"/>
+                        <Image Source="images/program/convert/byte.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterData}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Background>
@@ -163,7 +183,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Байт:" HorizontalAlignment="Left" Margin="90,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24"/>
+                    <Label Content="B:" HorizontalAlignment="Left" Margin="90,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
                     <TextBox x:Name="KiloByte" TextChanged="KilobyteC" HorizontalAlignment="Left" Height="24" Margin="134,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -171,7 +191,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килобайт:" HorizontalAlignment="Left" Margin="61,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
                     <TextBox x:Name="MegaByte" TextChanged="MegabyteC" HorizontalAlignment="Left" Height="24" Margin="134,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -179,7 +198,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Мегабайт:" HorizontalAlignment="Left" Margin="61,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
                     <TextBox x:Name="GigaByte" TextChanged="GigabyteC" HorizontalAlignment="Left" Height="24" Margin="134,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -187,7 +205,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Гигабайт:" HorizontalAlignment="Left" Margin="61,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
                     <TextBox x:Name="TeraByte" TextChanged="TerabyteC" HorizontalAlignment="Left" Height="24" Margin="134,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -195,7 +212,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Терабайт:" HorizontalAlignment="Left" Margin="61,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="73" Height="24"/>
                     <TextBox x:Name="Bit" TextChanged="BitC" HorizontalAlignment="Left" Height="24" Margin="463,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -203,7 +219,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Бит:" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24"/>
+                    <Label Content="b:" HorizontalAlignment="Left" Margin="426,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" Grid.IsSharedSizeScope="True"/>
                     <TextBox x:Name="KiloBit" TextChanged="KilobitC" HorizontalAlignment="Left" Height="24" Margin="463,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -211,7 +227,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Килобит:" HorizontalAlignment="Left" Margin="398,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="65" Height="24"/>
                     <TextBox x:Name="MegaBit" TextChanged="MegabitC" HorizontalAlignment="Left" Height="24" Margin="463,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -219,7 +234,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Мегабит:" HorizontalAlignment="Left" Margin="397,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
                     <TextBox x:Name="GigaBit" TextChanged="GigabitC" HorizontalAlignment="Left" Height="24" Margin="463,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -227,7 +241,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Гигабит:" HorizontalAlignment="Left" Margin="397,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
                     <TextBox x:Name="TeraBit" TextChanged="TerabitC" HorizontalAlignment="Left" Height="24" Margin="463,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -235,15 +248,22 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Терабит:" HorizontalAlignment="Left" Margin="397,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="66" Height="24"/>
+                    <Label Content="KB:" HorizontalAlignment="Left" Margin="90,84,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="MB:" HorizontalAlignment="Left" Margin="90,113,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="GB:" HorizontalAlignment="Left" Margin="90,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="TB:" HorizontalAlignment="Left" Margin="90,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="44" Height="24" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="Kb:" HorizontalAlignment="Left" Margin="426,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" Grid.IsSharedSizeScope="True"/>
+                    <Label Content="Mb:" HorizontalAlignment="Left" Margin="426,112,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" Grid.IsSharedSizeScope="True"/>
+                    <Label Content="Gb:" HorizontalAlignment="Left" Margin="426,141,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" Grid.IsSharedSizeScope="True"/>
+                    <Label Content="Tb:" HorizontalAlignment="Left" Margin="426,170,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="12" Width="37" Height="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" Grid.IsSharedSizeScope="True"/>
 
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/length.png" Width="16"/>
-                        <Label Content="Длина"/>
+                        <Image Source="images/program/convert/length.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterLength}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <TabItem.Background>
@@ -260,7 +280,7 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Миллиметр:" HorizontalAlignment="Left" Margin="222,59,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
+                    <Label Content="mm:" HorizontalAlignment="Left" Margin="227,60,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
                     <TextBox x:Name="Santimetr" TextChanged="SantimetrC" HorizontalAlignment="Left" Height="23" Margin="322,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -268,7 +288,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Сантиметр:" HorizontalAlignment="Left" Margin="222,85,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95"/>
                     <TextBox x:Name="Metr" TextChanged="MetrC" HorizontalAlignment="Left" Height="23" Margin="322,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -276,7 +295,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Метр:" HorizontalAlignment="Left" Margin="264,112,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="51"/>
                     <TextBox x:Name="Kilometr" TextChanged="KilometrC" HorizontalAlignment="Left" Height="23" Margin="322,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -284,7 +302,6 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Километр:" HorizontalAlignment="Left" Margin="231,143,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="84"/>
                     <TextBox x:Name="Step" TextChanged="StepC" HorizontalAlignment="Left" Height="23" Margin="322,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -292,14 +309,17 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Шаг(среднее):" HorizontalAlignment="Left" Margin="198,174,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="119"/>
+                    <Label Content="Step:" HorizontalAlignment="Left" Margin="227,178,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Padding="0,0,0,3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="m:" HorizontalAlignment="Left" Margin="227,88,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="cm:" HorizontalAlignment="Left" Margin="227,118,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="km:" HorizontalAlignment="Left" Margin="227,146,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/currency.png" Width="16"/>
-                        <Label Content="Валюта"/>
+                        <Image Source="images/program/convert/currency.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterCurrency}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,0,0,0">
@@ -331,17 +351,15 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label x:Name="Res" Content="..." HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="764" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Courier New"/>
+                    <Label x:Name="Res" Content="..." HorizontalAlignment="Left" Margin="0,157,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="774" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Courier New"/>
                     <Label Content="=" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="754" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16"/>
-                    <Label Content="Из" HorizontalAlignment="Left" Margin="170,102,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
-                    <Label Content="в" HorizontalAlignment="Left" Margin="377,101,0,0" VerticalAlignment="Top" FontFamily="Courier New" Grid.ColumnSpan="2" Width="20"/>
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/double.png" Width="16"/>
-                        <Label Content="Двоичный"/>
+                        <Image Source="images/program/convert/double.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterBinary}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,0,0,0">
@@ -359,16 +377,16 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Десятичный:" HorizontalAlignment="Left" Margin="256,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
-                    <Label Content="Двоичный:" HorizontalAlignment="Left" Margin="422,57,0,0" VerticalAlignment="Top" FontFamily="Courier New"/>
+                    <Label Content="{x:Static loc:Localization.ConverterDecimal}" HorizontalAlignment="Left" Margin="231,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" Width="153" HorizontalContentAlignment="Center"/>
+                    <Label Content="{x:Static loc:Localization.ConverterBinary}" HorizontalAlignment="Left" Margin="389,57,0,0" VerticalAlignment="Top" FontFamily="Courier New" Width="153" HorizontalContentAlignment="Center"/>
 
                 </Grid>
             </TabItem>
             <TabItem FontFamily="Trebuchet MS" FontSize="14">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="images/program/convert/pressure.png" Width="16"/>
-                        <Label Content="Давление"/>
+                        <Image Source="images/program/convert/pressure.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterPressure}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="1,0,1,2">
@@ -400,14 +418,69 @@
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <Label Content="Паскаль:" HorizontalAlignment="Left" Margin="228,55,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="74" Height="30"/>
-                    <Label Content="Бар:" HorizontalAlignment="Left" Margin="262,83,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="42" Height="25"/>
-                    <Label Content="Атмосфера:" HorizontalAlignment="Left" Margin="212,111,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="91" Height="30"/>
-                    <Label Content="Торр:" HorizontalAlignment="Left" Margin="254,139,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="49" Height="27"/>
+                    <Label Content="Pa:" HorizontalAlignment="Left" Margin="228,53,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="74" Height="30" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="bar:" HorizontalAlignment="Left" Margin="260,83,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="42" Height="25" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="atm:" HorizontalAlignment="Left" Margin="212,109,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="91" Height="30" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0"/>
+                    <Label Content="Torr:" HorizontalAlignment="Left" Margin="253,139,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="49" Height="27" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
 
                 </Grid>
             </TabItem>
+            <TabItem FontFamily="Trebuchet MS" FontSize="14">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/program/convert/area.png" Width="20"/>
+                        <TextBlock Text="{x:Static loc:Localization.ConverterArea}" Margin="5,5,0,5"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="White" Margin="0,0,0,3">
+                    <TextBox x:Name="SantimetrSquare" TextChanged="SantimetrSquareC" HorizontalAlignment="Left" Height="23" Margin="322,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="см²:" HorizontalAlignment="Right" Margin="0,54,450,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Height="26" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="м²:" HorizontalAlignment="Right" Margin="0,83,450,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Width="95" Height="26" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="MetrSquare" TextChanged="MetrSquareC" HorizontalAlignment="Left" Height="23" Margin="322,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="KilometrSquare" TextChanged="KilometrSquareC" HorizontalAlignment="Left" Height="23" Margin="322,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="HarSquare" TextChanged="HarSquareC" HorizontalAlignment="Left" Height="23" Margin="322,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="MileSquare" TextChanged="MileSquareC" HorizontalAlignment="Left" Height="23" Margin="322,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" Cursor="Hand">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="км²:" HorizontalAlignment="Right" Margin="0,112,450,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Height="26" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="ha:" HorizontalAlignment="Right" Margin="0,141,450,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Height="26" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="mi²:" HorizontalAlignment="Right" Margin="0,173,450,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="14" Height="26" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
         </TabControl>
-
     </Grid>
 </Page>

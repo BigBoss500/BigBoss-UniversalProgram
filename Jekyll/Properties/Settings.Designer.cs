@@ -87,13 +87,13 @@ namespace Jekyll.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Параметр {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LicenseAgreement {
             get {
-                return ((string)(this["Параметр"]));
+                return ((bool)(this["LicenseAgreement"]));
             }
             set {
-                this["Параметр"] = value;
+                this["LicenseAgreement"] = value;
             }
         }
     }

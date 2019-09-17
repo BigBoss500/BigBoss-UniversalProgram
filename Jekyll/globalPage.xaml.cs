@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,19 +16,15 @@ namespace Jekyll
             EasterEgg.DisplayEgg(Text1);
             EasterEgg.DisplayImageEgg(ImageEgg);
         }
-        private string l = Environment.NewLine;
-        private void Open(object sender, RoutedEventArgs e) => _ = new Window1();
-
-        private void Button_Click(object sender, RoutedEventArgs e) => _ = new AutoClicker();
-
-        private void Page_Convert(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Converter.xaml", UriKind.Relative));
-        private void Page_Random(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Random.xaml", UriKind.Relative));
-        private void Page_News(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("News.xaml", UriKind.Relative));
-
-        private async void Text()
+        private static readonly string l = Environment.NewLine;
+        private void Open(object sender, RoutedEventArgs e)
         {
-            string[] str =
-            {
+            App.Sound();
+            ParserXML win = new ParserXML();
+            win.Show();
+        }
+        private readonly string[] str =
+        {
                 "Совет:" + l+l + "Стремись ты к совершенству, в конце концов!",
                 "Анекдот:" + l+l + "Он был настолько редкой тварью, что на ковчег пришел один.",
                 "Анекдот:" + l+l + "Думаете, вы знаете, что такое стресс?" + l + "В моём детстве, если вы пропустили серию мультика на ТВ, то вы просто пропустили её. Навсегда.",
@@ -50,7 +45,7 @@ namespace Jekyll
                 "Не забывайте предлагать идеи для программы!",
                 "Поиграйте в нашу замечательную рулетку!",
                 "Вы также можете поддержать автора, задонатив любую сумму, начиная от 1-го рубля!",
-                "Каждый раз, попадая на главную страницу, текст меняется рандомно.",
+                "Каждые 10 секунд текст меняется рандомно.",
                 "Как думаете, программа наберет популярность?",
                 "Добро пожаловать программу в Jekyll... что? Вы уже здесь были? Эм... ну ладно",
                 "Автокликер, по сравнению с автокликером на Python, намного быстрее и стабильнее, также, как и VK User Info, да и вообще программа стала быстрее работать.",
@@ -59,19 +54,48 @@ namespace Jekyll
                 "Название программы происхождена от острова Джекилл.",
                 "Если увидели баг, сразу сообщите автору.",
                 "Есть также секретная опция. Нажмите на меня и нажимайте любую клавишу на клавиатуре. Я бы мог подсказать, какая клавиша, но мне лень."
-            };
+        };
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            _ = new AutoClicker();
+        }
+
+        private void Page_Convert(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            NavigationService.Navigate(new Uri("Converter.xaml", UriKind.Relative));
+            MainWindow win = new MainWindow();
+            win.cont.Content = "Jekyll: " + WindowTitle;
+
+        }
+
+        private void Page_Random(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            NavigationService.Navigate(new Uri("Random.xaml", UriKind.Relative));
+        }
+
+        private async void Text()
+        {
             while (true)
             {
                 string s = str[new System.Random().Next(0, str.Length)];
                 RdmGlobal.Text = s;
-                await Task.Delay(10000).ConfigureAwait(true);
+                await Task.Delay(10000);
             }
         }
-        private void Page_TopSecret(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("TopSecret.xaml", UriKind.Relative));
-        private void Page_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Page_TopSecret(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            NavigationService.Navigate(new Uri("TopSecret.xaml", UriKind.Relative));
+            MainWindow win = new MainWindow();
+            win.cont.Content = "Jekyll: " + WindowTitle;
+        }
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.M) TopSecret.Visibility = Visibility.Visible;
         }
-        private void IdentifierIP_Window(object sender, RoutedEventArgs e) => _ = new IdentifierIP();
     }
 }

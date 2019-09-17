@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/program/close.svg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/click.wav")]
 
 

@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -19,10 +20,31 @@ namespace Jekyll
         public AutoClicker()
         {
             InitializeComponent();
-            IDtext.Text = Properties.Settings.Default.MillisValue.ToString(new CultureInfo("en-US"));
+            Clicked.Opacity = 0;
+            Poss();
+            IDtext.Text = Properties.Settings.Default.MillisValue.ToString();
         }
-        private void Rollup(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
+        private async void Rollup(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            for (double i = 1; i > 0; i -= 0.1)
+            {
+                Clicked.Opacity = i;
+                await Task.Delay(1);
+            }
+            Clicked.Opacity = 1;
+            WindowState = WindowState.Minimized;
+        }
+
         private void Drag(object sender, MouseButtonEventArgs e) => DragMove();
+        private async void Poss()
+        {
+            for (double i = 0; i < 1; i += 0.1)
+            {
+                Clicked.Opacity = i;
+                await Task.Delay(1);
+            }
+        }
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -44,10 +66,16 @@ namespace Jekyll
             return IntPtr.Zero;
         }
 
-        private void Close(object sender, RoutedEventArgs e)
+        private async void Close(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.MillisValue = int.Parse(IDtext.Text, new CultureInfo("en-US"));
+            App.Sound();
+            Properties.Settings.Default.MillisValue = int.Parse(IDtext.Text);
             Properties.Settings.Default.Save();
+            for (double i = 1; i > 0; i -= 0.1)
+            {
+                Clicked.Opacity = i;
+                await Task.Delay(1);
+            }
             if (click)
                 click = !click;
             Close();
@@ -57,16 +85,7 @@ namespace Jekyll
 
         private void ClickLeftMouseButtonMouseEvent()
         {
-            try
-            {
-                time = int.Parse(IDtext.Text, new CultureInfo("en-US"));
-                Error.Content = null;
-            }
-            catch (FormatException ex)
-            {
-                Error.Content = "Исключение " + ex.Message;
-                return;
-            }
+            time = int.Parse(IDtext.Text);
             click = !click;
             new Thread(new ThreadStart(Clicker), 26214400).Start();
         }

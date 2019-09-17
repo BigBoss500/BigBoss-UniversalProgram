@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Jekyll.ConverterPages.Converters.Data">
+  <ContentView.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Байт:" VerticalOptions="Center" />
+                    <Entry x:Name="Byte" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="ByteC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Килобайт:" VerticalOptions="Center" />
+                    <Entry x:Name="KiloByte" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="KilobyteC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Мегабайт:" VerticalOptions="Center" />
+                    <Entry x:Name="MegaByte" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="MegabyteC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Гигабайт:" VerticalOptions="Center" />
+                    <Entry x:Name="GigaByte" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="GigabyteC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Терабайт:" VerticalOptions="Center" />
+                    <Entry x:Name="TeraByte" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="TerabyteC"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="10,30,0,0">
+                    <Label Text="Бит:" VerticalOptions="Center" />
+                    <Entry x:Name="Bit" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="BitC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Килобит:" VerticalOptions="Center" />
+                    <Entry x:Name="KiloBit" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="KilobitC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Мегабит:" VerticalOptions="Center" />
+                    <Entry x:Name="MegaBit" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="MegabitC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Гигабит:" VerticalOptions="Center" />
+                    <Entry x:Name="GigaBit" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="GigabitC"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label Text="Терабит:" VerticalOptions="Center" />
+                    <Entry x:Name="TeraBit" Placeholder="Только цифры" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextChanged="TerabitC"/>
+                </StackLayout>
+                
+
+                <Label Margin="0,20,0,0" TextColor="Red" x:Name="Error" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

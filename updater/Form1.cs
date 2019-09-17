@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace updater
 {
@@ -15,15 +17,15 @@ namespace updater
             Thread t = new Thread(Download);
             t.Start();
         }
-
+        private string s;
         private void Download()
         {
             try
             {
-                string path = @"ru-RU\";
                 foreach (Process proc in Process.GetProcessesByName("Jekyll"))
                     proc.Kill();
                 Thread.Sleep(2000);
+                
                 File.Delete("Jekyll.exe");
                 File.Delete("Jekyll.exe.config");
                 using (WebClient wb = new WebClient())
@@ -35,9 +37,12 @@ namespace updater
                     {
                         wb.DownloadFile(new Uri(url[k]), filename[k]);
                     }
-                    if (!Directory.Exists(path))
-                        Directory.CreateDirectory(path);
-                    wb.DownloadFile("https://github.com/BigBoss500/Jekyll/raw/master/Jekyll/bin/Release/ru-RU/Jekyll.resources.dll", path + "Jekyll.resources.dll");
+                    wb.DownloadFile("https://github.com/BigBoss500/Jekyll/raw/master/Jekyll/bin/Release/ru-RU/Jekyll.resources.dll", @"ru-RU\Jekyll.resources.dll");
+                    wb.DownloadFile("https://github.com/BigBoss500/Jekyll/raw/master/Jekyll/bin/Release/fr-FR/Jekyll.resources.dll", @"fr-FR\Jekyll.resources.dll");
+                    s = wb.DownloadString($"https://raw.githubusercontent.com/BigBoss500/Jekyll/master/Jekyll/version/version.xml");
+
+                    RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Jekyll", true);
+                    key.SetValue("DisplayVersion", Regex.Match(s, "<version>(.*?)</version>").Groups[1].Value);
                     Completed();
                 }
             }

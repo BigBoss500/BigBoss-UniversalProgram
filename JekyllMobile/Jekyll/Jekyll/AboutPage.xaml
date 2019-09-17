@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Jekyll.AboutPage"
+             Title="О программе">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#400042</Color>
+            <Color x:Key="Accent">#400042</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
+            <StackLayout Orientation="Vertical" Padding="0,0,0,40" Spacing="10">
+                <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                            <Image Source="jekyll_logo.png" VerticalOptions="Center" HeightRequest="100" />
+                        </ContentView>
+                    </StackLayout>
+                </StackLayout>
+                <Label FontSize="22" Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Jekyll" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="1.0.0" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span x:Name="AName" Text="Автор: Дмитрий Жутков" FontAttributes="Bold" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="10,0,0,0" x:Name="Version" Text="Версия от 10 августа 2019 года" FontAttributes="Bold"/>
+                <Label Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Приложение создано для решении задач и для развлечении, разработан с помощью платформы Xamarin." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="10,0,0,0" Text="Приложение с открытым исходным кодом."/>
+                <Button Margin="10,10,10,0" Text="Поддержать"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="DonatVK"
+                        TextColor="White" />
+                <Button Margin="10,10,10,0" Text="Посетить группу ВКонтакте"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="GroupVK"
+                        TextColor="White" />
+                <Button Margin="10,10,10,0" Text="Перейти в репозитории приложения"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="GitHub"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

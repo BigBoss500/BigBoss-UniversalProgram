@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Media;
 using System.Text;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace Jekyll
@@ -37,6 +39,11 @@ namespace Jekyll
                 MessageBoxButton.OK, 
                 MessageBoxImage.Error);
             e.Handled = true;
+        }
+        public static void Sound()
+        {
+            SoundPlayer snd = new SoundPlayer(Jekyll.Properties.Resources.click); //notify.wav
+            snd.Play();
         }
     }
 }

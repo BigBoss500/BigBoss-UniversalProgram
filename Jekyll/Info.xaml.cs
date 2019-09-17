@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Jekyll
@@ -20,10 +21,12 @@ namespace Jekyll
         public Info()
         {
             InitializeComponent();
+            In.Opacity = 0;
             EasterEgg.DisplayNameEgg(NameE);
             EasterEgg.Version(data);
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             Version.Content = "Jekyll v" + version.ToString();
+            Poss();
             new Thread(() =>
             {
                 using (WebClient wb = new WebClient())
@@ -31,30 +34,58 @@ namespace Jekyll
                     s = wb.DownloadString($"https://raw.githubusercontent.com/BigBoss500/Jekyll/master/Jekyll/version/version.xml");
                 }
                 Match vers = Regex.Match(s, "<version>(.*?)</version>");
-                float latest = float.Parse(vers.Groups[1].Value.Replace(".", ""), new CultureInfo("en-US"));
-                float current = float.Parse(Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".", ""), new CultureInfo("en-US"));
+                float latest = float.Parse(vers.Groups[1].Value.Replace(".", ""));
+                float current = float.Parse(Assembly.GetExecutingAssembly().GetName().Version.ToString().Replace(".", ""));
                 if (latest > current)
                     Dispatcher.Invoke(() =>
                     {
-                        TextUpd.Content = "Доступно обновление до v" + vers.Groups[1].Value;
+                        TextUpd.Content = local.Localization.InfoNewUpdate + vers.Groups[1].Value;
                         Download.Visibility = Visibility.Visible;
                     });
-                else Dispatcher.Invoke(() => TextUpd.Content = "Установлена последняя версия программы");
+                else Dispatcher.Invoke(() => TextUpd.Content = local.Localization.InfoLatestUpdate);
             }).Start();
 
         }
-        private void Close(object sender, RoutedEventArgs e) => Close();
+        private async void Poss()
+        {
+            for (double i = 0; i < 1; i += 0.1)
+            {
+                In.Opacity = i;
+                await Task.Delay(1);
+            }
+        }
+        private async void Close(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            for (double i = 1; i > 0; i -= 0.1)
+            {
+                In.Opacity = i;
+                await Task.Delay(1);
+            }
+            Close();
+        }
+
         private void Drag(object sender, RoutedEventArgs e) => DragMove();
-        private void VK(object sender, RoutedEventArgs e) => Process.Start("https://vk.com/jekyll_app");
-        private void GitHub(object sender, RoutedEventArgs e) => Process.Start("https://github.com/BigBoss500/Jekyll");
+        private void VK(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            Process.Start("https://vk.com/jekyll_app");
+        }
+
+        private void GitHub(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            Process.Start("https://github.com/BigBoss500/Jekyll");
+        }
 
         private void Update(object sender, RoutedEventArgs e)
         {
+            App.Sound();
             Download.Visibility = Visibility.Hidden;
             progressBar1.Visibility = Visibility.Visible;
-            TextUpd.Content = "Скачивание...";
+            TextUpd.Content = local.Localization.InfoDownloadingUpdate;
             Match url1 = Regex.Match(s, "<url>(.*?)</url>");
-            string fileName = "SetupJekyll.exe";//к примеру... файл.zip замените названием того что скачиваете
+            string fileName = "updater.exe";
             if (File.Exists(fileName))
                 File.Delete(fileName);
             using (WebClient client = new WebClient())
@@ -66,21 +97,9 @@ namespace Jekyll
                 {
                     client.DownloadFileAsync(new Uri(url1.Groups[1].Value), fileName);
                 }
-                catch (WebException)
+                catch
                 {
-                    TextUpd.Content = "Не удалось загрузить обновление";
-                    progressBar1.Visibility = Visibility.Hidden;
-                    Download.Visibility = Visibility.Visible;
-                }
-                catch (ArgumentNullException)
-                {
-                    TextUpd.Content = "Не удалось загрузить обновление";
-                    progressBar1.Visibility = Visibility.Hidden;
-                    Download.Visibility = Visibility.Visible;
-                }
-                catch (InvalidOperationException)
-                {
-                    TextUpd.Content = "Не удалось загрузить обновление";
+                    TextUpd.Content = local.Localization.InfoErrorDownload;
                     progressBar1.Visibility = Visibility.Hidden;
                     Download.Visibility = Visibility.Visible;
                 }
@@ -91,7 +110,7 @@ namespace Jekyll
         {
 
             progressBar1.Visibility = Visibility.Hidden;
-            TextUpd.Content = "Загрузка завершена, идёт запуск...";
+            TextUpd.Content = local.Localization.InfoDownloadCompleted;
             Process.Start("SetupJekyll.exe");
             Application.Current.Shutdown();
         }
@@ -105,14 +124,20 @@ namespace Jekyll
 
         private void NameR(object sender, RoutedEventArgs e)
         {
+            App.Sound();
             RdmGlobal.Visibility = Visibility.Visible;
             CloseButton_Copy.Visibility = Visibility.Visible;
         }
         private void CloseButton_Copy_Click(object sender, RoutedEventArgs e)
         {
+            App.Sound();
             RdmGlobal.Visibility = Visibility.Hidden;
             CloseButton_Copy.Visibility = Visibility.Hidden;
         }
-        private void Button_Click(object sender, RoutedEventArgs e) => Process.Start("https://vk.com/jekyll_app?w=app6471849_-182154976");
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Sound();
+            Process.Start("https://vk.com/jekyll_app?w=app6471849_-182154976");
+        }
     }
 }

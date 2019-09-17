@@ -12,10 +12,7 @@ namespace Jekyll
         public TopSecret() => InitializeComponent();
 
         private static double p = Math.PI / 180;
-        double Cot(double x)
-        {
-            return 1 / Math.Tan(x);
-        }
+        private double Cot(double x) => 1 / Math.Tan(x);
         private void getPortalCoords(int x1, int z1, float a1, int x2, int z2, float a2)
         {
             if (Math.Abs(a1 - a2) < 1) Error.Content = "Углы не могут быть равны!";
@@ -28,13 +25,13 @@ namespace Jekyll
                     case -180:
                     case 0:
                     case 180:
-                        xres.Text = x1.ToString(new CultureInfo("en-US"));
+                        xres.Text = x1.ToString();
                         zres.Text = Math.Round(Cot(-a2 * p) * x1 - (x2 * Cot(-a2 * p) - z2)).ToString(new CultureInfo("en-US"));
                         Error.Content = null;
                         break;
                     case -90:
                     case 90:
-                        zres.Text = z1.ToString(new CultureInfo("en-US"));
+                        zres.Text = z1.ToString();
                         xres.Text = Math.Round(Math.Round(x2 * Cot(-a2 * p) - z2 + z1) / Cot(-a2 * p)).ToString(new CultureInfo("en-US"));
                         Error.Content = null;
                         break;
@@ -44,17 +41,17 @@ namespace Jekyll
                             case -180:
                             case 0:
                             case 180:
-                                xres.Text = x2.ToString(new CultureInfo("en-US"));
+                                xres.Text = x2.ToString();
                                 zres.Text = Math.Round(Cot(-a1 * p) * x2 - (x1 * Cot(-a1 * p) - z1)).ToString(new CultureInfo("en-US"));
                                 break;
                             case -90:
                             case 90:
-                                zres.Text = z2.ToString(new CultureInfo("en-US"));
-                                xres.Text = Math.Round((x1 * Cot(-a1 * p) - z1 + z2) / Cot(-a1 * p)).ToString(new CultureInfo("en-US"));
+                                zres.Text = z2.ToString();
+                                xres.Text = Math.Round((x1 * Cot(-a1 * p) - z1 + z2) / Cot(-a1 * p)).ToString();
                                 break;
                             default:
-                                xres.Text = Math.Round(((x1 * Cot(-a1 * p) - z1) - (x2 * Cot(-a2 * p) - z2)) / (Cot(-a1 * p) - Cot(-a2 * p))).ToString(new CultureInfo("en-US"));
-                                zres.Text = Math.Round(Cot(-a1 * p) * double.Parse(xres.Text, new CultureInfo("en-US")) - (x1 * Cot(-a1 * p) - z1)).ToString(new CultureInfo("en-US"));
+                                xres.Text = Math.Round(((x1 * Cot(-a1 * p) - z1) - (x2 * Cot(-a2 * p) - z2)) / (Cot(-a1 * p) - Cot(-a2 * p))).ToString();
+                                zres.Text = Math.Round(Cot(-a1 * p) * double.Parse(xres.Text, new CultureInfo("en-US")) - (x1 * Cot(-a1 * p) - z1)).ToString();
                                 break;
                         }
                         Error.Content = null;
@@ -66,13 +63,9 @@ namespace Jekyll
         {
             try
             {
-                getPortalCoords(int.Parse(x1inp.Text, new CultureInfo("en-US")), int.Parse(z1inp.Text, new CultureInfo("en-US")), float.Parse(a1inp.Text, new CultureInfo("en-US")), int.Parse(x2inp.Text, new CultureInfo("en-US")), int.Parse(z2inp.Text, new CultureInfo("en-US")), float.Parse(a2inp.Text, new CultureInfo("en-US")));
+                getPortalCoords(int.Parse(x1inp.Text), int.Parse(z1inp.Text), float.Parse(a1inp.Text), int.Parse(x2inp.Text), int.Parse(z2inp.Text), float.Parse(a2inp.Text));
             }
-            catch (FormatException ex)
-            {
-                Error.Content = $"Исключение: {ex.Message}";
-            }
-            catch (OverflowException ex)
+            catch (Exception ex)
             {
                 Error.Content = $"Исключение: {ex.Message}";
             }

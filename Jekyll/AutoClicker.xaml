@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jekyll"
-        Title="Автокликер" Height="440" Width="490" Visibility="Visible" WindowStyle="None"
-        AllowsTransparency="true">
+        xmlns:loc="clr-namespace:Jekyll.local"
+        x:Name="Clicked"
+        Title="Автокликер" Height="420" Width="470" Visibility="Visible" WindowStyle="None"
+        AllowsTransparency="true" Icon="jekyll.ico">
     <Window.Background>
         <SolidColorBrush Opacity="0" Color="White"/>
     </Window.Background>
@@ -21,7 +23,7 @@
         </Border>
         <Button Click="Close" x:Name="CloseButton" Style="{DynamicResource WindowButton}"
             Margin="418,-0.709,-1.016,374.834" VerticalAlignment="Bottom" Height="25.875" Panel.ZIndex="2"
-            Cursor="Hand" Background="White" HorizontalAlignment="Left" Width="33.016" ToolTip="Закрыть окно"
+            Cursor="Hand" Background="White" HorizontalAlignment="Left" Width="33.016" ToolTip="{x:Static loc:Localization.WindowClose}"
             BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18"
              Source="images/program/close.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
@@ -38,7 +40,7 @@
         <Button Click="Rollup" x:Name="RollupButton" Style="{DynamicResource WindowButton}"
             Margin="387,-0.709,0,374.834" Panel.ZIndex="2" Cursor="Hand" Background="White"
             HorizontalAlignment="Left" Width="31" Height="25.875" VerticalAlignment="Bottom"
-            ToolTip="Свернуть окно" Foreground="{x:Null}" BorderBrush="{x:Null}">
+            ToolTip="{x:Static loc:Localization.WindowRollup}" Foreground="{x:Null}" BorderBrush="{x:Null}">
             <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="18"
              Source="images/program/rollup.png" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="2">
                 <UIElement.RenderTransform>
@@ -53,15 +55,14 @@
         </Button>
         <Border MouseLeftButtonDown="Drag" BorderThickness="1" Height="22"
             Panel.ZIndex="4" Background="#00000000" Margin="0,0,63,378" Width="387"/>
-        <Label Content="Автокликер" Margin="18,-1,340,375"
+        <Label Content="Autoclicker" Margin="18,-1,340,375"
            Foreground="Black" Panel.ZIndex="2" FontFamily="Trebuchet MS" FontWeight="Bold"
            FontSize="14"/>
-        <Image Source="images/program/Jekyll.ico" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16"
+        <Image Source="jekyll.ico" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="16"
            OpacityMask="Black" Margin="4.75,3.75,0,0" Panel.ZIndex="2"/>
         <TextBox x:Name="IDtext" Height="22" Text="500"
              Width="98" FontFamily="Courier New" HorizontalContentAlignment="Center"
-             VerticalContentAlignment="Center" FontSize="14" Cursor="Hand"
-             ToolTip="ID в формате &quot;цифры&quot;" BorderBrush="{x:Null}" Margin="176,189" TextChanged="IDtext_TextChanged">
+             VerticalContentAlignment="Center" FontSize="14" Cursor="Hand" BorderBrush="{x:Null}" Margin="176,189" TextChanged="IDtext_TextChanged">
             <FrameworkElement.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="Border.CornerRadius" Value="10"/>
@@ -71,20 +72,21 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="2" Direction="-90"/>
             </UIElement.Effect>
         </TextBox>
-        <Label Content="Время автоклика в милисекундах:" Margin="90,154,90,220" FontFamily="Courier New" FontSize="14" Foreground="White"/>
-        <Label x:Name="Error" Content="" Margin="0,345,0,20" HorizontalContentAlignment="Center" FontFamily="Courier New" FontSize="14"
-           Foreground="Red"/>
-        <Label x:Name="Error_Copy" Content="Внимание! Не рекомендуется ставить меньше 5!"
+        <Label Content="{x:Static loc:Localization.AutoclickerTime}" Margin="0,154,0,220" FontFamily="Courier New" FontSize="14" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Error_Copy" Content="{x:Static loc:Localization.AutoclickerWarning}"
            Margin="0,259,0,115"
            HorizontalContentAlignment="Center" FontFamily="Courier New" FontSize="14" Foreground="Red"/>
-        <Label x:Name="Error_Copy1" Content="Управление:" Margin="0,45,0,327" HorizontalContentAlignment="Center" FontFamily="Courier New"
+        <Label x:Name="Error_Copy1" Content="{x:Static loc:Localization.AutoclickerH}" Margin="0,45,0,327" HorizontalContentAlignment="Center" FontFamily="Courier New"
            FontSize="16" Foreground="White"/>
-        <Label x:Name="Error_Copy2" Content="F2 - начать/остановить автоклик"
+        <Label x:Name="Error_Copy2" Content="{x:Static loc:Localization.AutoclickerControl}"
            Margin="0,73,0,295" HorizontalContentAlignment="Center"
            FontFamily="Courier New" FontSize="16" Foreground="White"/>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="450" Panel.ZIndex="-20" Background="#FF400042" BorderBrush="#FF400042" Grid.ColumnSpan="2">
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="450" Panel.ZIndex="-20" Background="#FF400042" BorderBrush="#FF400042">
             <Border.Effect>
-                <DropShadowEffect Direction="266" BlurRadius="15"/>
+                <DropShadowEffect Color="Black"
+                              Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
             </Border.Effect>
         </Border>
     </Grid>

@@ -16,7 +16,7 @@ namespace Jekyll
             Currenty();
         }
         private XDocument doc;
-
+        #region Temperature
         private void CelcionC(object sender, TextChangedEventArgs e)
         {
             if (Celcion.IsSelectionActive)
@@ -30,7 +30,7 @@ namespace Jekyll
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace Jekyll
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -64,11 +64,12 @@ namespace Jekyll
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
-
+        #endregion
+        #region Mass
         private void MiligrammC(object sender, TextChangedEventArgs e)
         {
             if (Miligramm.IsSelectionActive)
@@ -83,7 +84,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -101,7 +102,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -119,7 +120,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -137,11 +138,12 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
-
+        #endregion
+        #region Length
         private void MillimetrC(object sender, TextChangedEventArgs e)
         {
             if (Millimetr.IsSelectionActive)
@@ -157,7 +159,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -176,7 +178,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -195,7 +197,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -214,7 +216,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -233,11 +235,12 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
-
+        #endregion
+        #region Data
         private void ByteC(object sender, TextChangedEventArgs e)
         {
             if (Byte.IsSelectionActive)
@@ -258,7 +261,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -282,7 +285,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -306,7 +309,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -330,7 +333,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -354,7 +357,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -378,7 +381,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = "Исключение: " + ex.Message;
+                    Error.Content = local.Localization.StringException + ex.Message;
                 }
             }
         }
@@ -402,7 +405,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = "Исключение: " + ex.Message;
+                    Error.Content = local.Localization.StringException + ex.Message;
                 }
             }
         }
@@ -426,7 +429,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = "Исключение: " + ex.Message;
+                    Error.Content = local.Localization.StringException + ex.Message;
                 }
             }
         }
@@ -450,7 +453,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = "Исключение: " + ex.Message;
+                    Error.Content = local.Localization.StringException + ex.Message;
                 }
             }
         }
@@ -474,11 +477,12 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = "Исключение: " + ex.Message;
+                    Error.Content = local.Localization.StringException + ex.Message;
                 }
             }
         }
-
+        #endregion
+        #region Pressure
         private void PaskalC(object sender, TextChangedEventArgs e)
         {
             if (Paskal.IsSelectionActive)
@@ -493,7 +497,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -511,7 +515,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -529,7 +533,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -547,71 +551,71 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
-
+        #endregion
         private async void Currenty()
         {
             try
             {
-                await Task.Run(() => doc = XDocument.Load("https://www.cbr-xml-daily.ru/daily.xml")).ConfigureAwait(true);
+                await Task.Run(() => doc = XDocument.Load(local.Localization.ConverterSource));
                 var USD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01235"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var EUR = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01239"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var UAH = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01720"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var BYN = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01090B"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var AMD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01060"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var AUD = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01010"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var AZN = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01020A"
                            select new
                            {
                                nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value, new CultureInfo("en-US")),
-                               nom = float.Parse(x.Element("Nominal").Value, new CultureInfo("en-US"))
+                               val = float.Parse(x.Element("Value").Value),
+                               nom = float.Parse(x.Element("Nominal").Value)
                            }).SingleOrDefault();
                 var GBP = (from x in doc.Descendants("Valute")
                            where x.Attribute("ID").Value == "R01035"
@@ -836,7 +840,7 @@ namespace Jekyll
                 Curr2.DisplayMemberPath = "Value";
                 KeyValuePair<float, string>[] items = new[]
                 {
-                    new KeyValuePair<float, string>(1, "Рубль"),
+                    new KeyValuePair<float, string>(1, local.Localization.ConverterRuble),
                     new KeyValuePair<float, string>(USD.val / USD.nom, USD.nam),
                     new KeyValuePair<float, string>(EUR.val / EUR.nom, EUR.nam),
                     new KeyValuePair<float, string>(UAH.val / UAH.nom, UAH.nam),
@@ -870,18 +874,23 @@ namespace Jekyll
                     new KeyValuePair<float, string>(CHF.val / CHF.nom, CHF.nam),
                     new KeyValuePair<float, string>(ZAR.val / ZAR.nom, ZAR.nam),
                     new KeyValuePair<float, string>(KRW.val / KRW.nom, KRW.nam),
-                    new KeyValuePair<float, string>(JPY.val / JPY.nom, JPY.nam)
+                    new KeyValuePair<float, string>(JPY.val / JPY.nom, JPY.nam) //33
                 };
-                for (int x = 0; x < items.Length; x++)
+                //for (int x = 0; x < items.Length; x++)
+                //{
+                //    Curr1.Items.Add(items[x]);
+                //    Curr2.Items.Add(items[x]);
+                //}
+                foreach (var i in items)
                 {
-                    Curr1.Items.Add(items[x]);
-                    Curr2.Items.Add(items[x]);
+                    Curr1.Items.Add(i);
+                    Curr2.Items.Add(i);
                 }
                 Error.Content = null;
             }
             catch (Exception ex)
             {
-                Error.Content = $"Исключение: {ex.Message}";
+                Error.Content = $"{local.Localization.StringException}{ex.Message}";
             }
         }
 
@@ -894,13 +903,110 @@ namespace Jekyll
             }
             catch (Exception ex)
             {
-                Error.Content = $"Исключение: {ex.Message}";
+                Error.Content = $"{local.Localization.StringException}{ex.Message}";
             }
         }
 
         private void Number_TextChanged(object sender, TextChangedEventArgs e) => CurrConvert();
         private void Curr1_SelectionChanged(object sender, SelectionChangedEventArgs e) => CurrConvert();
         private void Curr2_SelectionChanged(object sender, SelectionChangedEventArgs e) => CurrConvert();
+        #region Area
+        private void SantimetrSquareC(object sender, TextChangedEventArgs e)
+        {
+            if (SantimetrSquare.IsSelectionActive)
+            {
+                try
+                {
+                    float s = float.Parse(SantimetrSquare.Text);
+                    MetrSquare.Text = (s / 10000).ToString();
+                    KilometrSquare.Text = (s / 1e+10F).ToString();
+                    HarSquare.Text = (s / 1e+8F).ToString();
+                    MileSquare.Text = (s / 2.59e+10F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
+                }
+            }
+        }
+        private void MetrSquareC(object sender, TextChangedEventArgs e)
+        {
+            if (MetrSquare.IsSelectionActive)
+            {
+                try
+                {
+                    float s = float.Parse(MetrSquare.Text);
+                    SantimetrSquare .Text = (s * 10000).ToString();
+                    KilometrSquare.Text = (s / 1e+6F).ToString();
+                    HarSquare.Text = (s / 10000).ToString();
+                    MileSquare.Text = (s / 2.59e+6F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
+                }
+            }
+        }
+        private void KilometrSquareC(object sender, TextChangedEventArgs e)
+        {
+            if (KilometrSquare.IsSelectionActive)
+            {
+                try
+                {
+                    float s = float.Parse(KilometrSquare.Text);
+                    SantimetrSquare.Text = (s * 1e+10F).ToString();
+                    MetrSquare.Text = (s * 1e+6F).ToString();
+                    HarSquare.Text = (s * 100).ToString();
+                    MileSquare.Text = (s / 2.59F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
+                }
+            }
+        }
+        private void HarSquareC(object sender, TextChangedEventArgs e)
+        {
+            if (HarSquare.IsSelectionActive)
+            {
+                try
+                {
+                    float s = float.Parse(HarSquare.Text);
+                    SantimetrSquare.Text = (s * 1e+8F).ToString();
+                    MetrSquare.Text = (s * 10000).ToString();
+                    KilometrSquare.Text = (s / 100).ToString();
+                    MileSquare.Text = (s / 258.999F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
+                }
+            }
+        }
+        private void MileSquareC(object sender, TextChangedEventArgs e)
+        {
+            if (MileSquare.IsSelectionActive)
+            {
+                try
+                {
+                    float s = float.Parse(MileSquare.Text);
+                    SantimetrSquare.Text = (s * 2.59e+10F).ToString();
+                    MetrSquare.Text = (s * 2.59e+6F).ToString();
+                    KilometrSquare.Text = (s * 2.59F).ToString();
+                    HarSquare.Text = (s * 258.999F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
+                }
+            }
+        }
+        #endregion
 
         private void DecimalC(object sender, TextChangedEventArgs e)
         {
@@ -914,7 +1020,7 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
@@ -930,10 +1036,9 @@ namespace Jekyll
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"Исключение: {ex.Message}";
+                    Error.Content = $"{local.Localization.StringException}{ex.Message}";
                 }
             }
         }
-
     }
 }

@@ -4,17 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Jekyll"
+      xmlns:res="clr-namespace:Jekyll.local"
       mc:Ignorable="d" 
       d:DesignHeight="558" d:DesignWidth="800"
-      Title="Random">
+      Title="{x:Static res:Localization.ButtonRoulette}">
 
     <Grid Background="#FF400042">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="Рулетка" HorizontalAlignment="Center" Margin="275,10,275,0" VerticalAlignment="Top" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontSize="36" Foreground="White" Height="54" Width="250" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="RdmGlobal"  Height="170" Margin="183,161,183,227" TextWrapping="Wrap" Text="Нажмите &quot;Крутить&quot;, чтобы испытать удачу" Width="434" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Trebuchet MS" FontSize="20" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" Grid.ColumnSpan="2" IsReadOnly="True">
+        <TextBox x:Name="RdmGlobal"  Height="170" Margin="183,161,183,227" TextWrapping="Wrap" Text="{x:Static res:Localization.RandomTextBoxRdmGlobal}" Width="434" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Trebuchet MS" FontSize="20" BorderBrush="{x:Null}" Background="#FF050505" Foreground="#FF0CFF00" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -24,7 +23,7 @@
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="name" Height="26" Margin="254,101,348,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Cursor="Hand" FontSize="16" FontFamily="Courier New" Grid.ColumnSpan="2" BorderBrush="{x:Null}" ToolTip="Введите здесь имя и фамилию" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="Name_KeyDown">
+        <TextBox x:Name="name" Height="26" Margin="254,101,348,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Cursor="Hand" FontSize="16" FontFamily="Courier New" BorderBrush="{x:Null}" ToolTip="{x:Static res:Localization.RandomTextBoxNameToolTip}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="Name_KeyDown">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -34,32 +33,35 @@
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TextBox.Effect>
         </TextBox>
-        <Button HorizontalAlignment="Left" ToolTipService.ShowDuration="10000" Style="{DynamicResource ButtonStyle1}" Click="Rename" Margin="56,101,0,0" VerticalAlignment="Top" Width="89" FontSize="14" BorderBrush="{x:Null}" Background="White" FontFamily="Trebuchet MS" Height="26" Grid.Column="1" ToolTip="Вывести данные внизу">
-            <StackPanel Orientation="Horizontal" Width="74" HorizontalAlignment="Left">
-                <Image Source="images/program/conclusion.png" Margin="0,0,3,0" Width="16"/>
-                <TextBlock Text="Вывести" Height="18"/>
+        <Button HorizontalAlignment="Left" ToolTipService.ShowDuration="10000" Style="{DynamicResource ButtonStyle1}" Click="Rename" Margin="456,101,0,0" VerticalAlignment="Top" FontSize="14" BorderBrush="{x:Null}" Background="White" FontFamily="Trebuchet MS" Height="26" ToolTip="{x:Static res:Localization.RandomButtonCheckNameToolTip}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="images/program/conclusion.png" Margin="5,0,3,0" Width="16"/>
+                <TextBlock Text="{x:Static res:Localization.RandomButtonCheckName}"/>
             </StackPanel>
         </Button>
-        <Button Style="{DynamicResource ButtonStyle1}" Margin="249,344,15,178" Click="RandomObject"  Width="136" FontSize="20" BorderBrush="{x:Null}" Background="White" Height="36" ToolTip="Испытать удачу">
-            <StackPanel Orientation="Horizontal" Width="116">
-                <Image Source="images/program/random_on.png" Margin="0,0,3,0" Width="32"/>
-                <TextBlock Text="Крутить" Height="29" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
-            </StackPanel>
-        </Button>
-        <Button Style="{DynamicResource ButtonStyle1}" Margin="15,344,249,178" Click="RdmClear" Width="136" FontSize="20" BorderBrush="{x:Null}" Background="White" Grid.Column="1" Height="36" ToolTip="Обнулить данные о выпаде элемента">
-            <StackPanel Orientation="Horizontal" Width="118">
-                <Image Source="images/program/random_off.png" Margin="0,0,3,0" Width="32"/>
-                <TextBlock Text="Обнулить" Height="29" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
-            </StackPanel>
-        </Button>
-        <Label x:Name="NameL" Content="Будем крутить для: Вы" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" Width="780" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Height="26"/>
-        <Button x:Name="button" Click="Free_Mode" HorizontalAlignment="Left" Margin="195,513,0,0" VerticalAlignment="Top" Width="195" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" ToolTip="Создание своей рулетки">
-            <StackPanel Orientation="Horizontal" Width="184" Height="31" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Margin="241,331,241,163" HorizontalAlignment="Center" >
+            <Button Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Center" Margin="0,0,0,0" Click="RandomObject" FontSize="20" BorderBrush="{x:Null}" Background="White" Height="36" ToolTip="{x:Static res:Localization.RandomButtonTwistToolTip}">
+                <StackPanel Orientation="Horizontal" Margin="15,0">
+                    <Image Source="images/program/random_on.png" Margin="0,0,3,0" Width="32"/>
+                    <TextBlock Text="{x:Static res:Localization.RandomButtonTwist}" Height="28" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{DynamicResource ButtonStyle1}" HorizontalAlignment="Center" Margin="20,0,0,0" Click="RdmClear" FontSize="20" BorderBrush="{x:Null}" Background="White" Grid.Column="1" Height="36" ToolTip="{x:Static res:Localization.RandomButtonZeroOutToolTip}">
+                <StackPanel Orientation="Horizontal" Margin="15,0">
+                    <Image Source="images/program/random_off.png" Margin="0,0,3,0" />
+                    <TextBlock Text="{x:Static res:Localization.RandomButtonZeroOut}" Height="29" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" FontWeight="Bold" FontSize="22"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <Label x:Name="NameL" Content="{x:Static res:Localization.RandomStringName1}" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" Width="780" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26"/>
+        <Button x:Name="button" Click="Free_Mode" HorizontalAlignment="Right" Margin="0,513,10,0" VerticalAlignment="Top" Height="35" Background="White" BorderBrush="{x:Null}" Cursor="Hand" Style="{DynamicResource ButtonStyle1}" ToolTip="{x:Static res:Localization.RandomButtonFreeModeToolTip}">
+            <StackPanel Orientation="Horizontal" Height="31" Margin="15,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Image Source="images/program/random.png" Margin="0,0,2,0" Width="38" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Свободный режим" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" Padding="0" FontSize="22" FontWeight="Bold" UseLayoutRounding="True" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="0,3,0,0"/>
+                <TextBlock Text="{x:Static res:Localization.RandomButtonFreeMode}" FontFamily="pack://application:,,,/fonts/Mistral/#Mistral" Padding="0" FontSize="22" FontWeight="Bold" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"/>
             </StackPanel>
         </Button>
-        <Label x:Name="Var" Content="Будем крутить для: Вы" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" Width="780" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Height="26"/>
+        <Label x:Name="Var" Content="" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="Trebuchet MS" FontSize="14" Width="780" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26"/>
 
     </Grid>
 </Page>

@@ -18,6 +18,6 @@
     <filename>fr-FR/Olib.resources.dll</filename>
 </FileNames>
 <FileDirectorys>
-    <direcory>ru-RU/</directory>
-    <direcory>fr-FR/</directory>
+    <directory>ru-RU/</directory>
+    <directory>fr-FR/</directory>
 </FileDirectorys>

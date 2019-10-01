@@ -1,6 +1,6 @@
 <Global>
-    <name>Jekyll</name>
-    <version>1.2.1.0</version>
+    <name>Olib</name>
+    <version>2.0.0.0</version>
     <url>https://raw.githubusercontent.com/BigBoss500/Jekyll/master/updater/bin/Debug/updater.exe</url>
 </Global>
 <Files>

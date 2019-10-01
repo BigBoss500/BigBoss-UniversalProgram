@@ -14,6 +14,10 @@
     <filename>Olib.exe</filename>
     <filename>Olib.exe.config</filename>
     <filename>Olib.exe.manifest</filename>
-    <filename>/ru-RU/Olib.resources.dll</filename>
-    <filename>/fr-FR/Olib.resources.dll</filename>
+    <filename>ru-RU/Olib.resources.dll</filename>
+    <filename>fr-FR/Olib.resources.dll</filename>
 </FileNames>
+<FileDirectorys>
+    <direcory>ru-RU/</directory>
+    <direcory>fr-FR/</directory>
+</FileDirectorys>

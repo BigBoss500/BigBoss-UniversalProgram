@@ -1,0 +1,19 @@
+<Global>
+    <name>Jekyll</name>
+    <version>1.2.1.0</version>
+    <url>https://raw.githubusercontent.com/BigBoss500/Jekyll/master/updater/bin/Debug/updater.exe</url>
+</Global>
+<Files>
+    <file>https://github.com/BigBoss500/Olib/raw/master/bin/Release/Olib.exe</file>
+    <file>https://raw.githubusercontent.com/BigBoss500/Olib/master/bin/Release/Olib.exe.config</file>
+    <file>https://raw.githubusercontent.com/BigBoss500/Olib/master/bin/Release/Olib.exe.manifest</file>
+    <file>https://github.com/BigBoss500/Olib/raw/master/bin/Release/ru-RU/Olib.resources.dll</file>
+    <file>https://github.com/BigBoss500/Olib/raw/master/bin/Release/fr-FR/Olib.resources.dll</file>
+</Files>
+<FileNames>
+    <filename>Olib.exe</filename>
+    <filename>Olib.exe.config</filename>
+    <filename>Olib.exe.manifest</filename>
+    <filename>ru-RU/Olib.resources.dll</filename>
+    <filename>fr-FR/Olib.resources.dll</filename>
+</FileNames>

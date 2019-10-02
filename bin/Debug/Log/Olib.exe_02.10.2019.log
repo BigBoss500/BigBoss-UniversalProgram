@@ -1,0 +1,20 @@
+[02.10.2019 15:44:46.745] [System.Windows.Markup.WpfXamlLoader.Load()] System.Windows.Markup.XamlParseException: "Вызов конструктора для типа "OlibUpdater.MainWindow", удовлетворяющего указанным ограничениям привязки, привел к выдаче исключения.": номер строки "7" и позиция в строке "9". ---> System.ArgumentNullException: Значение не может быть неопределенным.
+Имя параметра: input
+   в System.Text.RegularExpressions.Regex.Match(String input)
+   в System.Text.RegularExpressions.Regex.Match(String input, String pattern)
+   в OlibUpdater.Core.Update.CheckUpdate(Button b) в E:\Olib\Olib\Core\Update.cs:строка 25
+   в OlibUpdater.MainWindow..ctor() в E:\Olib\Olib\MainWindow.xaml.cs:строка 27
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   в System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   в System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   в System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   в System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   в System.Windows.Application.DoStartup()
+   в System.Windows.Application.<.ctor>b__1_0(Object unused)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 6.2.9200.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+

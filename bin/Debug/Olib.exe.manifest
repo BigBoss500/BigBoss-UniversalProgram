@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="576000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="577536">
       <assemblyIdentity name="Olib" version="2.0.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>q2oNilSMweHvDX9QBY8dWbit9t7z1xRX8lemKVRkgAo=</dsig:DigestValue>
+        <dsig:DigestValue>LgS4es7x3bTINbPinMIYH3qW0OxfGxmXOpntfGQaAn8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dwXeDk4IbIDLiypXPFvIYRcb0sfpSnsolEdjRS8/UWs=</dsig:DigestValue>
+        <dsig:DigestValue>q8Yg1HkVEjdQXey2KHB47eSLuJLs7wFad9m7PygTBGM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>N0nreIBXpjhlYl+R+Os1awVtX2mmMqNFVmekDvBV8uo=</dsig:DigestValue>
+        <dsig:DigestValue>qjFnHxCUYq6mEafeJS8nbbFr+0WnjEoues78DrrhkKg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

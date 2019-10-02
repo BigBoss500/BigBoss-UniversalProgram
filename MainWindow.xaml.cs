@@ -21,10 +21,7 @@ namespace OlibUpdater
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
         private bool OpenSideBar = false;
         private void Drag(object sender, MouseButtonEventArgs e) => DragMove();
         private void Full(object sender, RoutedEventArgs e)
@@ -105,6 +102,11 @@ namespace OlibUpdater
         {
             frame.NavigationService.Navigate(new Uri("Pages/converter.xaml", UriKind.Relative));
             HidenSideBar();
+        }
+
+        private async void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Core.Update.CheckUpdate(ButtUpdate);
         }
     }
 }

@@ -15,12 +15,12 @@ namespace OlibUpdater.Core
     static class Update
     {
         private static string str;
-        public static void CheckUpdate(Button b)
+        public static async Task CheckUpdate(Button b)
         {
             using (var wb = new WebClient())
             {
-                wb.DownloadStringCompleted += (s,e) => str = e.Result;
-                wb.DownloadStringAsync(new Uri($"https://raw.githubusercontent.com/BigBoss500/Jekyll/master/Jekyll/version/version.xml"));
+                wb.DownloadStringCompleted += (s, e) => str = e.Result;
+                await wb.DownloadStringTaskAsync(new Uri($"https://raw.githubusercontent.com/BigBoss500/Olib/master/versions/version.xml"));
             }
             Match vers = Regex.Match(str, "<version>(.*?)</version>");
             float latest = float.Parse(vers.Groups[1].Value.Replace(".", ""));

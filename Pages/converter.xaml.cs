@@ -1,22 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml.Linq;
 
-namespace OlibUpdater.Pages
+namespace Olib.Pages
 {
     /// <summary>
     /// Логика взаимодействия для converter.xaml
@@ -27,27 +18,7 @@ namespace OlibUpdater.Pages
         {
             InitializeComponent();
             Currenty();
-            AnimationText(this, null);
-        }
-        private void AnimationText1(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 0
-            };
-            anim.Completed += AnimationText;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-        }
-        private void AnimationText(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 10
-            };
-            anim.Completed += AnimationText1;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
+            Core.Animations.AnimationText(Warning);
         }
         private XDocument doc;
         #region Temperature
@@ -590,6 +561,60 @@ namespace OlibUpdater.Pages
             }
         }
         #endregion
+        #region Volume
+        private void MililitreC(object sender, TextChangedEventArgs e)
+        {
+            if (MiliLitre.IsSelectionActive)
+            {
+                try
+                {
+                    float m = float.Parse(MiliLitre.Text);
+                    Litre.Text = (m / 1000).ToString();
+                    MetrCube.Text = (m / 1e+6F).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{ex.Message}";
+                }
+            }
+        }
+        private void LitreC(object sender, TextChangedEventArgs e)
+        {
+            if (Litre.IsSelectionActive)
+            {
+                try
+                {
+                    float l = float.Parse(Litre.Text);
+                    MiliLitre.Text = (l * 1000).ToString();
+                    MetrCube.Text = (l / 1000).ToString();
+                    Error.Content = null;
+
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{ex.Message}";
+                }
+            }
+        }
+        private void MetrCubeC(object sender, TextChangedEventArgs e)
+        {
+            if (MetrCube.IsSelectionActive)
+            {
+                try
+                {
+                    float m = float.Parse(MetrCube.Text);
+                    MiliLitre.Text = (m * 1e+6F).ToString();
+                    Litre.Text = (m * 1000).ToString();
+                    Error.Content = null;
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{ex.Message}";
+                }
+            }
+        }
+        #endregion
         private async void Currenty()
         {
             try
@@ -910,11 +935,6 @@ namespace OlibUpdater.Pages
                     new KeyValuePair<float, string>(KRW.val / KRW.nom, KRW.nam),
                     new KeyValuePair<float, string>(JPY.val / JPY.nom, JPY.nam) //33
                 };
-                //for (int x = 0; x < items.Length; x++)
-                //{
-                //    Curr1.Items.Add(items[x]);
-                //    Curr2.Items.Add(items[x]);
-                //}
                 foreach (var i in items)
                 {
                     Curr1.Items.Add(i);

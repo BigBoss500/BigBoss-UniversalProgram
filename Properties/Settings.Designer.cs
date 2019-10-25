@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OlibUpdater.Properties {
+namespace Olib.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -106,6 +106,42 @@ namespace OlibUpdater.Properties {
             }
             set {
                 this["NumberItems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsDarkTheme {
+            get {
+                return ((bool)(this["IsDarkTheme"]));
+            }
+            set {
+                this["IsDarkTheme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Light")]
+        public string NameTheme {
+            get {
+                return ((string)(this["NameTheme"]));
+            }
+            set {
+                this["NameTheme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TopSecret {
+            get {
+                return ((bool)(this["TopSecret"]));
+            }
+            set {
+                this["TopSecret"] = value;
             }
         }
     }

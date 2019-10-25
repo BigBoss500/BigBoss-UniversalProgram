@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Olib" version="2.0.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Olib" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
     <commandLine file="Olib.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,38 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="535552">
-      <assemblyIdentity name="Olib" version="2.0.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="882688">
+      <assemblyIdentity name="Olib" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Cht/hjNNXVf8SzTIuK6Ll9VDGEvtoEmfEsWOmoaP76Y=</dsig:DigestValue>
+        <dsig:DigestValue>E+eaMghWVOcu3XAC9pvJE8CqeiniUmzhNueeW+XiLtQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr-FR\Olib.resources.dll" size="17920">
-      <assemblyIdentity name="Olib.resources" version="2.0.0.0" publicKeyToken="DD760AA9740B493B" language="fr-FR" processorArchitecture="msil" />
+      <assemblyIdentity name="Olib.resources" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="fr-FR" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>36RK9579ptnc33jG9gpCvXqYdPW2cWxt1Cby5RFh/dA=</dsig:DigestValue>
+        <dsig:DigestValue>cU5ACGhf8ZXEkeBmZY+rqbcvezUsu5oEfQWLmDDaeUE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru-RU\Olib.resources.dll" size="21504">
-      <assemblyIdentity name="Olib.resources" version="2.0.0.0" publicKeyToken="DD760AA9740B493B" language="ru-RU" processorArchitecture="msil" />
+      <assemblyIdentity name="Olib.resources" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="ru-RU" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y7yAPjhOzw/nv6+fPId5nQDQUm7Z4wXem+bHPIkkphs=</dsig:DigestValue>
+        <dsig:DigestValue>uTMSm92dbtBIlTlUKNiRknbdPyksJB3Bo1HsLSEuksU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,13 +87,22 @@
       <dsig:DigestValue>Pss8AKTqR980liG6ZoZvUK/rFnajud3o+6UemQSYILg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Olib.exe.config" size="1894">
+  <file name="Olib.exe.config" size="3416">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8m6e6odDeCKIMD0nIoLeMu9yv0pgNv/GjTnE/5Fmc4o=</dsig:DigestValue>
+      <dsig:DigestValue>R6fJU4VJaa8H+GdP88rTGczm7uLviwLGQ1/opO9G/JU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Sounds\sound_click.wav" size="812">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>u52EZk65oGgA04fGRV7uR/xE/Q+aFDRzLVWedJ3ADwo=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
@@ -106,11 +115,11 @@
       <!-- Windows 7 -->
       <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
       <!-- Windows 8 -->
-      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />
       <!-- Windows 8.1 -->
-      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />
       <!-- Windows 10 -->
-      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
     </application>
   </compatibility>
 </asmv1:assembly>

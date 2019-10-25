@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Xml;
 
-namespace OlibUpdater.Pages
+namespace Olib.Pages
 {
     /// <summary>
     /// Логика взаимодействия для dataParser.xaml
@@ -22,28 +22,7 @@ namespace OlibUpdater.Pages
         {
             InitializeComponent();
             Combo.SelectedIndex = 0;
-            AnimationText(this, null);
-        }
-
-        private void AnimationText1(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 0
-            };
-            anim.Completed += AnimationText;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-        }
-        private void AnimationText(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 10
-            };
-            anim.Completed += AnimationText1;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
+            Core.Animations.AnimationText(Warning);
         }
 
         private async void Parsing(object sender, RoutedEventArgs e)
@@ -100,8 +79,7 @@ namespace OlibUpdater.Pages
                 return;
             }
             SaveFileDialog save = new SaveFileDialog { Filter = "TXT-files (*.txt)|*.txt" };
-            bool? result = save.ShowDialog();
-            if (result == true)
+            if ((bool)save.ShowDialog())
             {
                 using (StreamWriter stream = new StreamWriter(save.FileName, false))
                 {

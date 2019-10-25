@@ -1,57 +1,22 @@
-﻿<Page x:Class="OlibUpdater.Pages.converter"
+﻿<Page x:Class="Olib.Pages.converter"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:OlibUpdater.Core"
-      xmlns:loc="clr-namespace:OlibUpdater.Local"
-      xmlns:local1="clr-namespace:OlibUpdater"
+      xmlns:loc="clr-namespace:Olib.Local"
+      xmlns:local1="clr-namespace:Olib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Конвертер">
 
 
     <Grid>
-        <Label x:Name="Error" FontFamily="{StaticResource OpenSans}" Panel.ZIndex="5" Foreground="Red" FontSize="14" VerticalAlignment="Bottom"  Margin="0,0,0,60" HorizontalContentAlignment="Center">
+        <Label x:Name="Error" Panel.ZIndex="5" Foreground="Red" FontSize="14" VerticalAlignment="Bottom"  Margin="0,0,0,60" HorizontalContentAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect x:Name="Warning" BlurRadius="0" ShadowDepth="0" Color="Red"/>
             </Label.Effect>
         </Label>
-        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="White">
-            <TabControl.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="0,0,3,3"/>
-                </Style>
-                <Style TargetType="TabItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="TabItem">
-                                <Border Name="Border" BorderThickness="1,1,1,0" CornerRadius="3,3,0,0" >
-                                    <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="3,1"/>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="#ffa4ee" />
-                                        <Setter Property="Effect">
-                                            <Setter.Value>
-                                                <local1:InvertEffect/>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Trigger>
-                                    <Trigger Property="IsSelected" Value="False">
-                                        <Setter TargetName="Border" Property="Background" Value="White" />
-                                        <Setter Property="Foreground" Value="Black"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="White" Style="{DynamicResource tabControlColor}">
             <TabControl.Effect>
                 <DropShadowEffect BlurRadius="10" Direction="-90" ShadowDepth="2"/>
             </TabControl.Effect>
@@ -66,468 +31,256 @@
                             <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Margin="0,4,0,0"/>
                         </ScrollViewer>
                         <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" Grid.Row="1"/>
-                        <Border Grid.Row="2" Background="White" Panel.ZIndex="-6" />
+                        <Border Grid.Row="2" Background="{DynamicResource backgroundControl}" Panel.ZIndex="-6" />
                     </Grid>
                 </ControlTemplate>
             </TabControl.Template>
-            <TabItem x:Name="tabItem" FontFamily="{StaticResource OpenSans}" FontSize="14" Background="White" Margin="-1,0,0,0">
+            <TabItem Margin="-1,0,0,0">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="16" Source="{StaticResource temperatureDrawingImage}"/>
+                        <Image Source="{StaticResource temperatureDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterTemperature}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0,0,0,2">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                            <Label Content="°C:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="Celcion" TextChanged="CelcionC" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Right" >
-                            <Label Content="°F:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="Farengate" TextChanged="FarengateC" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                            <Label Content="°K:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="Kelvin" TextChanged="KelvinC" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="°C:"/>
+                        <TextBox x:Name="Celcion" TextChanged="CelcionC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,5">
+                        <Label Content="°F:"/>
+                        <TextBox x:Name="Farengate" TextChanged="FarengateC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="°K:"/>
+                        <TextBox x:Name="Kelvin" TextChanged="KelvinC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem  FontFamily="{StaticResource OpenSans}" HorizontalAlignment="Center" FontSize="14" Background="White">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource massDrawingImage}"/>
+                        <Image Source="{StaticResource massDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterMass}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="1,0,0,6">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                            <Label Content="mg:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Miligramm" TextChanged="MiligrammC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Right" >
-                            <Label Content="g:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Gramm" TextChanged="GrammC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="kg:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Kilogramm" TextChanged="KilogrammC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Right">
-                            <Label Content="t:" HorizontalAlignment="Left" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Tonn" TextChanged="TonnC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
+                    <StackPanel>
+                        <Label Content="mg:"/>
+                        <TextBox x:Name="Miligramm" TextChanged="MiligrammC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,5">
+                        <Label Content="g:"/>
+                        <TextBox x:Name="Gramm" TextChanged="GrammC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="kg:"/>
+                        <TextBox x:Name="Kilogramm" TextChanged="KilogrammC"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5">
+                        <Label Content="t:"/>
+                        <TextBox x:Name="Tonn" TextChanged="TonnC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14" Background="White">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource dataDrawingImage}"/>
+                        <Image Source="{StaticResource dataDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterData}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0,0,0,3">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
                             <StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="B:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                                    <TextBox x:Name="Byte" TextChanged="ByteC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                                    <Label Content="KB:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                                    <TextBox x:Name="KiloByte" TextChanged="KilobyteC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="MB:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                                    <TextBox x:Name="MegaByte" TextChanged="MegabyteC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                                    <Label Content="GB:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                                    <TextBox x:Name="GigaByte" TextChanged="GigabyteC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="TB:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                                    <TextBox x:Name="TeraByte" TextChanged="TerabyteC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
+                                <Label Content="B:"/>
+                                <TextBox x:Name="Byte" TextChanged="ByteC"/>
                             </StackPanel>
-                            <StackPanel Margin="5,0,0,0">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="b:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" />
-                                    <TextBox x:Name="Bit" TextChanged="BitC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                                    <Label Content="Kb:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" />
-                                    <TextBox x:Name="KiloBit" TextChanged="KilobitC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="Mb:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" />
-                                    <TextBox x:Name="MegaBit" TextChanged="MegabitC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                                    <Label Content="Gb:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" />
-                                    <TextBox x:Name="GigaBit" TextChanged="GigabitC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Label Content="Tb:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0" />
-                                    <TextBox x:Name="TeraBit" TextChanged="TerabitC" Height="24" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type Border}">
-                                                <Setter Property="CornerRadius" Value="3"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
-                                </StackPanel>
+                            <StackPanel Margin="0,5">
+                                <Label Content="KB:"/>
+                                <TextBox x:Name="KiloByte" TextChanged="KilobyteC"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="MB:"/>
+                                <TextBox x:Name="MegaByte" TextChanged="MegabyteC"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,5">
+                                <Label Content="GB:"/>
+                                <TextBox x:Name="GigaByte" TextChanged="GigabyteC"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="TB:"/>
+                                <TextBox x:Name="TeraByte" TextChanged="TerabyteC"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="5,0,0,0" Orientation="Vertical">
+                            <StackPanel>
+                                <Label Content="b:"/>
+                                <TextBox x:Name="Bit" TextChanged="BitC"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,5">
+                                <Label Content="Kb:"/>
+                                <TextBox x:Name="KiloBit" TextChanged="KilobitC"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Mb:"/>
+                                <TextBox x:Name="MegaBit" TextChanged="MegabitC"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,5">
+                                <Label Content="Gb:"/>
+                                <TextBox x:Name="GigaBit" TextChanged="GigabitC"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Tb:"/>
+                                <TextBox x:Name="TeraBit" TextChanged="TerabitC"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </Grid>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14" Background="White">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource lengthDrawingImage}"/>
+                        <Image Source="{StaticResource lengthDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterLength}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0,0,0,3">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="mm:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Millimetr" TextChanged="MillimetrC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="cm:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Santimetr" TextChanged="SantimetrC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="m:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Metr" TextChanged="MetrC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="km:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Kilometr" TextChanged="KilometrC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                            <Label Content="Step:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Step" TextChanged="StepC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
+                    <StackPanel>
+                        <Label Content="mm:"/>
+                        <TextBox x:Name="Millimetr" TextChanged="MillimetrC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,5">
+                        <Label Content="cm:"/>
+                        <TextBox x:Name="Santimetr" TextChanged="SantimetrC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="m:"/>
+                        <TextBox x:Name="Metr" TextChanged="MetrC"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5">
+                        <Label Content="km:"/>
+                        <TextBox x:Name="Kilometr" TextChanged="KilometrC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Step:"/>
+                        <TextBox x:Name="Step" TextChanged="StepC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="9" Source="{StaticResource currencyDrawingImage}"/>
+                        <Image Width="11" Source="{StaticResource currencyDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterCurrency}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox x:Name="Number" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" TextChanged="Number_TextChanged">
-                            <TextBox.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="3"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                        <StackPanel Orientation="Horizontal">
-                            <ComboBox x:Name="Curr1" Width="180" BorderThickness="0" SelectionChanged="Curr1_SelectionChanged" Margin="0,10,20,10">
-                                <ComboBox.Background>
-                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                                        <GradientStop Color="White" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </ComboBox.Background>
-                            </ComboBox>
-                            <ComboBox x:Name="Curr2" Width="180" BorderBrush="White" BorderThickness="0" SelectionChanged="Curr2_SelectionChanged" Margin="0,10">
-                                <ComboBox.Background>
-                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                                        <GradientStop Color="White" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </ComboBox.Background>
-                            </ComboBox>
-                        </StackPanel>
-                        <Label Content="=" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" FontSize="16"/>
-                        <Label x:Name="Res" Content="..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="{StaticResource OpenSans}"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBox x:Name="Number" TextChanged="Number_TextChanged"/>
+                    <StackPanel>
+                        <ComboBox x:Name="Curr1" Width="180" BorderThickness="0" SelectionChanged="Curr1_SelectionChanged" Margin="0,10,20,10"/>
+                        <ComboBox x:Name="Curr2" Width="180" BorderThickness="0" SelectionChanged="Curr2_SelectionChanged" Margin="0,10"/>
                     </StackPanel>
-                </Grid>
+                    <Label Content="=" HorizontalContentAlignment="Center" FontSize="16"/>
+                    <Label x:Name="Res" Content="..." HorizontalContentAlignment="Center" FontSize="16"/>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource doubleDrawingImage}"/>
+                        <Image Source="{StaticResource doubleDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterBinary}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel Margin="0,0,10,0">
-                            <Label Content="{x:Static loc:Local.ConverterDecimal}" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="Decimal" Height="23" TextWrapping="Wrap" Width="180" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}"  TextChanged="DecimalC">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel>
-                            <Label Content="{x:Static loc:Local.ConverterBinary}" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="Double" Height="23" TextWrapping="Wrap" Width="180" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}"  TextChanged="DoubleC">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Margin="0,0,10,0" Orientation="Vertical">
+                        <Label Content="{x:Static loc:Local.ConverterDecimal}" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="Decimal" TextChanged="DecimalC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="{x:Static loc:Local.ConverterBinary}" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="Double" TextChanged="DoubleC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource pressureDrawingImage}"/>
+                        <Image Source="{StaticResource pressureDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterPressure}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="1,0,1,2">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="Pa:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Paskal" TextChanged="PaskalC" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="bar:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Bar" TextChanged="BarC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="atm:" FontFamily="{StaticResource OpenSans}" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0"/>
-                            <TextBox x:Name="Atmospfere" TextChanged="AtmospfereC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="Torr:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="Torr" TextChanged="TorrC" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="Pa:"/>
+                        <TextBox x:Name="Paskal" TextChanged="PaskalC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,5">
+                        <Label Content="bar:"/>
+                        <TextBox x:Name="Bar" TextChanged="BarC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="atm:"/>
+                        <TextBox x:Name="Atmospfere" TextChanged="AtmospfereC"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5">
+                        <Label Content="Torr:"/>
+                        <TextBox x:Name="Torr" TextChanged="TorrC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem FontFamily="{StaticResource OpenSans}" FontSize="14" Background="White">
+            <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="17" Source="{StaticResource areaDrawingImage}"/>
+                        <Image Source="{StaticResource areaDrawingImage}"/>
                         <TextBlock Text="{x:Static loc:Local.ConverterArea}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Grid Background="White" Margin="0,0,0,3">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="см²:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="SantimetrSquare" TextChanged="SantimetrSquareC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="м²:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="MetrSquare" TextChanged="MetrSquareC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="км²:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="KilometrSquare" TextChanged="KilometrSquareC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                            <Label Content="ha:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="HarSquare" TextChanged="HarSquareC" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="mi²:" FontFamily="{StaticResource OpenSans}" FontSize="14" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                            <TextBox x:Name="MileSquare" TextChanged="MileSquareC" Height="23" TextWrapping="Wrap" Width="250" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="{StaticResource OpenSans}" >
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="3"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="см²:"/>
+                        <TextBox x:Name="SantimetrSquare" TextChanged="SantimetrSquareC"/>
                     </StackPanel>
-                </Grid>
+                    <StackPanel Margin="0,5">
+                        <Label Content="м²:"/>
+                        <TextBox x:Name="MetrSquare" TextChanged="MetrSquareC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="км²:"/>
+                        <TextBox x:Name="KilometrSquare" TextChanged="KilometrSquareC"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5">
+                        <Label Content="ha:"/>
+                        <TextBox x:Name="HarSquare" TextChanged="HarSquareC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="mi²:"/>
+                        <TextBox x:Name="MileSquare" TextChanged="MileSquareC"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource volumeDrawingImage}"/>
+                        <TextBlock Text="Объем" Margin="5,5,0,5"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="ml:"/>
+                        <TextBox x:Name="MiliLitre" TextChanged="MililitreC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="l:"/>
+                        <TextBox x:Name="Litre" TextChanged="LitreC"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="m³:"/>
+                        <TextBox x:Name="MetrCube" TextChanged="MetrCubeC"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>

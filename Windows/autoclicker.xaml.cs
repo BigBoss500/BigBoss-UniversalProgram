@@ -19,7 +19,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace OlibUpdater.Windows
+namespace Olib.Windows
 {
     /// <summary>
     /// Логика взаимодействия для autoclicker.xaml
@@ -29,7 +29,7 @@ namespace OlibUpdater.Windows
         public autoclicker()
         {
             InitializeComponent();
-            AnimationText(this, null);
+            Core.Animations.AnimationText(Warning);
         }
         private HwndSource source;
         private bool click;
@@ -62,6 +62,7 @@ namespace OlibUpdater.Windows
 
         private void Clicker()
         {
+            Dispatcher.Invoke(() => Title = "Autoclicker*");
             while (click)
             {
                 Dispatcher.Invoke(() =>
@@ -71,6 +72,7 @@ namespace OlibUpdater.Windows
                 });
                 Thread.Sleep(time);
             }
+            Dispatcher.Invoke(() => Title = "Autoclicker");
         }
 
         private void Changed(object sender, TextChangedEventArgs e)
@@ -87,28 +89,21 @@ namespace OlibUpdater.Windows
         private void Close(object sender, EventArgs e)
         {
             if (click)
+            {
                 click = !click;
+            }
             Close();
         }
-        private void AnimationText1(object sender, EventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var anim = new DoubleAnimation
             {
-                Duration = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(0.3),
+                From = 1,
                 To = 0
             };
-            anim.Completed += AnimationText;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-        }
-        private void AnimationText(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 10
-            };
-            anim.Completed += AnimationText1;
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
+            anim.Completed += Close;
+            BeginAnimation(OpacityProperty, anim);
         }
     }
 

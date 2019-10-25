@@ -10,10 +10,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace OlibUpdater.Windows
+namespace Olib.Windows
 {
     /// <summary>
     /// Логика взаимодействия для rouletteFM_Settings.xaml
@@ -62,6 +63,18 @@ namespace OlibUpdater.Windows
                 SelectTime.Text = SelectTime.Text.Remove(SelectTime.Text.Length - 1);
                 SelectTime.SelectionStart = SelectTime.Text.Length;
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var anim = new DoubleAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                From = 1,
+                To = 0
+            };
+            anim.Completed += DoubleAnimation_Completed;
+            BeginAnimation(OpacityProperty, anim);
         }
     }
 }

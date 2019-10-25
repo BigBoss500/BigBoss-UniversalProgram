@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OlibUpdater.Local {
+namespace Olib.Local {
     using System;
     
     

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OlibUpdater.Pages
+namespace Olib.Pages
 {
     /// <summary>
     /// Логика взаимодействия для roulette.xaml
@@ -25,7 +25,7 @@ namespace OlibUpdater.Pages
             InitializeComponent();
             Var.Content = Local.Local.RandomStringOptions + a.Length;
         }
-        private void Button_Click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Pages/rouletteFM.xaml", UriKind.Relative));
+        private void Button_Click(object sender, RoutedEventArgs e) => _ = NavigationService.Navigate(new Uri("Pages/rouletteFM.xaml", UriKind.Relative));
 
         private readonly string[] a =
             {

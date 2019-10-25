@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace OlibUpdater.Core
+namespace Olib.Core
 {
     internal static class EasterEggs
     {

@@ -1,0 +1,16 @@
+[24.10.2019 14:12:36.033] [MS.Internal.Controls.InnerItemCollectionView.RemoveAt()] System.ArgumentOutOfRangeException: Значение removeIndex меньше нуля либо больше или равно Count.
+Имя параметра: index
+   в MS.Internal.Controls.InnerItemCollectionView.RemoveAt(Int32 index)
+   в System.Windows.Controls.ItemCollection.RemoveAt(Int32 removeIndex)
+   в Olib.Pages.rouletteFM.MenuRe_Click(Object sender, RoutedEventArgs e) в E:\Olib\Olib\Pages\rouletteFM.xaml.cs:строка 116
+   в System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   в System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   в System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   в System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   в System.Windows.Controls.MenuItem.InvokeClickAfterRender(Object arg)
+   в System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   в System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler) 
+ Операционная система: Microsoft Windows NT 10.0.18362.0 
+ Имеет 64-bit? — Да 
+ Версия, используемой для программы, .NET Framework: 4.0.30319.42000 
+

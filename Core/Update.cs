@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Diagnostics;
 
-namespace OlibUpdater.Core
+namespace Olib.Core
 {
     static class Update
     {

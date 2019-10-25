@@ -4,10 +4,11 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace OlibUpdater
+namespace Olib
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml
@@ -40,6 +41,35 @@ namespace OlibUpdater
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
             e.Handled = true;
+        }
+
+        private void Sound(object sender, RoutedEventArgs e)
+        {
+            using (var sound = new SoundPlayer(Olib.Properties.Resources.sound_click))
+            {
+                sound.Play();
+            }
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            string appTheme;
+            switch (Olib.Properties.Settings.Default.NameTheme)
+            {
+                case "Dark":
+                    appTheme = Core.Themes.WindowsTheme.Dark.ToString();
+                    break;
+                case "SeaFoam":
+                    appTheme = Core.Themes.WindowsTheme.SeaFoam.ToString();
+                    break;
+                case "Bloody":
+                    appTheme = Core.Themes.WindowsTheme.Bloody.ToString();
+                    break;
+                default:
+                    appTheme = Core.Themes.WindowsTheme.Light.ToString();
+                    break;
+            }
+            Resources.MergedDictionaries[0].Source = new Uri($"/Themes/{appTheme}.xaml", UriKind.Relative);
         }
     }
 }

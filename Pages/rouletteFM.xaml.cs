@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 
-namespace OlibUpdater.Pages
+namespace Olib.Pages
 {
     /// <summary>
     /// Логика взаимодействия для rouletteFM.xaml
@@ -31,18 +31,14 @@ namespace OlibUpdater.Pages
                 }
             }
             catch { }
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
-            AnimationText(this, null);
+            Core.Animations.AnimationText(Warning, Completed);
         }
         private int index, time = 1;
         private readonly string l = Environment.NewLine;
         private const long dot = 80000;
         private float b = 0;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new Windows.rouletteFM_Settings().Show();
-        }
+        private void Button_Click(object sender, RoutedEventArgs e) => new Windows.rouletteFM_Settings().Show();
         #region Random
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -106,52 +102,28 @@ namespace OlibUpdater.Pages
         #endregion
         private void ListBoxItem_ContextMenuOpening(object sender, ContextMenuEventArgs e) => index = List.SelectedIndex;
         private void NameR(object sender, RoutedEventArgs e) => AddItems();
-        private void ButtClick(object sender, RoutedEventArgs e)
-        {
-            AllClear();
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
-        }
-        private void AnimationText1(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 0
-            };
-            anim.Completed += AnimationText;
-            Completed.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-        }
-        private void AnimationText(object sender, EventArgs e)
-        {
-            var anim = new DoubleAnimation
-            {
-                Duration = TimeSpan.FromSeconds(1),
-                To = 10
-            };
-            anim.Completed += AnimationText1;
-            Completed.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-            Warning.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
-        }
+        private void ButtClick(object sender, RoutedEventArgs e) => AllClear();
         private void OpenRename(object sender, RoutedEventArgs e)
         {
             ItemsS.Sourc = List.Items[index].ToString();
             var win = new Windows.rouletteFM_Rename();
             win.Show();
-            win.Closed += Win_Closed;
+            win.Closed += (s, b) => List.Items[index] = ItemsS.Sourc;
         }
-        private void Win_Closed(object sender, EventArgs e) => List.Items[index] = ItemsS.Sourc;
         private void Button_Click_2(object sender, RoutedEventArgs e) => RdmGlobal.Text = Local.Local.RouletteFXTwist;
         private void MenuRe_Click(object sender, RoutedEventArgs e)
-        {
-            List.Items.RemoveAt(index);
+        { 
+            if (List.SelectedItem != null)
+            {
+                List.Items.Remove(List.SelectedItem);
+            }
             Properties.Settings.Default.ListItem.Clear();
             string[] p = (from object item in List.Items select item.ToString()).ToArray();
             foreach (var i in p)
             {
                 Properties.Settings.Default.ListItem.Add(i);
             }
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
+            Properties.Settings.Default.Save();
         }
 
         private void MenuCopy(object sender, RoutedEventArgs e)
@@ -165,14 +137,14 @@ namespace OlibUpdater.Pages
             List.Items.Clear();
             Properties.Settings.Default.ListItem.Clear();
             Properties.Settings.Default.FileName = Local.Local.RouletteFXListName;
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
+            Properties.Settings.Default.Save();
         }
 
         private void name_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter) AddItems();
         }
-        private void NormalMode(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Uri("Pages/roulette.xaml", UriKind.Relative));
+        private void NormalMode(object sender, RoutedEventArgs e) => _ = NavigationService.Navigate(new Uri("Pages/roulette.xaml", UriKind.Relative));
 
         private void AddItems()
         {
@@ -192,13 +164,14 @@ namespace OlibUpdater.Pages
             {
                 Properties.Settings.Default.ListItem.Add(i);
             }
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
+            Properties.Settings.Default.Save();
         }
 
         private void SaveXML(object sender, RoutedEventArgs e)
         {
             Complete.Content = null;
             Error.Content = null;
+            string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
             SaveFileDialog d = new SaveFileDialog { Filter = "XML-files (*.xml)|*.xml|TXT-files (*.txt)|*.txt" };
             if ((bool)d.ShowDialog())
             {
@@ -207,7 +180,6 @@ namespace OlibUpdater.Pages
                     case ".txt":
                             try
                             {
-                                string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
                                 List<string> list = new List<string>();
                                 foreach (var i in string_array)
                                 {
@@ -224,7 +196,6 @@ namespace OlibUpdater.Pages
                     case ".xml":
                             try
                             {
-                                string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
                                 XDocument doc = new XDocument(
                                 new XElement("Elements",
                                     from n in string_array select new XElement("Element", n)
@@ -241,6 +212,45 @@ namespace OlibUpdater.Pages
             }
 
         }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog d = new SaveFileDialog { Filter = "TXT-files (*.txt)|*.txt" };
+            if ((bool)d.ShowDialog())
+            {
+                try
+                {
+                    using (StreamWriter stream = new StreamWriter(d.FileName, true))
+                    {
+                        stream.WriteLine($"########\nТекст: {TextName.Text}\n\n{RdmGlobal.Text}");
+                    }
+                    Complete.Content = "Сохранено!";
+                }
+                catch (Exception ex)
+                {
+                    Error.Content = $"{ex.Message}";
+                }
+            }
+        }
+
+        private void List_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (List.SelectedItem != null)
+            {
+                if(e.Key == Key.Delete)
+                {
+                    List.Items.Remove(List.SelectedItem);
+                    Properties.Settings.Default.ListItem.Clear();
+                    string[] p = (from object item in List.Items select item.ToString()).ToArray();
+                    foreach (var i in p)
+                    {
+                        Properties.Settings.Default.ListItem.Add(i);
+                    }
+                    Properties.Settings.Default.Save();
+                }
+            }
+        }
+
         private void OpenXML(object sender, RoutedEventArgs e)
         {
             Complete.Content = null;
@@ -299,8 +309,8 @@ namespace OlibUpdater.Pages
                         }
                         break;
                 }
+                Properties.Settings.Default.Save();
             }
-            indexs.Content = Local.Local.RouletteFXItems + List.Items.Count;
         }
     }
     static class ItemsS

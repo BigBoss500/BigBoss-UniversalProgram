@@ -1,0 +1,6 @@
+E:\Olib\OlibWCF\obj\Debug\OlibWCF.csprojAssemblyReference.cache
+E:\Olib\OlibWCF\bin\Debug\OlibWCF.dll.config
+E:\Olib\OlibWCF\bin\Debug\OlibWCF.dll
+E:\Olib\OlibWCF\bin\Debug\OlibWCF.pdb
+E:\Olib\OlibWCF\obj\Debug\OlibWCF.dll
+E:\Olib\OlibWCF\obj\Debug\OlibWCF.pdb

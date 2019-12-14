@@ -31,7 +31,7 @@ namespace Olib.Pages
             Completed.Content = null;
             if (ValueText.Text == "")
             {
-                ParseX.Text = Local.Local.ParseXMLNoParse;
+                ParseX.Text = (string)Application.Current.Resources["NoParse"];
                 Bar.IsIndeterminate = false;
                 return;
             }
@@ -58,13 +58,13 @@ namespace Olib.Pages
             switch (Combo.SelectedIndex)
             {
                 case 0:
-                    LText.Content = "ID Вконтакте:";
+                    LText.Content = (string)Application.Current.Resources["IDVK"];
                     break;
                 case 1:
-                    LText.Content = "IP адрес:";
+                    LText.Content = (string)Application.Current.Resources["IP-A"];
                     break;
                 case 2:
-                    LText.Content = "Номер телефона:";
+                    LText.Content = (string)Application.Current.Resources["NumberT"];
                     break;
             }
         }
@@ -75,7 +75,7 @@ namespace Olib.Pages
         {
             if (ParseX.Text == "")
             {
-                ParseX.Text = Local.Local.ParseXMLNoList;
+                ParseX.Text = (string)Application.Current.Resources["NoListS"];
                 return;
             }
             SaveFileDialog save = new SaveFileDialog { Filter = "TXT-files (*.txt)|*.txt" };
@@ -86,7 +86,7 @@ namespace Olib.Pages
                     stream.WriteLine(ParseX.Text);
                 }
             }
-            Completed.Content = Local.Local.ParseXMLListSave;
+            Completed.Content = (string)Application.Current.Resources["SaveF"];
         }
 
         private void TextCh(object sender, TextChangedEventArgs e)
@@ -120,105 +120,105 @@ namespace Olib.Pages
             objNSMan.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
             objNSMan.AddNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
             string NameText, created, modifed, weblock, bdata, Out, sub, fr, gen, land, city, inter, site, bio, title, nick, stat;
-            string line = Environment.NewLine, notext = Local.LocalParser.StringNo;
+            string line = Environment.NewLine, notext = (string)Application.Current.Resources["NoText"];
             try//пользователь
             {
                 XmlNode NameP = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:name", objNSMan);
-                NameText = Local.LocalParser.StringPerson + NameP.InnerText + line;
+                NameText = (string)Application.Current.Resources["User"] + " " + NameP.InnerText + line;
             }
             catch
             {
-                return Local.LocalParser.StringNoPerson + line;
+                return (string)Application.Current.Resources["NoPerson"] + line;
             }
             try//дата создания страницы
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:created/@dc:date", objNSMan);
-                created = Local.LocalParser.StringPage + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
+                created = (string)Application.Current.Resources["PageCreate"] + " " + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
             }
             catch
             {
-                created = Local.LocalParser.StringPage + notext + line;
+                created = (string)Application.Current.Resources["PageCreate"] + " " + notext + line;
             }
             try//дата изменения
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:modified/@dc:date", objNSMan);
-                modifed = Local.LocalParser.StringPageChanged + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
+                modifed = (string)Application.Current.Resources["PageChanged"] + " " + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
             }
             catch
             {
-                modifed = Local.LocalParser.StringPageChanged + notext + line;
+                modifed = (string)Application.Current.Resources["PageChanged"] + " " + notext + line;
             }
             try//последний вход
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:lastLoggedIn/@dc:date", objNSMan);
-                Out = Local.LocalParser.StringLastOnline + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
+                Out = (string)Application.Current.Resources["LastOnline"] + " " + pars.InnerText.Replace("T", " | ").Replace("-", ".").Replace("+03:00", "") + line;
             }
             catch
             {
-                Out = Local.LocalParser.StringLastOnline + notext + line;
+                Out = (string)Application.Current.Resources["LastOnline"] + " " + notext + line;
             }
             try//ссылка на страницу
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:weblog/@rdf:resource", objNSMan);
-                weblock = Local.LocalParser.StringLink + pars.InnerText + line;
+                weblock = (string)Application.Current.Resources["LinkPage"] + " " + pars.InnerText + line;
             }
             catch
             {
-                weblock = Local.LocalParser.StringLink + notext + line;
+                weblock = (string)Application.Current.Resources["LinkPage"] + " " + notext + line;
             }
             try//день рождение
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:dateOfBirth", objNSMan);
-                bdata = Local.LocalParser.StringDateOfBirth + pars.InnerText.Replace("-", ".") + line;
+                bdata = (string)Application.Current.Resources["DataBirth"] + " " + pars.InnerText.Replace("-", ".") + line;
             }
             catch
             {
-                bdata = Local.LocalParser.StringDateOfBirth + notext + line;
+                bdata = (string)Application.Current.Resources["DataBirth"] + " " + notext + line;
             }
             try//кол-во подписчиков
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:subscribersCount", objNSMan);
-                sub = Local.LocalParser.StringNumberSubs + pars.InnerText + line;
+                sub = (string)Application.Current.Resources["NumSub"] + " " + pars.InnerText + line;
             }
             catch
             {
-                sub = Local.LocalParser.StringNumberSubs + notext + line;
+                sub = (string)Application.Current.Resources["NumSub"] + " " + notext + line;
             }
             try//кол-во друзей
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:friendsCount", objNSMan);
-                fr = Local.LocalParser.StringFriends + pars.InnerText + line;
+                fr = (string)Application.Current.Resources["Friends"] + " " + pars.InnerText + line;
             }
             catch
             {
-                fr = Local.LocalParser.StringFriends + notext + line;
+                fr = (string)Application.Current.Resources["Friends"] + " " + notext + line;
             }
             try//пол
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:gender", objNSMan);
-                gen = Local.LocalParser.StringFloor + pars.InnerText + line;
+                gen = (string)Application.Current.Resources["Floor"] + " " + pars.InnerText + line;
             }
             catch
             {
-                gen = Local.LocalParser.StringFloor + notext + line;
+                gen = (string)Application.Current.Resources["Floor"] + " " + notext + line;
             }
             try//страна
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:location/@ya:country", objNSMan);
-                land = Local.LocalParser.StringCountry + pars.InnerText + line;
+                land = (string)Application.Current.Resources["Country"] + " " + pars.InnerText + line;
             }
             catch
             {
-                land = Local.LocalParser.StringCountry + notext + line;
+                land = (string)Application.Current.Resources["Country"] + " " + notext + line;
             }
             try//город
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:location/@ya:city", objNSMan);
-                city = Local.LocalParser.StringCity + pars.InnerText + line;
+                city = (string)Application.Current.Resources["Sity"] + " " + pars.InnerText + line;
             }
             catch
             {
-                city = Local.LocalParser.StringCity + notext + line;
+                city = (string)Application.Current.Resources["Sity"] + " " + notext + line;
             }
             try//характеристики
             {
@@ -227,52 +227,52 @@ namespace Olib.Pages
             }
             catch
             {
-                inter = Local.LocalParser.StringSpecification + notext + line;
+                inter = (string)Application.Current.Resources["Spec"] + " " + notext + line;
             }
             try//сайт
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:homepage", objNSMan);
-                site = Local.LocalParser.StringSite + pars.InnerText + line;
+                site = (string)Application.Current.Resources["Site"] + " " + pars.InnerText + line;
             }
             catch
             {
-                site = Local.LocalParser.StringSite + notext + line;
+                site = (string)Application.Current.Resources["Site"] + " " + notext + line;
             }
             try//о себе
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:bio", objNSMan);
-                bio = Local.LocalParser.StringAbout + pars.InnerText + line;
+                bio = (string)Application.Current.Resources["About"] + " " + pars.InnerText + line;
             }
             catch
             {
-                bio = Local.LocalParser.StringAbout + notext + line;
+                bio = (string)Application.Current.Resources["About"] + " " + notext + line;
             }
             try//статус
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:weblog/@dc:title", objNSMan);
-                title = $"{Local.LocalParser.StringStatus}{pars.InnerText}" + line;
+                title = $"{(string)Application.Current.Resources["Status"]} {pars.InnerText}" + line;
             }
             catch
             {
-                title = Local.LocalParser.StringStatus + notext + line;
+                title = (string)Application.Current.Resources["Status"] + " " + notext + line;
             }
             try//ник
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/foaf:nick", objNSMan);
-                nick = $"{Local.LocalParser.StringNick}{pars.InnerText}" + line;
+                nick = $"{(string)Application.Current.Resources["Nickname"]} {pars.InnerText}" + line;
             }
             catch
             {
-                nick = Local.LocalParser.StringNick + notext + line;
+                nick = (string)Application.Current.Resources["Nickname"] + " " + notext + line;
             }
             try//статус профиля
             {
                 XmlNode pars = doc.DocumentElement.SelectSingleNode("foaf:Person/ya:profileState", objNSMan);
-                stat = $"{Local.LocalParser.StringProfileStatus}{pars.InnerText}" + line;
+                stat = $"{(string)Application.Current.Resources["ProfStatus"]} {pars.InnerText}" + line;
             }
             catch
             {
-                stat = Local.LocalParser.StringProfileStatus + notext + line;
+                stat = (string)Application.Current.Resources["ProfStatus"] + " " + notext + line;
             }
             return NameText + nick + stat + weblock + created + modifed + Out + gen + bdata + sub + fr + land + city + site + title + inter + bio;
         }
@@ -286,23 +286,23 @@ namespace Olib.Pages
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = Encoding.UTF8;
-                    await Task.Run(() => s = wc.DownloadString($"http://free.ipwhois.io/xml/{ID_and_IP}?lang={Local.LocalParser.LinkIPAdress}"));
+                    await Task.Run(() => s = wc.DownloadString($"http://free.ipwhois.io/xml/{ID_and_IP}?lang={(string)Application.Current.Resources["LangIP"]}"));
                 }
-                country = Local.LocalParser.StringCountry + Regex.Match(s, "<country>(.*?)</country>").Groups[1].Value + line;
-                sity = Local.LocalParser.StringCity + Regex.Match(s, "<city>(.*?)</city>").Groups[1].Value + line;
-                region = Local.LocalParser.Region + Regex.Match(s, "<region>(.*?)</region>").Groups[1].Value + line;
-                continent = Local.LocalParser.Continent + Regex.Match(s, "<continent>(.*?)</continent>").Groups[1].Value + line;
-                latitude = Local.LocalParser.Width + Regex.Match(s, "<latitude>(.*?)</latitude>").Groups[1].Value + line;
-                longitude = Local.LocalParser.Longitude + Regex.Match(s, "<longitude>(.*?)</longitude>").Groups[1].Value + line;
-                timezone = Local.LocalParser.Timezone + Regex.Match(s, "<timezone_gmt>(.*?)</timezone_gmt>").Groups[1].Value + line;
-                org = Local.LocalParser.Organization + Regex.Match(s, "<org>(.*?)</org>").Groups[1].Value + line;
-                isp = Local.LocalParser.InternetServiceProvider + Regex.Match(s, "<isp>(.*?)</isp>").Groups[1].Value + line;
-                currency = Local.LocalParser.Currency + Regex.Match(s, "<currency>(.*?)</currency>").Groups[1].Value + line;
+                country = (string)Application.Current.Resources["Country"] + " " + Regex.Match(s, "<country>(.*?)</country>").Groups[1].Value + line;
+                sity = (string)Application.Current.Resources["Sity"] + " " + Regex.Match(s, "<city>(.*?)</city>").Groups[1].Value + line;
+                region = (string)Application.Current.Resources["Region"] + " " + Regex.Match(s, "<region>(.*?)</region>").Groups[1].Value + line;
+                continent = (string)Application.Current.Resources["Continent"] + " " + Regex.Match(s, "<continent>(.*?)</continent>").Groups[1].Value + line;
+                latitude = (string)Application.Current.Resources["Width"] + " " + Regex.Match(s, "<latitude>(.*?)</latitude>").Groups[1].Value + line;
+                longitude = (string)Application.Current.Resources["Longitude"] + " " + Regex.Match(s, "<longitude>(.*?)</longitude>").Groups[1].Value + line;
+                timezone = (string)Application.Current.Resources["TimeZone"] + " " + Regex.Match(s, "<timezone_gmt>(.*?)</timezone_gmt>").Groups[1].Value + line;
+                org = (string)Application.Current.Resources["Organization"] + " " + Regex.Match(s, "<org>(.*?)</org>").Groups[1].Value + line;
+                isp = (string)Application.Current.Resources["Provider"] + " " + Regex.Match(s, "<isp>(.*?)</isp>").Groups[1].Value + line;
+                currency = (string)Application.Current.Resources["Currenty"] + " " + Regex.Match(s, "<currency>(.*?)</currency>").Groups[1].Value + line;
                 return continent + country + sity + region + latitude + longitude + timezone + org + isp + currency;
             }
             catch (Exception ex)
             {
-                return $"{Local.Local.StringException}{ex.Message}";
+                return $"{ex.Message}";
             }
         }
         public static async Task<string> PhoneNumber()
@@ -315,15 +315,15 @@ namespace Olib.Pages
                     wc.Encoding = Encoding.UTF8;
                     await Task.Run(() => s = wc.DownloadString($"http://www.megafon.ru/api/mfn/info?msisdn={ID_and_IP}"));
                 }
-                obl = Local.LocalParser.Operator + Regex.Match(s, "\"region\":\"(.*?)\"").Groups[1].Value + line;
-                oper = Local.LocalParser.Region + Regex.Match(s, "\"operator\":\"(.*?)\"").Groups[1].Value + line;
-                id_obl = Local.LocalParser.RegionID + Regex.Match(s, "\"region_id\":(.*?)}").Groups[1].Value + line;
-                id_oper = Local.LocalParser.OperatorID + Regex.Match(s, "\"operator_id\":(.*?),").Groups[1].Value + line;
+                obl = (string)Application.Current.Resources["Operator"] + " " + Regex.Match(s, "\"region\":\"(.*?)\"").Groups[1].Value + line;
+                oper = (string)Application.Current.Resources["Region"] + " " + Regex.Match(s, "\"operator\":\"(.*?)\"").Groups[1].Value + line;
+                id_obl = (string)Application.Current.Resources["RegionID"] + " " + Regex.Match(s, "\"region_id\":(.*?)}").Groups[1].Value + line;
+                id_oper = (string)Application.Current.Resources["OperatorID"] + " " + Regex.Match(s, "\"operator_id\":(.*?),").Groups[1].Value + line;
                 return obl + oper + id_obl + id_oper;
             }
             catch (Exception ex)
             {
-                return $"{Local.Local.StringException}{ex.Message}";
+                return $"{ex.Message}";
             }
         }
     }

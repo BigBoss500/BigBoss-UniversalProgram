@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Olib.Windows
 {
@@ -84,8 +75,16 @@ namespace Olib.Windows
             }
         }
 
-        private void Hide(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
-        private void Drag(object sender, MouseButtonEventArgs e) => DragMove();
+        private void Hide(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void Drag(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         private void Close(object sender, EventArgs e)
         {
             if (click)
@@ -96,18 +95,31 @@ namespace Olib.Windows
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var anim = new DoubleAnimation
+            DoubleAnimation anim = new DoubleAnimation
             {
-                Duration = TimeSpan.FromSeconds(0.3),
+                Duration = TimeSpan.FromSeconds(0.2),
                 From = 1,
-                To = 0
+                To = 0,
             };
-            anim.Completed += Close;
+            DoubleAnimation anim1 = new DoubleAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.2),
+                DecelerationRatio = 1,
+                From = 1,
+                To = 0.8,
+            };
+            anim1.Completed += Close;
+
+            Timeline.SetDesiredFrameRate(anim, 60);
+            Timeline.SetDesiredFrameRate(anim1, 60);
+
             BeginAnimation(OpacityProperty, anim);
+            ScaleWindow.BeginAnimation(ScaleTransform.ScaleXProperty, anim1);
+            ScaleWindow.BeginAnimation(ScaleTransform.ScaleYProperty, anim1);
         }
     }
 
-    class NativeMethods
+    internal class NativeMethods
     {
         [DllImport("user32.dll")]
         public static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, IntPtr dwExtraInfo);

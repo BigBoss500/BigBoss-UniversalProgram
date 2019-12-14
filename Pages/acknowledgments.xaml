@@ -1,0 +1,45 @@
+﻿<Page x:Class="Olib.Pages.acknowledgments"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Olib.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="{StaticResource Acknowledgments}">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Disabled">
+            <StackPanel Margin="20,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                    <Image Source="{StaticResource OlibDrawingImage}" Width="85" Margin="0,5,0,0" Height="85"/>
+                    <TextBlock Text="Olib" FontFamily="{StaticResource Bauhaus93}" Foreground="{StaticResource ForWindowColor}" Margin="5,0,0,0" FontSize="50" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <Label Content="{StaticResource ThanksList}" Foreground="{StaticResource ForWindowColor}" FontSize="18" HorizontalContentAlignment="Center"/>
+
+                <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource ForWindowColor}">
+                    <Run FontStyle="Italic" FontSize="14" >Sergey Shamanovsky </Run>
+                    <Run> - Translation into French and expansion of functionality</Run>
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource ForWindowColor}">
+                    <Run FontStyle="Italic" FontSize="14" >Aram Hovhannisyan </Run>
+                    <Run> - Armenian translation and Step Converter</Run>
+                </TextBlock>
+
+                <Label Foreground="{StaticResource ForWindowColor}" Content="{StaticResource Donat}" FontSize="18" HorizontalContentAlignment="Center"/>
+
+                <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource ForWindowColor}">
+                    <Run FontStyle="Italic" FontSize="14" >Sergey Shamanovsky </Run>
+                    <Run> - 20₽</Run>
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Center" Foreground="{StaticResource ForWindowColor}">
+                    <Run FontStyle="Italic" FontSize="14" >Maxim Grebelsky </Run>
+                    <Run> - 1₽</Run>
+                </TextBlock>
+
+                <Label x:Name="ClicksOlib" Foreground="{StaticResource ForWindowColor}" Content="Клики" FontSize="14" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

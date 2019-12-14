@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Olib.Pages"
       xmlns:local1="clr-namespace:Olib"
+      xmlns:e="clr-namespace:Olib.Core"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Dark Chat" Unloaded="Page_Unloaded">
@@ -18,14 +19,11 @@
         </Grid.RowDefinitions>
         <Border>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-                <Label Content="IP:" FontSize="15" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="tbIPAdress" Width="100" HorizontalContentAlignment="Center" />
-                <Label Content="Порт:" FontSize="15" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="tbHost" Width="50" HorizontalContentAlignment="Center"/>
-                <Label Content="Ник:" FontSize="15" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="tbNick" Width="125" HorizontalContentAlignment="Center"/>
-                <Button x:Name="bConnected" Style="{DynamicResource GlobalButton}" Padding="10,0" Margin="10,0,0,0" Content="Подключится" Click="Connecting"/>
-                <Button Style="{DynamicResource GlobalButton}" Padding="10,0" Margin="5,0,0,0" Content="Открыть хост" Click="OpenHost"/>
+                <TextBox x:Name="tbIPAdress" Width="100" HorizontalContentAlignment="Center" e:TextboxExtensions.Placeholder="IP"/>
+                <TextBox x:Name="tbHost" Width="50" Margin="5,0" HorizontalContentAlignment="Center" e:TextboxExtensions.Placeholder="{StaticResource Port}"/>
+                <TextBox x:Name="tbNick" Width="125" HorizontalContentAlignment="Center" e:TextboxExtensions.Placeholder="{StaticResource Nick}"/>
+                <Button x:Name="bConnected" Style="{DynamicResource GlobalButton}" Padding="10,0" Margin="10,0,0,0" Content="{StaticResource Connect}" Click="Connecting"/>
+                <Button Style="{DynamicResource GlobalButton}" Padding="10,0" Margin="5,0,0,0" Content="{StaticResource OpenHost}" Click="OpenHost"/>
             </StackPanel>
         </Border>
         <ListBox x:Name="lbChat" Grid.Row="1" Margin="10,0" BorderThickness="0"/>
@@ -38,10 +36,10 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbMessage" Margin="10" KeyDown="tbMessage_KeyDown"/>
-                <Button Grid.Column="1" Style="{DynamicResource GlobalButton}" Margin="0,10,10,10" Content="Отправить" Click="Button_Click"/>
+                <Button Grid.Column="1" Style="{DynamicResource GlobalButton}" Margin="0,10,10,10" Padding="10,0" Content="{StaticResource Submit}" Click="Button_Click"/>
             </Grid>
         </Border>
     </Grid>

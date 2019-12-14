@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
 using System.Xml.Linq;
 
 namespace Olib.Pages
@@ -28,14 +27,14 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float c = float.Parse(Celcion.Text);
+                    double c = double.Parse(Celcion.Text);
                     Farengate.Text = ((c * 9 / 5) + 32).ToString();
-                    Kelvin.Text = (c + 273.15F).ToString();
+                    Kelvin.Text = (c + 273.15).ToString();
                     Error.Content = null;
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -45,14 +44,14 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float f = float.Parse(Farengate.Text);
+                    double f = double.Parse(Farengate.Text);
                     Celcion.Text = ((f - 32) * 5 / 9).ToString();
-                    Kelvin.Text = ((f - 32) * 5 / 9 + 273.15F).ToString();
+                    Kelvin.Text = ((f - 32) * 5 / 9 + 273.15).ToString();
                     Error.Content = null;
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -62,14 +61,14 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float k = float.Parse(Kelvin.Text);
-                    Celcion.Text = (k - 273.15F).ToString();
-                    Farengate.Text = ((k - 273.15F) * 9 / 5 + 32).ToString();
+                    double k = double.Parse(Kelvin.Text);
+                    Celcion.Text = (k - 273.15).ToString();
+                    Farengate.Text = ((k - 273.15) * 9 / 5 + 32).ToString();
                     Error.Content = null;
                 }
                 catch (FormatException ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -81,7 +80,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float m = float.Parse(Miligramm.Text);
+                    double m = double.Parse(Miligramm.Text);
                     Gramm.Text = (m / 1000).ToString();
                     Kilogramm.Text = (m / 1000000).ToString();
                     Tonn.Text = (m / 1000000000).ToString();
@@ -89,7 +88,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -99,7 +98,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float g = float.Parse(Gramm.Text);
+                    double g = double.Parse(Gramm.Text);
                     Miligramm.Text = (g * 1000).ToString();
                     Kilogramm.Text = (g / 1000).ToString();
                     Tonn.Text = (g / 1000000).ToString();
@@ -107,7 +106,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -117,7 +116,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float k = float.Parse(Kilogramm.Text);
+                    double k = double.Parse(Kilogramm.Text);
                     Miligramm.Text = (k * 1000000).ToString();
                     Gramm.Text = (k * 1000).ToString();
                     Tonn.Text = (k / 1000).ToString();
@@ -125,7 +124,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -135,7 +134,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float t = float.Parse(Tonn.Text);
+                    double t = double.Parse(Tonn.Text);
                     Miligramm.Text = (t * 1000000000).ToString();
                     Gramm.Text = (t * 1000000).ToString();
                     Kilogramm.Text = (t * 1000).ToString();
@@ -143,7 +142,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -155,16 +154,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float mil = float.Parse(Millimetr.Text);
+                    double mil = double.Parse(Millimetr.Text);
                     Santimetr.Text = (mil / 10).ToString();
                     Metr.Text = (mil / 1000).ToString();
-                    Kilometr.Text = (mil / 1E+6F).ToString();
+                    Kilometr.Text = (mil / 1E+6).ToString();
                     Step.Text = (mil / 800).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -174,16 +173,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(Santimetr.Text);
+                    double s = double.Parse(Santimetr.Text);
                     Millimetr.Text = (s * 10).ToString();
                     Metr.Text = (s / 100).ToString();
-                    Kilometr.Text = (s / 1E+5F).ToString();
+                    Kilometr.Text = (s / 1E+5).ToString();
                     Step.Text = (s / 80).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -193,16 +192,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float m = float.Parse(Metr.Text);
+                    double m = double.Parse(Metr.Text);
                     Millimetr.Text = (m * 1000).ToString();
                     Santimetr.Text = (m * 100).ToString();
                     Kilometr.Text = (m / 1000).ToString();
-                    Step.Text = (m * 1.25F).ToString();
+                    Step.Text = (m * 1.25).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -212,8 +211,8 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float k = float.Parse(Kilometr.Text);
-                    Millimetr.Text = (k * 1E+6F).ToString();
+                    double k = double.Parse(Kilometr.Text);
+                    Millimetr.Text = (k * 1E+6).ToString();
                     Santimetr.Text = (k * 100000).ToString();
                     Metr.Text = (k * 1000).ToString();
                     Step.Text = (k * 1250).ToString();
@@ -221,7 +220,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -231,16 +230,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float st = float.Parse(Step.Text);
+                    double st = double.Parse(Step.Text);
                     Millimetr.Text = (st * 800).ToString();
                     Santimetr.Text = (st * 80).ToString();
-                    Metr.Text = (st / 1.25F).ToString();
+                    Metr.Text = (st / 1.25).ToString();
                     Kilometr.Text = (st / 1250).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -252,7 +251,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float b = float.Parse(Byte.Text);
+                    double b = double.Parse(Byte.Text);
                     KiloByte.Text = (b / 1024).ToString();
                     MegaByte.Text = (b / 1048576).ToString();
                     GigaByte.Text = (b / 1073741824).ToString();
@@ -260,13 +259,13 @@ namespace Olib.Pages
                     Bit.Text = (b * 8).ToString();
                     KiloBit.Text = (b / 125).ToString();
                     MegaBit.Text = (b / 125000).ToString();
-                    GigaBit.Text = (b / 1.25e+8F).ToString();
-                    TeraBit.Text = (b / 1.25e+11F).ToString();
+                    GigaBit.Text = (b / 1.25e+8).ToString();
+                    TeraBit.Text = (b / 1.25e+11).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -276,7 +275,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float k = float.Parse(KiloByte.Text);
+                    double k = double.Parse(KiloByte.Text);
                     Byte.Text = (k * 1024).ToString();
                     MegaByte.Text = (k / 1024).ToString();
                     GigaByte.Text = (k / 1048576).ToString();
@@ -285,12 +284,12 @@ namespace Olib.Pages
                     KiloBit.Text = (k * 8).ToString();
                     MegaBit.Text = (k / 125).ToString();
                     GigaBit.Text = (k / 125000).ToString();
-                    TeraBit.Text = (k / 1.25e+8F).ToString();
+                    TeraBit.Text = (k / 1.25e+8).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -300,12 +299,12 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float m = float.Parse(MegaByte.Text);
+                    double m = double.Parse(MegaByte.Text);
                     Byte.Text = (m * 1048576).ToString();
                     KiloByte.Text = (m * 1024).ToString();
                     GigaByte.Text = (m / 1024).ToString();
                     TeraByte.Text = (m / 1048576).ToString();
-                    Bit.Text = (m * 8e+6F).ToString();
+                    Bit.Text = (m * 8e+6).ToString();
                     KiloBit.Text = (m * 8000).ToString();
                     MegaBit.Text = (m * 8).ToString();
                     GigaBit.Text = (m / 125).ToString();
@@ -314,7 +313,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -324,13 +323,13 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float g = float.Parse(GigaByte.Text);
+                    double g = double.Parse(GigaByte.Text);
                     Byte.Text = (g * 1073741824).ToString();
                     KiloByte.Text = (g * 1048576).ToString();
                     MegaByte.Text = (g * 1024).ToString();
                     TeraByte.Text = (g / 1024).ToString();
-                    Bit.Text = (g * 8e+9F).ToString();
-                    KiloBit.Text = (g * 8e+6F).ToString();
+                    Bit.Text = (g * 8e+9).ToString();
+                    KiloBit.Text = (g * 8e+6).ToString();
                     MegaBit.Text = (g * 8000).ToString();
                     GigaBit.Text = (g * 8).ToString();
                     TeraBit.Text = (g / 125).ToString();
@@ -338,7 +337,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -348,21 +347,21 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float t = float.Parse(TeraByte.Text);
+                    double t = double.Parse(TeraByte.Text);
                     Byte.Text = (t * 1099511627776).ToString();
                     KiloByte.Text = (t * 1073741824).ToString();
                     MegaByte.Text = (t * 1048576).ToString();
                     GigaByte.Text = (t * 1024).ToString();
-                    Bit.Text = (t * 8e+12F).ToString();
-                    KiloBit.Text = (t * 8e+9F).ToString();
-                    MegaBit.Text = (t * 8e+6F).ToString();
+                    Bit.Text = (t * 8e+12).ToString();
+                    KiloBit.Text = (t * 8e+9).ToString();
+                    MegaBit.Text = (t * 8e+6).ToString();
                     GigaBit.Text = (t * 8000).ToString();
                     TeraBit.Text = (t * 8).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -372,7 +371,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float bit = float.Parse(Bit.Text);
+                    double bit = double.Parse(Bit.Text);
                     Byte.Text = (bit / 8).ToString();
                     KiloByte.Text = (bit / 8000).ToString();
                     MegaByte.Text = (bit / 8000000).ToString();
@@ -386,7 +385,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = Local.Local.StringException + ex.Message;
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -396,7 +395,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float ki = float.Parse(KiloBit.Text);
+                    double ki = double.Parse(KiloBit.Text);
                     Byte.Text = (ki * 125).ToString();
                     KiloByte.Text = (ki / 8).ToString();
                     MegaByte.Text = (ki / 8000).ToString();
@@ -410,7 +409,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = Local.Local.StringException + ex.Message;
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -420,7 +419,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float mi = float.Parse(MegaBit.Text);
+                    double mi = double.Parse(MegaBit.Text);
                     Byte.Text = (mi * 125000).ToString();
                     KiloByte.Text = (mi * 125).ToString();
                     MegaByte.Text = (mi / 8).ToString();
@@ -434,7 +433,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = Local.Local.StringException + ex.Message;
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -444,7 +443,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float gi = float.Parse(GigaBit.Text);
+                    double gi = double.Parse(GigaBit.Text);
                     Byte.Text = (gi * 125000000).ToString();
                     KiloByte.Text = (gi * 125000).ToString();
                     MegaByte.Text = (gi * 125).ToString();
@@ -458,7 +457,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = Local.Local.StringException + ex.Message;
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -468,7 +467,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float ti = float.Parse(TeraBit.Text);
+                    double ti = double.Parse(TeraBit.Text);
                     Byte.Text = (ti * 125000000000).ToString();
                     KiloByte.Text = (ti * 125000000).ToString();
                     MegaByte.Text = (ti * 125000).ToString();
@@ -482,7 +481,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = Local.Local.StringException + ex.Message;
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -494,15 +493,15 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float p = float.Parse(Paskal.Text);
+                    double p = double.Parse(Paskal.Text);
                     Bar.Text = (p / 100000).ToString();
                     Atmospfere.Text = (p / 101325).ToString();
-                    Torr.Text = (p / 133.322F).ToString();
+                    Torr.Text = (p / 133.322).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -512,15 +511,15 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float b = float.Parse(Bar.Text);
+                    double b = double.Parse(Bar.Text);
                     Paskal.Text = (b * 100000).ToString();
-                    Atmospfere.Text = (b / 1.013F).ToString();
-                    Torr.Text = (b * 750.062F).ToString();
+                    Atmospfere.Text = (b / 1.013).ToString();
+                    Torr.Text = (b * 750.062).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -530,15 +529,15 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float a = float.Parse(Atmospfere.Text);
+                    double a = double.Parse(Atmospfere.Text);
                     Paskal.Text = (a * 101325).ToString();
-                    Bar.Text = (a * 1.013F).ToString();
+                    Bar.Text = (a * 1.013).ToString();
                     Torr.Text = (a * 760).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -548,15 +547,15 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float t = float.Parse(Torr.Text);
-                    Paskal.Text = (t * 133.322F).ToString();
+                    double t = double.Parse(Torr.Text);
+                    Paskal.Text = (t * 133.322).ToString();
                     Atmospfere.Text = (t / 760).ToString();
-                    Bar.Text = (t / 750.062F).ToString();
+                    Bar.Text = (t / 750.062).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -568,14 +567,14 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float m = float.Parse(MiliLitre.Text);
+                    double m = double.Parse(MiliLitre.Text);
                     Litre.Text = (m / 1000).ToString();
-                    MetrCube.Text = (m / 1e+6F).ToString();
+                    MetrCube.Text = (m / 1e+6).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -585,7 +584,7 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float l = float.Parse(Litre.Text);
+                    double l = double.Parse(Litre.Text);
                     MiliLitre.Text = (l * 1000).ToString();
                     MetrCube.Text = (l / 1000).ToString();
                     Error.Content = null;
@@ -593,7 +592,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -603,14 +602,14 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float m = float.Parse(MetrCube.Text);
-                    MiliLitre.Text = (m * 1e+6F).ToString();
+                    double m = double.Parse(MetrCube.Text);
+                    MiliLitre.Text = (m * 1e+6).ToString();
                     Litre.Text = (m * 1000).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -619,323 +618,15 @@ namespace Olib.Pages
         {
             try
             {
-                await Task.Run(() => doc = XDocument.Load(Local.Local.ConverterSource));
-                var USD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01235"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var EUR = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01239"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var UAH = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01720"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var BYN = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01090B"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var AMD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01060"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var AUD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01010"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var AZN = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01020A"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var GBP = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01035"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var BGN = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01100"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var BRL = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01115"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var HUF = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01135"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var HKD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01200"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var DKK = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01215"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var INR = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01270"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var KZT = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01335"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var CAD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01350"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var KGS = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01370"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var CNY = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01375"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var MDL = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01500"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var NOK = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01535"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var PLN = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01565"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var RON = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01585F"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var XDR = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01589"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var SGD = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01625"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var TJS = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01670"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var TRY = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01700J"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var TMT = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01710A"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var UZS = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01717"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var CZK = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01760"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var SEK = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01770"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var CHF = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01775"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var ZAR = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01810"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var KRW = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01815"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-                var JPY = (from x in doc.Descendants("Valute")
-                           where x.Attribute("ID").Value == "R01820"
-                           select new
-                           {
-                               nam = x.Element("Name").Value,
-                               val = float.Parse(x.Element("Value").Value),
-                               nom = float.Parse(x.Element("Nominal").Value)
-                           }).SingleOrDefault();
-
+                await Task.Run(() => doc = XDocument.Load((string)Application.Current.Resources["SiteCur"]));
                 Curr1.SelectedValuePath = "Key";
                 Curr1.DisplayMemberPath = "Value";
                 Curr2.SelectedValuePath = "Key";
                 Curr2.DisplayMemberPath = "Value";
-                KeyValuePair<float, string>[] items = new[]
-                {
-                    new KeyValuePair<float, string>(1, Local.Local.ConverterRuble),
-                    new KeyValuePair<float, string>(USD.val / USD.nom, USD.nam),
-                    new KeyValuePair<float, string>(EUR.val / EUR.nom, EUR.nam),
-                    new KeyValuePair<float, string>(UAH.val / UAH.nom, UAH.nam),
-                    new KeyValuePair<float, string>(BYN.val / BYN.nom, BYN.nam),
-                    new KeyValuePair<float, string>(AMD.val / AMD.nom, AMD.nam),
-                    new KeyValuePair<float, string>(AUD.val / AUD.nom, AUD.nam),
-                    new KeyValuePair<float, string>(AZN.val / AZN.nom, AZN.nam),
-                    new KeyValuePair<float, string>(GBP.val / GBP.nom, GBP.nam),
-                    new KeyValuePair<float, string>(BGN.val / BGN.nom, BGN.nam),
-                    new KeyValuePair<float, string>(BRL.val / BRL.nom, BRL.nam),
-                    new KeyValuePair<float, string>(HUF.val / HUF.nom, HUF.nam),
-                    new KeyValuePair<float, string>(HKD.val / HKD.nom, HKD.nam),
-                    new KeyValuePair<float, string>(DKK.val / DKK.nom, DKK.nam),
-                    new KeyValuePair<float, string>(INR.val / INR.nom, INR.nam),
-                    new KeyValuePair<float, string>(KZT.val / KZT.nom, KZT.nam),
-                    new KeyValuePair<float, string>(CAD.val / CAD.nom, CAD.nam),
-                    new KeyValuePair<float, string>(KGS.val / KGS.nom, KGS.nam),
-                    new KeyValuePair<float, string>(CNY.val / CNY.nom, CNY.nam),
-                    new KeyValuePair<float, string>(MDL.val / MDL.nom, MDL.nam),
-                    new KeyValuePair<float, string>(NOK.val / NOK.nom, NOK.nam),
-                    new KeyValuePair<float, string>(PLN.val / PLN.nom, PLN.nam),
-                    new KeyValuePair<float, string>(RON.val / RON.nom, RON.nam),
-                    new KeyValuePair<float, string>(XDR.val / XDR.nom, XDR.nam),
-                    new KeyValuePair<float, string>(SGD.val / SGD.nom, SGD.nam),
-                    new KeyValuePair<float, string>(TJS.val / TJS.nom, TJS.nam),
-                    new KeyValuePair<float, string>(TRY.val / TRY.nom, TRY.nam),
-                    new KeyValuePair<float, string>(TMT.val / TMT.nom, TMT.nam),
-                    new KeyValuePair<float, string>(UZS.val / UZS.nom, UZS.nam),
-                    new KeyValuePair<float, string>(CZK.val / CZK.nom, CZK.nam),
-                    new KeyValuePair<float, string>(SEK.val / SEK.nom, SEK.nam),
-                    new KeyValuePair<float, string>(CHF.val / CHF.nom, CHF.nam),
-                    new KeyValuePair<float, string>(ZAR.val / ZAR.nom, ZAR.nam),
-                    new KeyValuePair<float, string>(KRW.val / KRW.nom, KRW.nam),
-                    new KeyValuePair<float, string>(JPY.val / JPY.nom, JPY.nam) //33
-                };
-                foreach (var i in items)
+                var q = from x in doc.Element("ValCurs").Elements("Valute") select new { V = double.Parse(x.Element("Value").Value) / double.Parse(x.Element("Nominal").Value), Name = x.Element("Name").Value };
+                var query = q.AsEnumerable().Select(i => new KeyValuePair<double, string>(i.V, i.Name)).ToList();
+                query.Insert(0, new KeyValuePair<double, string>(1, (string)Application.Current.Resources["Ruble"]));
+                foreach (var i in query)
                 {
                     Curr1.Items.Add(i);
                     Curr2.Items.Add(i);
@@ -944,7 +635,7 @@ namespace Olib.Pages
             }
             catch (Exception ex)
             {
-                Error.Content = $"{ex.Message}";
+                Error.Content = ex.Message;
             }
         }
 
@@ -952,12 +643,12 @@ namespace Olib.Pages
         {
             try
             {
-                Res.Content = Convert.ToString(float.Parse(Curr1.SelectedValue.ToString()) / float.Parse(Curr2.SelectedValue.ToString()) * float.Parse(Number.Text) + " " + Curr2.Text);
+                Res.Content = Convert.ToString(double.Parse(Curr1.SelectedValue.ToString()) / double.Parse(Curr2.SelectedValue.ToString()) * double.Parse(Number.Text) + " " + Curr2.Text);
                 Error.Content = null;
             }
             catch (Exception ex)
             {
-                Error.Content = $"{ex.Message}";
+                Error.Content = ex.Message;
             }
         }
 
@@ -971,16 +662,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(SantimetrSquare.Text);
+                    double s = double.Parse(SantimetrSquare.Text);
                     MetrSquare.Text = (s / 10000).ToString();
-                    KilometrSquare.Text = (s / 1e+10F).ToString();
-                    HarSquare.Text = (s / 1e+8F).ToString();
-                    MileSquare.Text = (s / 2.59e+10F).ToString();
+                    KilometrSquare.Text = (s / 1e+10).ToString();
+                    HarSquare.Text = (s / 1e+8).ToString();
+                    MileSquare.Text = (s / 2.59e+10).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -990,16 +681,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(MetrSquare.Text);
+                    double s = double.Parse(MetrSquare.Text);
                     SantimetrSquare.Text = (s * 10000).ToString();
-                    KilometrSquare.Text = (s / 1e+6F).ToString();
+                    KilometrSquare.Text = (s / 1e+6).ToString();
                     HarSquare.Text = (s / 10000).ToString();
-                    MileSquare.Text = (s / 2.59e+6F).ToString();
+                    MileSquare.Text = (s / 2.59e+6).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -1009,16 +700,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(KilometrSquare.Text);
-                    SantimetrSquare.Text = (s * 1e+10F).ToString();
-                    MetrSquare.Text = (s * 1e+6F).ToString();
+                    double s = double.Parse(KilometrSquare.Text);
+                    SantimetrSquare.Text = (s * 1e+10).ToString();
+                    MetrSquare.Text = (s * 1e+6).ToString();
                     HarSquare.Text = (s * 100).ToString();
-                    MileSquare.Text = (s / 2.59F).ToString();
+                    MileSquare.Text = (s / 2.59).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -1028,16 +719,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(HarSquare.Text);
-                    SantimetrSquare.Text = (s * 1e+8F).ToString();
+                    double s = double.Parse(HarSquare.Text);
+                    SantimetrSquare.Text = (s * 1e+8).ToString();
                     MetrSquare.Text = (s * 10000).ToString();
                     KilometrSquare.Text = (s / 100).ToString();
-                    MileSquare.Text = (s / 258.999F).ToString();
+                    MileSquare.Text = (s / 258.999).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -1047,16 +738,16 @@ namespace Olib.Pages
             {
                 try
                 {
-                    float s = float.Parse(MileSquare.Text);
-                    SantimetrSquare.Text = (s * 2.59e+10F).ToString();
-                    MetrSquare.Text = (s * 2.59e+6F).ToString();
-                    KilometrSquare.Text = (s * 2.59F).ToString();
-                    HarSquare.Text = (s * 258.999F).ToString();
+                    double s = double.Parse(MileSquare.Text);
+                    SantimetrSquare.Text = (s * 2.59e+10).ToString();
+                    MetrSquare.Text = (s * 2.59e+6).ToString();
+                    KilometrSquare.Text = (s * 2.59).ToString();
+                    HarSquare.Text = (s * 258.999).ToString();
                     Error.Content = null;
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -1074,7 +765,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }
@@ -1089,7 +780,7 @@ namespace Olib.Pages
                 }
                 catch (Exception ex)
                 {
-                    Error.Content = $"{ex.Message}";
+                    Error.Content = ex.Message;
                 }
             }
         }

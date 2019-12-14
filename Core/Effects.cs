@@ -1,23 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
 namespace Olib
 {
-    class InvertEffect : ShaderEffect
+    internal class InvertEffect : ShaderEffect
     {
         private const string V =
-@"AAP///7/HwBDVEFCHAAAAE8AAAAAA///AQAAABwAAAAAAQAASAAAADAAAAADAAAAAQACADgAAAAA
-AAAAaW5wdXQAq6sEAAwAAQABAAEAAAAAAAAAcHNfM18wAE1pY3Jvc29mdCAoUikgSExTTCBTaGFk
-ZXIgQ29tcGlsZXIgMTAuMQCrUQAABQAAD6AAAIA/AAAAAAAAAAAAAAAAHwAAAgUAAIAAAAOQHwAA
-AgAAAJAACA+gQgAAAwAAD4AAAOSQAAjkoAIAAAMAAAeAAADkgQAAAKAFAAADAAgHgAAA/4AAAOSA
-AQAAAgAICIAAAP+A//8AAA==";
+@"AAP///7/IQBDVEFCHAAAAE8AAAAAA///AQAAABwAAAAAAQAASAAAADAAAAADAAAAAQACADgAAAAAAAAAaW5wdXQAq6sEAAwAAQABAAEAAAAAAAAAcHNfM18wAE1pY3Jvc29mdCAoUikgSExTTCBTaGFkZXIgQ29tcGlsZXIgOS4yNy45NTIuMzAyMgAfAAACBQAAgAAAA5AfAAACAAAAkAAID6BCAAADAAAPgAAA5JAACOSgAQAAAgAID4AAAP+A//8AAA==";
 
         private static readonly PixelShader _shader;
 
@@ -42,5 +34,10 @@ AQAAAgAICIAAAP+A//8AAA==";
         public static readonly DependencyProperty InputProperty =
             RegisterPixelShaderSamplerProperty("Input", typeof(InvertEffect), 0);
 
+    }
+
+    internal class CustomBrushes
+    {
+        public static SolidColorBrush PlaceholderColor => new SolidColorBrush(Color.FromArgb(255, 128, 128, 128));
     }
 }

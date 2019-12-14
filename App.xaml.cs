@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO;
+using System.Globalization;
 using System.Linq;
 using System.Media;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Olib
 {
@@ -15,37 +16,27 @@ namespace Olib
     /// </summary>
     public partial class App : Application
     {
-        private void DispatcherExc(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        public static List<CultureInfo> Languages { get; } = new List<CultureInfo>();
+        public App()
         {
-            try
-            {
-                string path = @"Log\" + string.Format("{0}_{1:dd.MM.yyy}.log", AppDomain.CurrentDomain.FriendlyName, DateTime.Now);
-                if (!Directory.Exists(@"Log\"))
-                    Directory.CreateDirectory(@"Log\");
-                using (StreamWriter stream = new StreamWriter(path, true))
-                {
-                    stream.WriteLine("[{0:dd.MM.yyy HH:mm:ss.fff}] [{1}.{2}()] {3} \n Операционная система: {4} \n Имеет 64-bit? — {6} \n Версия, используемой для программы, .NET Framework: {5} \r\n",
-                        DateTime.Now,
-                        e.Exception.TargetSite.DeclaringType,
-                        e.Exception.TargetSite.Name,
-                        e.Exception,
-                        Environment.OSVersion,
-                        Environment.Version.ToString(),
-                        Environment.Is64BitOperatingSystem ? "Да" : "Нет");
-                }
-            }
-            catch { }
-            MessageBox.Show(
-                $"Исключение {e.Exception.GetType().ToString()} отключено. {Environment.NewLine}Причина: {e.Exception.Message} {Environment.NewLine}Подробности в лог-файле.",
-                "Ошибка",
-                MessageBoxButton.OK,
-                MessageBoxImage.Error);
-            e.Handled = true;
+            Languages.Clear();
+            Languages.Add(new CultureInfo("en-US")); //Neutral
+            Languages.Add(new CultureInfo("ru-RU"));
+            Languages.Add(new CultureInfo("uk-UA"));
+            Languages.Add(new CultureInfo("de-DE"));
+            Languages.Add(new CultureInfo("hy-AM"));
+            LanguageChanged += App_LanguageChanged;
+        }
+
+        private void App_LanguageChanged(object sender, EventArgs e)
+        {
+            Olib.Properties.Settings.Default.DefaultLanguage = Language;
+            Olib.Properties.Settings.Default.Save();
         }
 
         private void Sound(object sender, RoutedEventArgs e)
         {
-            using (var sound = new SoundPlayer(Olib.Properties.Resources.sound_click))
+            using (SoundPlayer sound = new SoundPlayer(Olib.Properties.Resources.sound_click))
             {
                 sound.Play();
             }
@@ -53,23 +44,83 @@ namespace Olib
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            string appTheme;
-            switch (Olib.Properties.Settings.Default.NameTheme)
+            Resources.MergedDictionaries[0].Source = new Uri($"/Themes/{Olib.Properties.Settings.Default.NameTheme}.xaml", UriKind.Relative);
+
+            Language = Olib.Properties.Settings.Default.DefaultLanguage;
+        }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            string countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
+            AppCenter.SetCountryCode(countryCode);
+            Analytics.SetEnabledAsync(true);
+            Crashes.SetEnabledAsync(true);
+            AppCenter.Start("9a1cf24d-fb85-4707-be9e-44899806bde2",
+                   typeof(Analytics), typeof(Crashes));
+        }
+
+        private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            Crashes.TrackError(e.Exception);
+            MessageBox.Show((string)Current.Resources["ErrorMsg"], (string)Current.Resources["ErrorMsgT"], MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public static event EventHandler LanguageChanged;
+        public static CultureInfo Language
+        {
+            get => System.Threading.Thread.CurrentThread.CurrentUICulture;
+            set
             {
-                case "Dark":
-                    appTheme = Core.Themes.WindowsTheme.Dark.ToString();
-                    break;
-                case "SeaFoam":
-                    appTheme = Core.Themes.WindowsTheme.SeaFoam.ToString();
-                    break;
-                case "Bloody":
-                    appTheme = Core.Themes.WindowsTheme.Bloody.ToString();
-                    break;
-                default:
-                    appTheme = Core.Themes.WindowsTheme.Light.ToString();
-                    break;
+                if (value == null) throw new ArgumentNullException("value");
+                if (value == System.Threading.Thread.CurrentThread.CurrentUICulture) return;
+
+                //1. Меняем язык приложения:
+                System.Threading.Thread.CurrentThread.CurrentUICulture = value;
+
+                //2. Создаём ResourceDictionary для новой культуры
+                ResourceDictionary dict = new ResourceDictionary();
+                if (Olib.Properties.Settings.Default.FirstLanguage)
+                {
+                    try
+                    {
+                        dict.Source = new Uri(string.Format("Local/lang.{0}.xaml", CultureInfo.CurrentCulture.ToString()), UriKind.Relative);
+                    }
+                    catch
+                    {
+                        dict.Source = new Uri("Local/lang.xaml", UriKind.Relative);
+                    }
+                    Olib.Properties.Settings.Default.FirstLanguage = false;
+                }
+                else
+                {
+                    try
+                    {
+                        dict.Source = new Uri(string.Format("Local/lang.{0}.xaml", value.Name), UriKind.Relative);
+                    }
+                    catch
+                    {
+                        dict.Source = new Uri("Local/lang.xaml", UriKind.Relative);
+                    }
+                }
+
+                //3. Находим старую ResourceDictionary и удаляем его и добавляем новую ResourceDictionary
+                ResourceDictionary oldDict = (from d in Current.Resources.MergedDictionaries
+                                              where d.Source != null && d.Source.OriginalString.StartsWith("Local/lang.")
+                                              select d).FirstOrDefault();
+                if (oldDict != null)
+                {
+                    int ind = Current.Resources.MergedDictionaries.IndexOf(oldDict);
+                    Current.Resources.MergedDictionaries.Remove(oldDict);
+                    Current.Resources.MergedDictionaries.Insert(ind, dict);
+                }
+                else
+                {
+                    Current.Resources.MergedDictionaries.Add(dict);
+                }
+
+                //4. Вызываем евент для оповещения всех окон.
+                LanguageChanged(Current, new EventArgs());
             }
-            Resources.MergedDictionaries[0].Source = new Uri($"/Themes/{appTheme}.xaml", UriKind.Relative);
         }
     }
 }

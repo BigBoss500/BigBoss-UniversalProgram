@@ -4,23 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Olib"
-      xmlns:loc="clr-namespace:Olib.Local"
+      xmlns:c="clr-namespace:Olib.Core"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Свободная рулетка">
+      Title="{StaticResource FreeRoulette}">
     <Page.Resources>
         <Style TargetType="{x:Type ListBoxItem}">
             <EventSetter Event="ContextMenuOpening" Handler="ListBoxItem_ContextMenuOpening"/>
             <Setter Property="FontFamily" Value="{StaticResource OpenSans}"/>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
                         <Border x:Name="Bd" Cursor="Hand" CornerRadius="3" BorderThickness="0" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true" IsManipulationEnabled="False">
                             <Border.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem x:Name="MenuCopy" Header="{x:Static loc:Local.RouletteFXCopy}" Click="MenuCopy"/>
-                                    <MenuItem x:Name="MenuRe" Header="{x:Static loc:Local.RouletteFXEdit}" Click="OpenRename"  />
-                                    <MenuItem x:Name="MenuDel" Header="{x:Static loc:Local.RouletteFXDelete}" Click="MenuRe_Click"/>
+                                    <MenuItem x:Name="MenuCopy" Header="{StaticResource Copy}" Click="MenuCopy"/>
+                                    <MenuItem x:Name="MenuRe" Header="{StaticResource Rename}" Click="OpenRename"  />
+                                    <MenuItem x:Name="MenuDel" Header="{StaticResource Delete}" Click="MenuRe_Click"/>
                                 </ContextMenu>
                             </Border.ContextMenu>
                             <ContentPresenter x:Name="Content" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -30,14 +31,14 @@
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsMouseOver" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource backgroundListBox}"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#99969696"/>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="Selector.IsSelectionActive" Value="False"/>
                                     <Condition Property="IsSelected" Value="True"/>
                                 </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="#FFDADADA"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#33969696"/>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
@@ -56,7 +57,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="48"/>
             <RowDefinition/>
             <RowDefinition Height="52"/>
         </Grid.RowDefinitions>
@@ -65,50 +66,60 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10" Grid.RowSpan="3">
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="name" KeyDown="name_KeyDown" FontSize="12" Width="132" HorizontalContentAlignment="Center"/>
-                <Button Style="{DynamicResource GlobalButton}" Click="NameR" Margin="5,0,0,0" Content="{x:Static loc:Local.RouletteFXButtonAdd}" Padding="10,0" FontSize="14"/>
-            </StackPanel>
-            <Label x:Name="ListName" Content="Без имени" FontSize="14" HorizontalContentAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="name" KeyDown="name_KeyDown" c:TextboxExtensions.Placeholder="{StaticResource Element}" Margin="0,0,5,0" FontSize="12" HorizontalContentAlignment="Center"/>
+                <Button Style="{DynamicResource GlobalButton}" Click="NameR" Grid.Column="1" Content="{StaticResource Add}" Padding="10,1" FontSize="14"/>
+            </Grid>
+            <Label x:Name="ListName" Content="{StaticResource NoName}" Foreground="{StaticResource ForWindowColor}" Padding="0" FontSize="14" HorizontalContentAlignment="Center"/>
         </StackPanel>
-        <ListBox x:Name="List" Grid.Row="1" Margin="10" HorizontalContentAlignment="Center" BorderThickness="0" KeyDown="List_KeyDown" />
-            <StackPanel Grid.Row="2">
-            <Button Click="ButtClick" Style="{DynamicResource GlobalButton}" Content="{x:Static loc:Local.RouletteFXErase}" FontSize="14" Margin="10,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="List" Grid.Row="1" Margin="10,5" HorizontalContentAlignment="Center" BorderThickness="0" KeyDown="List_KeyDown" />
+        <StackPanel Grid.Row="2">
+            <Button Click="ButtClick" Style="{DynamicResource GlobalButton}" Content="{StaticResource Erase}" FontSize="14" Margin="10,0" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Top" Margin="10,5" HorizontalAlignment="Center">
-                <Button Style="{DynamicResource GlobalButton}" Click="SaveXML" Content="Экспорт" Padding="10,0" Margin="0,0,5,0" Width="113"/>
-                <Button Style="{DynamicResource GlobalButton}" Click="OpenXML" Content="Импорт" Padding="10,0" Width="112"/>
+                <Button Style="{DynamicResource GlobalButton}" Click="SaveXML" Content="{StaticResource Export}" Padding="10,0" Margin="0,0,5,0" Width="113"/>
+                <Button Style="{DynamicResource GlobalButton}" Click="OpenXML" Content="{StaticResource Import}" Padding="10,0" Width="112"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="TextName" BorderThickness="0" Margin="0,0,0,10" FontSize="12" Padding="0,5" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="RdmGlobal" Text="{x:Static loc:Local.RouletteFXTwist}" BorderThickness="0" Width="400" Height="150" FontSize="16" HorizontalContentAlignment="Center"/>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
-                <Button Style="{DynamicResource GlobalButton}" Content="{x:Static loc:Local.RandomButtonTwist}" FontSize="14" Click="Button_Click_1" Padding="10,0"/>
-                <Button Style="{DynamicResource GlobalButton}" Content="{x:Static loc:Local.RandomButtonZeroOut}" FontSize="14" Margin="5,0,0,0" Click="Button_Click_2" Padding="10,0"/>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0,5,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="TextName" c:TextboxExtensions.Placeholder="{StaticResource YourText}" FontSize="12" Padding="0,5" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Height="24"/>
+            <TextBox x:Name="RdmGlobal" Grid.Row="1" Text="{StaticResource ClickTwist}" BorderThickness="0" FontSize="16" HorizontalContentAlignment="Center" Margin="0,10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top">
+                <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource Twist}" FontSize="14" Click="Button_Click_1" Padding="10,0"/>
+                <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource ZeroOut}" FontSize="14" Margin="5,0,0,0" Click="Button_Click_2" Padding="10,0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="{x:Static loc:Local.RouletteFXItems}" FontFamily="{StaticResource OpenSans}" Padding="0,5,0,0" HorizontalContentAlignment="Center"/>
-                <Label x:Name="indexs" Content="{Binding Items.Count, ElementName=List, StringFormat=Элементов: {0}}" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                <Label Content="{StaticResource Items}" Grid.Row="3" Foreground="{StaticResource ForWindowColor}" Padding="0,5,0,0" HorizontalContentAlignment="Center"/>
+                <Label x:Name="indexs" Content="{Binding Items.Count, ElementName=List, StringFormat=Элементов: {0}}" Foreground="{StaticResource ForWindowColor}" HorizontalContentAlignment="Center"/>
             </StackPanel>
-            <Label x:Name="Error" Foreground="Red" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center">
+            <Label x:Name="Error" Foreground="Red" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3">
                 <Label.Effect>
                     <DropShadowEffect x:Name="Warning" BlurRadius="0" ShadowDepth="0" Color="Red"/>
                 </Label.Effect>
             </Label>
-            <Label x:Name="Complete" Foreground="LawnGreen" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center">
+            <Label x:Name="Complete" Foreground="LawnGreen" FontFamily="{StaticResource OpenSans}" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Grid.Row="3">
                 <Label.Effect>
                     <DropShadowEffect x:Name="Completed" BlurRadius="0" ShadowDepth="0" Color="LawnGreen"/>
                 </Label.Effect>
             </Label>
-        </StackPanel>
+        </Grid>
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,10,10" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button Style="{DynamicResource GlobalButton}" Content="Сохранить" Padding="10,0" Margin="0,0,5,0" Click="Save"/>
-            <Button Style="{DynamicResource GlobalButton}" Content="Настройки" Padding="10,0" Margin="0,0,5,0" Click="Button_Click"/>
+            <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource Save}" Padding="5,0" Margin="0,0,5,0" Click="Save"/>
+            <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource Settings}" Padding="5,0" Margin="0,0,5,0" Click="Button_Click"/>
             <Button Style="{DynamicResource GlobalButton}" Click="NormalMode">
                 <Button.Content>
-                    <StackPanel Orientation="Horizontal" Margin="10,0">
+                    <StackPanel Orientation="Horizontal" Margin="5,0">
                         <Image Source="{StaticResource rouletteDrawingImage}" Width="20" Margin="0,0,5,0"/>
-                        <TextBlock Text="Обычный режим" FontSize="13" />
+                        <TextBlock Text="{StaticResource NormalMode}" FontSize="13" />
                     </StackPanel>
                 </Button.Content>
             </Button>

@@ -23,7 +23,7 @@ namespace Olib.Pages
         public roulette()
         {
             InitializeComponent();
-            Var.Content = Local.Local.RandomStringOptions + a.Length;
+            Var.Content = (string)Application.Current.Resources["Total"] + " " + a.Length;
         }
         private void Button_Click(object sender, RoutedEventArgs e) => _ = NavigationService.Navigate(new Uri("Pages/rouletteFM.xaml", UriKind.Relative));
 
@@ -86,16 +86,16 @@ namespace Olib.Pages
                 "Audi",
                 "Будущее"
             };
-        private void RdmClear(object sender, RoutedEventArgs e) => RdmGlobal.Text = Local.Local.RandomTextBoxRdmGlobal;
+        private void RdmClear(object sender, RoutedEventArgs e) => RdmGlobal.Text = (string)Application.Current.Resources["TextBox"];
         private void Rename(object sender, RoutedEventArgs e) => NameR();
 
-        private void NameR() => NameL.Content = Local.Local.RandomStringName2 + name.Text;
+        private void NameR() => NameL.Content = (string)Application.Current.Resources["WillTwist"] + " " + name.Text;
 
         private async void RandomObject(object sender, RoutedEventArgs e)
         {
-            RdmGlobal.Text = Local.Local.RandomButtonTwistExpectation;
+            RdmGlobal.Text = (string)Application.Current.Resources["Expectation"];
             await Task.Delay(1000).ConfigureAwait(true);
-            RdmGlobal.Text = Local.Local.RandomButtonTwistOut + Environment.NewLine + a[new Random().Next(0, a.Length)];
+            RdmGlobal.Text = (string)Application.Current.Resources["TwistOut"] + Environment.NewLine + a[new Random().Next(-5)];
         }
 
         private void Name_KeyDown(object sender, KeyEventArgs e)

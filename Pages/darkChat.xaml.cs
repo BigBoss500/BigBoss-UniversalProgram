@@ -34,7 +34,7 @@ namespace Olib.Pages
                 tbNick.IsEnabled = false;
                 tbIPAdress.IsEnabled = false;
                 tbHost.IsEnabled = false;
-                bConnected.Content = "Отключиться";
+                bConnected.Content = (string)Application.Current.Resources["Disconnect"];
                 IsConnected = true;
             }
         }
@@ -49,13 +49,13 @@ namespace Olib.Pages
             }
             catch (Exception)
             {
-                Error.Content = "Хост больше не отвечает!";
+                Error.Content = (string)Application.Current.Resources["NoConnectHosy"];
             }
             client = null;
             tbNick.IsEnabled = true;
             tbIPAdress.IsEnabled = true;
             tbHost.IsEnabled = true;
-            bConnected.Content = "Подключиться";
+            bConnected.Content = (string)Application.Current.Resources["Connect"];
             IsConnected = false;
         }
 
@@ -83,9 +83,9 @@ namespace Olib.Pages
                 tbNick.IsEnabled = true;
                 tbIPAdress.IsEnabled = true;
                 tbHost.IsEnabled = true;
-                bConnected.Content = "Подключиться";
+                bConnected.Content = (string)Application.Current.Resources["Connect"];
                 IsConnected = false;
-                Error.Content = "Не удалось отправить сообщение, возмножно, хост был отключен";
+                Error.Content = (string)Application.Current.Resources["NoMessage"];
             }
         }
         private static string GetIP()
@@ -134,17 +134,10 @@ namespace Olib.Pages
             }
             catch
             {
-                Error.Content = "Не удалось открыть хост";
+                Error.Content = (string)Application.Current.Resources["NoOpenHost"];
             }
         }
-        private void Dis()
-        {
-            Error.Content = string.Empty;
-            if (IsConnected)
-            {
-                DisconnectUser();
-            }
-        }
+
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             Error.Content = string.Empty;

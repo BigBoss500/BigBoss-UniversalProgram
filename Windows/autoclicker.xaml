@@ -11,17 +11,24 @@
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleX" From="0.8" To="1" DecelerationRatio="1" Duration="0:0:0.3"/>
+                    <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleY" From="0.8" To="1" DecelerationRatio="1"  Duration="0:0:0.3"/>
                     <DoubleAnimation Storyboard.TargetName="AutoclickerW" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3" />
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-    <Grid>
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform x:Name="ScaleWindow" ScaleX="1" ScaleY="1"/>
+            </TransformGroup>
+        </Grid.RenderTransform>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border CornerRadius="3" Background="{DynamicResource backgroundControl}" Grid.Row="0">
+        <Border CornerRadius="3" Background="{StaticResource BackgroundControl}" Grid.Row="0">
             <Border.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="20" RenderingBias="Quality" ShadowDepth="3" Opacity="0.4"/>
             </Border.Effect>
@@ -37,7 +44,7 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0">
                     <Image Source="{StaticResource OlibDrawingImage}" Width="16" Margin="0,0,2,0"/>
-                    <TextBlock Text="Olib" VerticalAlignment="Center" Foreground="{DynamicResource foregroundControl}" FontFamily="{StaticResource Bauhaus93}" FontSize="14"/>
+                    <TextBlock Text="Olib" VerticalAlignment="Center" Foreground="{StaticResource ForegroundColor}" FontFamily="{StaticResource Bauhaus93}" FontSize="14"/>
                 </StackPanel>
                 <Border Grid.ColumnSpan="3" MouseLeftButtonDown="Drag" Background="#00000000">
                     <Border.ContextMenu>
@@ -47,7 +54,7 @@
                                     <Image Source="{StaticResource hideDrawingImage}" Width="12"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <Separator/>
+                            <Separator Style="{StaticResource Sep}"/>
                             <MenuItem Header="Закрыть" Click="MenuItem_Click" InputGestureText="Alt+F4">
                                 <MenuItem.Icon>
                                     <Image Source="{StaticResource closeDrawingImage}" Width="12"/>
@@ -65,8 +72,10 @@
                         <Button.Triggers>
                             <EventTrigger RoutedEvent="Button.Click">
                                 <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Completed="Close" Storyboard.TargetName="AutoclickerW" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
+                                    <Storyboard Completed="Close">
+                                        <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleX" From="1" To="0.8" AccelerationRatio="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleY" From="1" To="0.8" AccelerationRatio="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="AutoclickerW" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -76,10 +85,10 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <Border Grid.RowSpan="2" Background="{DynamicResource backgroundBlack}" CornerRadius="3" Panel.ZIndex="-10" Visibility="Visible" Grid.ColumnSpan="2"/>
+        <Border Grid.RowSpan="2" Background="{StaticResource BackgroundWindow}" CornerRadius="3" Panel.ZIndex="-10" Visibility="Visible" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Row="1">
-            <Label Content="F3 - начать/остановить автоклик" FontSize="14" HorizontalContentAlignment="Center"/>
-            <Label Content="Время автоклика в милисекундах:" FontSize="14" HorizontalContentAlignment="Center"/>
+            <Label Content="{StaticResource InfoA}" Foreground="{StaticResource ForWindowColor}" FontSize="14" HorizontalContentAlignment="Center"/>
+            <Label Content="{StaticResource TimeA}" Foreground="{StaticResource ForWindowColor}" FontSize="14" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextTime" Text="500" Margin="10,5,10,0" BorderThickness="0" Padding="5" HorizontalContentAlignment="Center" FontSize="14" TextChanged="Changed">
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -90,7 +99,7 @@
                     <DropShadowEffect Direction="-90" BlurRadius="10" RenderingBias="Quality" ShadowDepth="1" Opacity="0.4" />
                 </TextBox.Effect>
             </TextBox>
-            <Label Content="Не рекомендуется ставить ниже 10!" Margin="0,10,0,0" Foreground="Red" FontSize="14" HorizontalContentAlignment="Center">
+            <Label Content="{StaticResource Warning}" Margin="0,10,0,0" Foreground="Red" FontSize="14" HorizontalContentAlignment="Center">
                 <Label.Effect>
                     <DropShadowEffect x:Name="Warning" BlurRadius="0" ShadowDepth="0" Color="Red"/>
                 </Label.Effect>

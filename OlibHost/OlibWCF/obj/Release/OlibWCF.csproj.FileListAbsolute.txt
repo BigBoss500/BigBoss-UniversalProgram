@@ -1,5 +1,0 @@
-E:\Olib\OlibWCF\bin\Release\OlibWCF.dll.config
-E:\Olib\OlibWCF\bin\Release\OlibWCF.dll
-E:\Olib\OlibWCF\bin\Release\OlibWCF.pdb
-E:\Olib\OlibWCF\obj\Release\OlibWCF.dll
-E:\Olib\OlibWCF\obj\Release\OlibWCF.pdb

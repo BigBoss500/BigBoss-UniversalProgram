@@ -1,0 +1,206 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Olib.Local"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--General-->
+    <v:String x:Key="Roulette">Рулетка</v:String>
+    <v:String x:Key="Converter">Конвертер</v:String>
+    <v:String x:Key="Home">Головна</v:String>
+    <v:String x:Key="FreeRoulette">Вільна рулетка</v:String>
+    <v:String x:Key="Update">Оновити</v:String>
+
+    <v:String x:Key="Message">Щоб змінити тему, треба перезавантажити додаток. Перезавантажити?</v:String>
+    <v:String x:Key="TitleMeesage">Повідомлення</v:String>
+
+    <v:String x:Key="Rename">Змінити</v:String>
+
+    <v:String x:Key="ErrorMsgT">Помилка</v:String>
+    <v:String x:Key="ErrorMsg">Виникла помилка. Дані про помилку вже відправлені.</v:String>
+    <!--end General-->
+
+    <!--Window-->
+    <v:String x:Key="Version">Версія:</v:String>
+
+    <v:String x:Key="D1">Автор: Дмитро Моторошно</v:String>
+    <v:String x:Key="D2">Автор: Дмитро Мірзоян</v:String>
+
+    <v:String x:Key="Back">Назад</v:String>
+    <v:String x:Key="Collapse">Згорнути</v:String>
+    <v:String x:Key="Expand">Розгорнути</v:String>
+    <v:String x:Key="Close">Закрити</v:String>
+    <v:String x:Key="Restore">Відновити</v:String>
+
+    <v:String x:Key="Light">Світла</v:String>
+    <v:String x:Key="Dark">Темна</v:String>
+    <v:String x:Key="SeaFoam">Морська піна</v:String>
+    <v:String x:Key="Bloody">Кривава</v:String>
+    <v:String x:Key="Aurora">Аврорная</v:String>
+    <v:String x:Key="Legacy">Застаріле</v:String>
+    <!--end Window-->
+
+    <!--Egg-->
+    <v:String x:Key="BDay">У автора сьогодні день народження!</v:String>
+    <v:String x:Key="Cathedral">Загублений такий великий собор ...</v:String>
+    <v:String x:Key="ThisDay">У цей день з'явилася програма</v:String>
+    <v:String x:Key="Knowledge">Всех с днём знании</v:String>
+    <v:String x:Key="NewYear">Всіх з Новим роком!</v:String>
+    <v:String x:Key="D2007">Саме в цей день програма вийшла в реліз</v:String>
+    <v:String x:Key="Luck">Ого! Удача на вашому боці!</v:String>
+    <!--end Egg-->
+
+    <!--MainPage-->
+    <v:String x:Key="Welcome">Ласкаво просимо!</v:String>
+    <v:String x:Key="MainText">Щоб використовувати додаток, натисніть на кнопки нижче</v:String>
+    <!--end MainPage-->
+
+    <!--Roulette-->
+    <v:String x:Key="Expectation">Будь ласка зачекайте...</v:String>
+    <v:String x:Key="Withdraw">Вивести</v:String>
+    <v:String x:Key="WillTwist">Будемо крутити для:</v:String>
+    <v:String x:Key="Twist">Крутити</v:String>
+    <v:String x:Key="ZeroOut">Обнулити</v:String>
+    <v:String x:Key="FreeMode">Вільний режим</v:String>
+    <v:String x:Key="Total">Всього варіантів випадання:</v:String>
+    <v:String x:Key="TextBox">Натисніть "Картата", щоб випробувати удачу</v:String>
+    <v:String x:Key="TwistOut">Випадає:</v:String>
+    <v:String x:Key="Name">Iм'я</v:String>
+    <!--end Roulette-->
+
+    <!--Converter-->
+    <v:String x:Key="SiteCur">https://www.cbr-xml-daily.ru/daily_utf8.xml</v:String>
+
+    <v:String x:Key="Temperature">Температура</v:String>
+    <v:String x:Key="Weight">Маса</v:String>
+    <v:String x:Key="Data">Дані</v:String>
+    <v:String x:Key="Length">Довжина</v:String>
+    <v:String x:Key="Currency">Валюта</v:String>
+    <v:String x:Key="Binary">Двійковий</v:String>
+    <v:String x:Key="Pressure">Тиск</v:String>
+    <v:String x:Key="Area">Площа</v:String>
+    <v:String x:Key="Volume">Обсяг</v:String>
+    <v:String x:Key="Decimal">Десятковий</v:String>
+    <v:String x:Key="Ruble">Рубль</v:String>
+    <!--end Converter-->
+
+    <!--DarkChat-->
+    <v:String x:Key="Port">Порт</v:String>
+    <v:String x:Key="Nick">Нік</v:String>
+    <v:String x:Key="Connect">Підключитися</v:String>
+    <v:String x:Key="Disconnect">Відключиться</v:String>
+    <v:String x:Key="OpenHost">Відкрити хост</v:String>
+    <v:String x:Key="Submit">Надіслати</v:String>
+
+    <v:String x:Key="NoOpenHost">Не вдалося відкрити хост</v:String>
+    <v:String x:Key="NoConnectHost">Хост більше не відповідає!</v:String>
+    <v:String x:Key="NoMessage">Чи не вдалося відправити повідомлення, возмножность, хост був відключений</v:String>
+    <!--end DarkChat-->
+
+    <!--DataParser-->
+    <v:String x:Key="Discover">Дізнатися</v:String>
+    <v:String x:Key="ListClear">Очистити список</v:String>
+    <v:String x:Key="SaveToFile">Зберегти в файл</v:String>
+    <v:String x:Key="CallerID">Визначник номера</v:String>
+
+    <v:String x:Key="IDVK">ID ВКонтакте:</v:String>
+    <v:String x:Key="IP-A">IP-адреса:</v:String>
+    <v:String x:Key="NumberT">Номер телефону:</v:String>
+    <v:String x:Key="SaveF">Збережено!</v:String>
+
+    <v:String x:Key="NoParse">Ви не можете парсити порожнє поле!</v:String>
+    <v:String x:Key="NoListS">Спочатку заповніть список!</v:String>
+    <!--IPAdress-->
+    <v:String x:Key="LangIP">uk</v:String>
+
+    <v:String x:Key="Country">Країна:</v:String>
+    <v:String x:Key="Sity">Місто:</v:String>
+    <v:String x:Key="Continent">Континент:</v:String>
+    <v:String x:Key="Width">Ширина:</v:String>
+    <v:String x:Key="Longitude">Довгота:</v:String>
+    <v:String x:Key="TimeZone">Часовий пояс:</v:String>
+    <v:String x:Key="Organization">Організація:</v:String>
+    <v:String x:Key="Provider">Інтернет провайдер:</v:String>
+    <!--end IPAdress-->
+    <!--PhoneNumber-->
+    <v:String x:Key="Operator">Оператор:</v:String>
+    <v:String x:Key="Region">Регіон:</v:String>
+    <v:String x:Key="RegionID">ID регіону:</v:String>
+    <v:String x:Key="OperatorID">ID оператора:</v:String>
+    <!--end PhoneNumber-->
+    <!--VKParser-->
+    <v:String x:Key="User">Користувач:</v:String>
+    <v:String x:Key="PageCreate">Сторінка створена:</v:String>
+    <v:String x:Key="PageChanged">Сторінка змінена:</v:String>
+    <v:String x:Key="LastOnline">Останній раз в мережі:</v:String>
+    <v:String x:Key="LinkPage">Посилання на сторінку:</v:String>
+    <v:String x:Key="DataBirth">Дата народження:</v:String>
+    <v:String x:Key="NumSub">Кількість передплатників:</v:String>
+    <v:String x:Key="Friends">Кількість друзів:</v:String>
+    <v:String x:Key="Floor">Підлога:</v:String>
+    <v:String x:Key="Spec">Характеристики:</v:String>
+    <v:String x:Key="Site">Сайт:</v:String>
+    <v:String x:Key="About">Про себе:</v:String>
+    <v:String x:Key="Status">Статус:</v:String>
+    <v:String x:Key="Nickname">Нік:</v:String>
+    <v:String x:Key="ProfStatus">Статус профілю:</v:String>
+
+    <v:String x:Key="NoPerson">Користувач не знайдений, заблокований або видалена його сторінка</v:String>
+    <!--end VKParser-->
+    <v:String x:Key="NoText">не знайдено</v:String>
+
+    <!--end DataParser-->
+
+    <!--FreeRoulette-->
+    <v:String x:Key="Copy">Копіювати</v:String>
+    <v:String x:Key="Delete">Вилучити</v:String>
+
+    <v:String x:Key="Add">Додати</v:String>
+    <v:String x:Key="Erase">Стерти все</v:String>
+    <v:String x:Key="Export">Експорт</v:String>
+    <v:String x:Key="Import">Iмпорт</v:String>
+    <v:String x:Key="Save">Зберегти</v:String>
+    <v:String x:Key="Settings">Налаштування</v:String>
+    <v:String x:Key="NormalMode">Звичайний режим</v:String>
+    <v:String x:Key="ClickTwist">Натисніть "Картата"</v:String>
+    <v:String x:Key="YourText">Ваш текст</v:String>
+    <v:String x:Key="Element">Елемент</v:String>
+    <v:String x:Key="NoName">Без імені</v:String>
+    <v:String x:Key="Items">Елементів</v:String>
+    <v:String x:Key="SaveFile">Файл успішно збережено!</v:String>
+    <v:String x:Key="LoadFile">Файл успішно завантажений!</v:String>
+    <v:String x:Key="Text">Текст</v:String>
+    <v:String x:Key="NoElement">Елемент не повинен бути порожнім!</v:String>
+
+    <!--Settings-->
+    <v:String x:Key="CB1">Стерти поле для введення після додавання елемента</v:String>
+    <v:String x:Key="CB2">Стерти всі елементи після імпорту XML/TXT-файлу</v:String>
+    <v:String x:Key="CB3">Виключити дублікатів при виборі елементів зі списку</v:String>
+    <v:String x:Key="TimeSec">Час вибору в секундах:</v:String>
+    <v:String x:Key="Number">Кількість елементів для вибору:</v:String>
+    <!--end Settings-->
+
+    <!--end FreeRoulette-->
+
+    <!--Autoclicker-->
+    <v:String x:Key="InfoA">F3 - почати/зупинити автоклік</v:String>
+    <v:String x:Key="Warning">Не рекомендується ставити нижче 10!</v:String>
+    <v:String x:Key="TimeA">Час автокліка в мілісекундах:</v:String>
+    <!--end Autoclicker-->
+
+    <!--Mathematik-->
+    <v:String x:Key="Mathematik">Математика</v:String>
+    <v:String x:Key="Algebra">Алгебра</v:String>
+    <v:String x:Key="Geometry">Геометрія</v:String>
+    <v:String x:Key="QuadraticEquations">Квадратні рівняння</v:String>
+    <v:String x:Key="LineICoordinates">Координати перетину прямих</v:String>
+    <v:String x:Key="NoRealRoots">Дійсних коренів немає</v:String>
+    <v:String x:Key="Angles1">Кути не можуть бути рівні!</v:String>
+    <v:String x:Key="Angles2">Кути не можуть бути протилежні!</v:String>
+    <!--end Mathematik-->
+
+    <!--Acknowledgments-->
+    <v:String x:Key="Acknowledgments">Подяки</v:String>
+    <v:String x:Key="ThanksList">Список подяк:</v:String>
+    <v:String x:Key="Donat">Донати:</v:String>
+    <v:String x:Key="ClickOlib">Кількість кліків по кнопці Olib:</v:String>
+    <!--end Acknowledgments-->
+</ResourceDictionary>

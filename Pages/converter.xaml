@@ -3,11 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:loc="clr-namespace:Olib.Local"
       xmlns:local1="clr-namespace:Olib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Конвертер">
+      Title="{DynamicResource Converter}">
 
 
     <Grid>
@@ -31,7 +30,7 @@
                             <TabPanel x:Name="HeaderPanel" IsItemsHost="True" Margin="0,4,0,0"/>
                         </ScrollViewer>
                         <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" Grid.Row="1"/>
-                        <Border Grid.Row="2" Background="{DynamicResource backgroundControl}" Panel.ZIndex="-6" />
+                        <Border Grid.Row="2" Background="{DynamicResource BackgroundControl}" Panel.ZIndex="-6" />
                     </Grid>
                 </ControlTemplate>
             </TabControl.Template>
@@ -39,7 +38,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource temperatureDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterTemperature}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Temperature}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
@@ -61,7 +60,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource massDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterMass}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Weight}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
@@ -87,7 +86,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource dataDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterData}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Data}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
@@ -143,7 +142,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource lengthDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterLength}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Length}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
@@ -173,7 +172,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Width="11" Source="{StaticResource currencyDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterCurrency}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Currency}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
@@ -190,16 +189,16 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource doubleDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterBinary}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Binary}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Margin="0,0,10,0" Orientation="Vertical">
-                        <Label Content="{x:Static loc:Local.ConverterDecimal}" HorizontalContentAlignment="Center"/>
+                        <Label Content="{StaticResource Decimal}" HorizontalContentAlignment="Center"/>
                         <TextBox x:Name="Decimal" TextChanged="DecimalC"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <Label Content="{x:Static loc:Local.ConverterBinary}" HorizontalContentAlignment="Center"/>
+                        <Label Content="{StaticResource Binary}" HorizontalContentAlignment="Center"/>
                         <TextBox x:Name="Double" TextChanged="DoubleC"/>
                     </StackPanel>
                 </StackPanel>
@@ -208,7 +207,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource pressureDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterPressure}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Pressure}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
@@ -234,7 +233,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource areaDrawingImage}"/>
-                        <TextBlock Text="{x:Static loc:Local.ConverterArea}" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Area}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
@@ -264,7 +263,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource volumeDrawingImage}"/>
-                        <TextBlock Text="Объем" Margin="5,5,0,5"/>
+                        <TextBlock Text="{StaticResource Volume}" Margin="5,5,0,5"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -7,7 +7,7 @@ namespace Olib.Core
     internal static class EasterEggs
     {
         private static readonly string data = DateTime.Now.ToString("dd.MM");
-        public static string Author => new Random().Next(0, 10) < 1 ? "Автор: Дмитрий Мирзоян" : "Автор: Дмитрий Жутков";
+        public static string Author => new Random().Next(0, 10) < 1 ? (string)Application.Current.Resources["D2"] : (string)Application.Current.Resources["D1"];
         public static Visibility Image => "02.09" == data ? Visibility.Visible : Visibility.Hidden;
         public static void DisplayEgg(Label l)
         {

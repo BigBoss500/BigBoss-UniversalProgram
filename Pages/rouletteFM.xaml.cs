@@ -45,7 +45,7 @@ namespace Olib.Pages
             List<string> list = new List<string>();
             var rmd = new Random();
             Complete.Content = null;
-            RdmGlobal.Text = Local.Local.RandomButtonTwistExpectation;
+            RdmGlobal.Text = (string)Application.Current.Resources["Expectation"];
             Error.Content = null;
             await Task.Delay(time * 1000 + 1);
             string[] string_array = (from object item in List.Items select item.ToString()).ToArray();
@@ -86,7 +86,7 @@ namespace Olib.Pages
                         list.RemoveRange(List.Items.Count, Y);
                     }
                 }
-                RdmGlobal.Text = Local.Local.RandomButtonTwistOut + l + l;
+                RdmGlobal.Text = (string)Application.Current.Resources["TwistOut"] + l + l;
                 foreach (var i in list)
                 {
                     RdmGlobal.Text += i;
@@ -95,7 +95,7 @@ namespace Olib.Pages
             catch (Exception ex)
             {
                 Error.Content = $"{ex.Message}";
-                RdmGlobal.Text = Local.Local.RouletteFXTwist;
+                RdmGlobal.Text = (string)Application.Current.Resources["ClickTwist"];
             }
 
         }
@@ -110,7 +110,7 @@ namespace Olib.Pages
             win.Show();
             win.Closed += (s, b) => List.Items[index] = ItemsS.Sourc;
         }
-        private void Button_Click_2(object sender, RoutedEventArgs e) => RdmGlobal.Text = Local.Local.RouletteFXTwist;
+        private void Button_Click_2(object sender, RoutedEventArgs e) => RdmGlobal.Text = (string)Application.Current.Resources["ClickTwist"];
         private void MenuRe_Click(object sender, RoutedEventArgs e)
         { 
             if (List.SelectedItem != null)
@@ -133,10 +133,10 @@ namespace Olib.Pages
         }
         private void AllClear()
         {
-            ListName.Content = Local.Local.RouletteFXListName;
+            ListName.Content = (string)Application.Current.Resources["NoName"];
             List.Items.Clear();
             Properties.Settings.Default.ListItem.Clear();
-            Properties.Settings.Default.FileName = Local.Local.RouletteFXListName;
+            Properties.Settings.Default.FileName = (string)Application.Current.Resources["NoName"];
             Properties.Settings.Default.Save();
         }
 
@@ -148,11 +148,6 @@ namespace Olib.Pages
 
         private void AddItems()
         {
-            if (name.Text.Length == 0)
-            {
-                Error.Content = Local.Local.RouletteFXNullItemAdd;
-                return;
-            }
             List.Items.Add(name.Text);
             if (Properties.Settings.Default.CheckBox1)
                 name.Text = null;
@@ -186,7 +181,7 @@ namespace Olib.Pages
                                     list.Add(i);
                                 }
                                 File.AppendAllLines(d.FileName, list.ToArray());
-                                Complete.Content = $"{Local.Local.RouletteFXFileSave}{d.FileName}";
+                                Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
                             }
                             catch (Exception ex)
                             {
@@ -201,7 +196,7 @@ namespace Olib.Pages
                                     from n in string_array select new XElement("Element", n)
                                 ));
                                 doc.Save(d.FileName);
-                                Complete.Content = $"{Local.Local.RouletteFXFileSave}{d.FileName}";
+                                Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
                             }
                             catch (Exception ex)
                             {
@@ -222,9 +217,9 @@ namespace Olib.Pages
                 {
                     using (StreamWriter stream = new StreamWriter(d.FileName, true))
                     {
-                        stream.WriteLine($"########\nТекст: {TextName.Text}\n\n{RdmGlobal.Text}");
+                        stream.WriteLine($"########\n{(string)Application.Current.Resources["Text"]}: {TextName.Text}\n\n{RdmGlobal.Text}");
                     }
-                    Complete.Content = "Сохранено!";
+                    Complete.Content = (string)Application.Current.Resources["SaveFile"];
                 }
                 catch (Exception ex)
                 {
@@ -275,7 +270,7 @@ namespace Olib.Pages
                             {
                                 Properties.Settings.Default.ListItem.Add(i);
                             }
-                            Complete.Content = Local.Local.RouletteFXFileLoad;
+                            Complete.Content = (string)Application.Current.Resources["LoadFile"];
                             if (Properties.Settings.Default.CheckBox2) ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
                         }
                         catch (Exception ex)
@@ -300,7 +295,7 @@ namespace Olib.Pages
                             {
                                 Properties.Settings.Default.ListItem.Add(i);
                             }
-                            Complete.Content = Local.Local.RouletteFXFileLoad;
+                            Complete.Content = (string)Application.Current.Resources["LoadFile"];
                             if (Properties.Settings.Default.CheckBox2) ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
                         }
                         catch (Exception ex)

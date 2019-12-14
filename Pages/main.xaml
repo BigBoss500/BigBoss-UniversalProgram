@@ -6,53 +6,61 @@
       xmlns:local="clr-namespace:Olib.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="415" d:DesignWidth="800"
-      Title="Главная">
+      Title="{StaticResource Home}">
 
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
             <StackPanel Margin="5,0,5,0">
-                <Label Content="Добро пожаловать!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,-4,0" FontSize="24"/>
-                <Label Content="Чтобы использовать приложение, нажмите на кнопки ниже" HorizontalAlignment="Center" Padding="0" Margin="0,10" FontSize="14"/>
+                <Label Content="{StaticResource Welcome}" Foreground="{StaticResource ForWindowColor}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0,-4,0" FontSize="24"/>
+                <Label Content="{StaticResource MainText}" Foreground="{StaticResource ForWindowColor}" HorizontalAlignment="Center" Padding="0" Margin="0,10" FontSize="14"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Style="{DynamicResource GlobalButton}" Click="Roulette">
+                    <Button Style="{StaticResource GlobalButton}" Click="Roulette">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal" Margin="15,0">
-                                <Image Source="{StaticResource rouletteDrawingImage}"  Width="25" Margin="0,0,5,0"/>
-                                <TextBlock Text="Рулетка" FontSize="20"/>
+                                <Image Source="{StaticResource rouletteDrawingImage}"  Height="25" Margin="0,0,5,0"/>
+                                <TextBlock Text="{StaticResource Roulette}" FontSize="20"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    <Button Style="{DynamicResource GlobalButton}" Click="Button_Click" Margin="40,0,0,0">
+                    <Button Style="{StaticResource GlobalButton}" Click="Button_Click" Margin="20,0,0,0">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal" Margin="15,0">
                                 <Image Source="{StaticResource converterDrawingImage}" Width="25" Margin="0,0,5,0" />
-                                <TextBlock Text="Конвертер" FontSize="20"/>
+                                <TextBlock Text="{StaticResource Converter}" FontSize="20"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    <Button Style="{DynamicResource GlobalButton}" Margin="40,0,0,0" Click="dataParser">
+                    <Button Style="{StaticResource GlobalButton}" Margin="20,0,0,0" Click="dataParser">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal" Margin="15,0">
-                                <Image Source="{StaticResource dataparsingDrawingImage}" Width="25" Margin="0,0,5,0" />
+                                <Image Source="{StaticResource dataparsingDrawingImage}" Height="25" Margin="0,0,5,0" />
                                 <TextBlock Text="Data Parser" FontSize="20"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
-                    <Button Style="{DynamicResource GlobalButton}" Click="Autoclicker">
+                    <Button Style="{StaticResource GlobalButton}" Click="Autoclicker">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal" Margin="15,0">
-                                <Image Source="{StaticResource autoclickerDrawingImage}" Width="25" Margin="0,0,5,0" />
+                                <Image Source="{StaticResource autoclickerDrawingImage}" Height="25" Margin="0,0,5,0" />
                                 <TextBlock Text="Autoclicker" FontSize="20" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    <Button Style="{DynamicResource GlobalButton}" Click="DarkChat" Margin="40,0,0,0">
+                    <Button Style="{DynamicResource GlobalButton}" Click="DarkChat" Margin="20,0,0,0">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal" Margin="15,0">
                                 <Image Source="{StaticResource darkChatDrawingImage}" Width="25" Margin="0,0,5,0" />
                                 <TextBlock Text="Dark Chat" FontSize="20" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Style="{StaticResource GlobalButton}" Click="Button_Click_2" Margin="20,0,0,0">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal" Margin="15,0">
+                                <Image Source="{StaticResource mathDrawingImage}" Height="20" Margin="0,0,5,0" />
+                                <TextBlock Text="{StaticResource Mathematik}" FontSize="20" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -62,9 +70,8 @@
                         <DropShadowEffect x:Name="Warning" BlurRadius="0" ShadowDepth="0" Color="LawnGreen"/>
                     </Label.Effect>
                 </Label>
-                <Button x:Name="Halloween" Content="Hot twigs!" Style="{DynamicResource GlobalButton}" FontSize="25" Visibility="Hidden" Click="Button_Click_1"/>
             </StackPanel>
         </ScrollViewer>
-        <Image x:Name="TopSecret" Source="/Olib;component/Images/Personage/oriale.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="99"  Margin="10" Visibility="Hidden"/>
+        <Image x:Name="TopSecret" Source="/Olib;component/Images/Personage/oriale.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="99"  Margin="10" Visibility="Collapsed"/>
     </Grid>
 </Page>

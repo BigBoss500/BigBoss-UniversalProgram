@@ -1,0 +1,206 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Olib.Local"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <!--General-->
+    <v:String x:Key="Roulette">Ռուլետկա</v:String>
+    <v:String x:Key="Converter">Կոնվերտեր</v:String>
+    <v:String x:Key="Home">Գլխավոր էջ</v:String>
+    <v:String x:Key="FreeRoulette">Ազատ Ռուլետկա</v:String>
+    <v:String x:Key="Update">Թարմացնել</v:String>
+
+    <v:String x:Key="Message">Թեման փոխելու համար անհրաժեշտ է վերագործարկել հավելվածը. վերագործարկել?</v:String>
+    <v:String x:Key="TitleMeesage">Հաղորդագրություն</v:String>
+
+    <v:String x:Key="Rename">Փոխել</v:String>
+
+    <v:String x:Key="ErrorMsgT">Սխալ</v:String>
+    <v:String x:Key="ErrorMsg">Սխալ է տեղի ունեցել։ Սխալի մասին տվյալներն արդեն ուղարկվել են։ </v:String>
+    <!--end General-->
+
+    <!--Window-->
+    <v:String x:Key="Version">Տարբերակ: </v:String>
+
+    <v:String x:Key="D1">Հեղինակ: Դմիտրի Ժուտկով</v:String>
+    <v:String x:Key="D2">Հեղինակ: Դմիտրի Միրզոյան</v:String>
+
+    <v:String x:Key="Back">Հետ</v:String>
+    <v:String x:Key="Collapse">Գլորում</v:String>
+    <v:String x:Key="Expand">Բացել</v:String>
+    <v:String x:Key="Close">Փակել</v:String>
+    <v:String x:Key="Restore">Վերականգնել</v:String>
+
+    <v:String x:Key="Light">Լուսավոր</v:String>
+    <v:String x:Key="Dark">Մութ</v:String>
+    <v:String x:Key="SeaFoam">Ծովային փրփուր</v:String>
+    <v:String x:Key="Bloody">Արյունոտ</v:String>
+    <v:String x:Key="Aurora">Ավրորային</v:String>
+    <v:String x:Key="Legacy">Հնացած</v:String>
+    <!--end Window-->
+
+    <!--Egg-->
+    <v:String x:Key="BDay">Հեղինակի մոտ այսօր ծնունդ է !</v:String>
+    <v:String x:Key="Cathedral">Կորած այսպիսի մեծ տաճար...</v:String>
+    <v:String x:Key="ThisDay">Այս օրը հայտնվեց ծրագիրը </v:String>
+    <v:String x:Key="Knowledge">Շնորհավոր Գիտելիքի օրը</v:String>
+    <v:String x:Key="NewYear">Շնորհավոր Նոր Տարի!</v:String>
+    <v:String x:Key="D2007">Հենց այդ օրը ծրագիրը թողարկվեց</v:String>
+    <v:String x:Key="Luck">Ого! Հաջողություն ձեր կողքին!</v:String>
+    <!--end Egg-->
+
+    <!--MainPage-->
+    <v:String x:Key="Welcome">Բարի Գալուստ!</v:String>
+    <v:String x:Key="MainText">Դիմումը օգտագործելու համար կտտացրեք ստորև նշված կոճակներին</v:String>
+    <!--end MainPage-->
+
+    <!--Roulette-->
+    <v:String x:Key="Expectation">Խնդրում ենք սպասել...</v:String>
+    <v:String x:Key="Withdraw">Դուրս բերել</v:String>
+    <v:String x:Key="WillTwist">Ում համար ենք պտտելու :</v:String>
+    <v:String x:Key="Twist">Պտտել </v:String>
+    <v:String x:Key="ZeroOut">Զրոյացնել</v:String>
+    <v:String x:Key="FreeMode">Ազատ ռեժիմ</v:String>
+    <v:String x:Key="Total">Ընդհանուր ընկնելու տարբերակներ:</v:String>
+    <v:String x:Key="TextBox">Սեղմեք "Պտտել", որպեսզի փորձարկել ձեր բախտը </v:String>
+    <v:String x:Key="TwistOut">Ընկնում է:</v:String>
+    <v:String x:Key="Name">Անուն</v:String>
+    <!--end Roulette-->
+
+    <!--Converter-->
+    <v:String x:Key="SiiteCur">https://www.cbr-xml-daily.ru/daily_utf8.xml</v:String>
+    
+    <v:String x:Key="Temperature">Ջերմաստիճան</v:String>
+    <v:String x:Key="Weight">Քաշը</v:String>
+    <v:String x:Key="Data">Տվյալներ</v:String>
+    <v:String x:Key="Length">Երկարություն</v:String>
+    <v:String x:Key="Currency">Արժույթ</v:String>
+    <v:String x:Key="Binary">Երկուական</v:String>
+    <v:String x:Key="Pressure">ճնշում</v:String>
+    <v:String x:Key="Area">Մակերես</v:String>
+    <v:String x:Key="Volume">Ծավալը</v:String>
+    <v:String x:Key="Decimal">Տասնորդական</v:String>
+    <v:String x:Key="Ruble">Րուբլի</v:String>
+    <!--end Converter-->
+
+    <!--DarkChat-->
+    <v:String x:Key="Port">Պորտ</v:String>
+    <v:String x:Key="Nick">Նիք</v:String>
+    <v:String x:Key="Connect">Միանալ</v:String>
+    <v:String x:Key="Disconnect">Անջատեք</v:String>
+    <v:String x:Key="OpenHost">Բացել խոստը</v:String>
+    <v:String x:Key="Submit">Ուղարկել</v:String>
+
+    <v:String x:Key="NoOpenHost">Չհաջողվեց բացել հյուրընկալողը</v:String>
+    <v:String x:Key="NoConnectHost">Հաղորդավարն այլևս չի արձագանքում:</v:String>
+    <v:String x:Key="NoMessage">Չհաջողվեց հաղորդագրություն ուղարկել, բազմակի, հաղորդիչն անջատվեց</v:String>
+    <!--end DarkChat-->
+
+    <!--DataParser-->
+    <v:String x:Key="Discover">Իմանալ</v:String>
+    <v:String x:Key="ListClear">Բաց ցուցակը</v:String>
+    <v:String x:Key="SaveToFile">Պահպանել ֆայլում</v:String>
+    <v:String x:Key="CallerID">Համարի որոշիչ</v:String>
+
+    <v:String x:Key="IDVK">ID Վկոնտակտե:</v:String>
+    <v:String x:Key="IP-A">IP Հասցե:</v:String>
+    <v:String x:Key="NumberT">Հեռախոսի համարը:</v:String>
+    <v:String x:Key="SaveF">Պահպանված է !</v:String>
+
+    <v:String x:Key="NoParse">Դուք չեք կարող բաց թողնել այս  դաշտը!</v:String>
+    <v:String x:Key="NoListS">Նախ Լրացրեք ցուցակը!</v:String>
+    <!--IPAdress-->
+    <v:String x:Key="LangIP">Hy</v:String>
+    
+    <v:String x:Key="Country">Երկիր:</v:String>
+    <v:String x:Key="Sity">Քաղաք:</v:String>
+    <v:String x:Key="Continent">Աշխարհամաս:</v:String>
+    <v:String x:Key="Width">Լայնություն:</v:String>
+    <v:String x:Key="Longitude">Երկայնություն:</v:String>
+    <v:String x:Key="TimeZone">Ժամանակի գոտին:</v:String>
+    <v:String x:Key="Organization">Կազմակերպություն:</v:String>
+    <v:String x:Key="Provider">Ինտերնետ-մատակարարներ:</v:String>
+    <!--end IPAdress-->
+    <!--PhoneNumber-->
+    <v:String x:Key="Operator">Օպերատոր:</v:String>
+    <v:String x:Key="Region">Մարզ:</v:String>
+    <v:String x:Key="RegionID">ID Մարզ:</v:String>
+    <v:String x:Key="OperatorID">ID օպերատոր:</v:String>
+    <!--end PhoneNumber-->
+    <!--VKParser-->
+    <v:String x:Key="User">Օգտվող:</v:String>
+    <v:String x:Key="PageCreate">Էջը ստեղծվել է:</v:String>
+    <v:String x:Key="PageChanged">էջը փոխվել է:</v:String>
+    <v:String x:Key="LastOnline">Վերջին անգամ ցանցում:</v:String>
+    <v:String x:Key="LinkPage">Հղում դեպի էջ:</v:String>
+    <v:String x:Key="DataBirth">Ծննդյան ամսաթիվ:</v:String>
+    <v:String x:Key="NumSub">Բաժանորդների թիվը:</v:String>
+    <v:String x:Key="Friends">Ընկերների թիվը:</v:String>
+    <v:String x:Key="Floor">Սեռ:</v:String>
+    <v:String x:Key="Spec">Տեխնիկական բնութագրեր:</v:String>
+    <v:String x:Key="Site">Կահք:</v:String>
+    <v:String x:Key="About">Ձեր մասին:</v:String>
+    <v:String x:Key="Status">Կարգավիճակ:</v:String>
+    <v:String x:Key="Nickname">Նիք:</v:String>
+    <v:String x:Key="ProfStatus">Անձնագրի Կարգավիճակը:</v:String>
+
+    <v:String x:Key="NoPerson">Օգտվողը չի գտնվել, արգելափակվել կամ ջնջվել է իր էջը</v:String>
+    <!--end VKParser-->
+    <v:String x:Key="NoText">Չի գտնվել</v:String>
+    
+    <!--end DataParser-->
+
+    <!--FreeRoulette-->
+    <v:String x:Key="Copy">Պատճենել</v:String>
+    <v:String x:Key="Delete">Ջնջել</v:String>
+    
+    <v:String x:Key="Add">ավելացնել</v:String>
+    <v:String x:Key="Erase">Ջնջել ամեն ինչ</v:String>
+    <v:String x:Key="Export">Արտահանում</v:String>
+    <v:String x:Key="Import">Ներմուծում</v:String>
+    <v:String x:Key="Save">Պահպանել</v:String>
+    <v:String x:Key="Settings">Կարգավորումներ</v:String>
+    <v:String x:Key="NormalMode">Սովորական ռեժիմ</v:String>
+    <v:String x:Key="ClickTwist">Սեղմեք "Պտտել"</v:String>
+    <v:String x:Key="YourText">Ձեր տեքստը</v:String>
+    <v:String x:Key="Element">Տարր</v:String>
+    <v:String x:Key="NoName">Առանց անվան</v:String>
+    <v:String x:Key="Items">Տարրերը</v:String>
+    <v:String x:Key="SaveFile">Ֆայլը հաջողությամբ պահպանվեց!</v:String>
+    <v:String x:Key="LoadFile">Ֆայլը հաջողությամբ բեռնվեց!</v:String>
+    <v:String x:Key="Text">Տեքստ</v:String>
+    <v:String x:Key="NoElement">Տարրը չի կարող լինել դատարկ!</v:String>
+
+    <!--Settings-->
+    <v:String x:Key="CB1">Ջնջել մուտքագրման դաշտը տարրից հետո</v:String>
+    <v:String x:Key="CB2">Ջնջել բոլոր տարրերը ներմուծումից հետո XML/TXT-ֆայլը</v:String>
+    <v:String x:Key="CB3">Ցանկից տարրեր ընտրելիս բացառել կրկնօրինակները</v:String>
+    <v:String x:Key="TimeSec">Ժամանիկի ընտրությունը վարկյանով:</v:String>
+    <v:String x:Key="Number">Ընտրելու համար ապրանքների քանակը:</v:String>
+    <!--end Settings-->
+
+    <!--end FreeRoulette-->
+
+    <!--Autoclicker-->
+    <v:String x:Key="InfoA">F3 - սկսել/դադարեցնել ավտոկլիկը</v:String>
+    <v:String x:Key="Warning">Խորհուրդ չի տրվում տեղադրել 10-ից ցածր!</v:String>
+    <v:String x:Key="TimeA">Ավտոկլիկի ժամանակը միլլիսեկունդներով:</v:String>
+    <!--end Autoclicker-->
+
+    <!--Mathematik-->
+    <v:String x:Key="Mathematik">Մաթեմատիկա</v:String>
+    <v:String x:Key="Algebra">Հանրահաշիվ</v:String>
+    <v:String x:Key="Geometry">Երկրաչափություն</v:String>
+    <v:String x:Key="QuadraticEquations">Քառանիշային հավասարումներ</v:String>
+    <v:String x:Key="LineICoordinates">Գծի հատման կոորդինատները</v:String>
+    <v:String x:Key="NoRealRoots">Իրական արմատներ չկան</v:String>
+    <v:String x:Key="Angles1">Անկյունները չեն կարող հավասար լինել:</v:String>
+    <v:String x:Key="Angles2">Անկյունները չեն կարող հակառակ լինել:</v:String>
+    <!--end Mathematik-->
+
+    <!--Acknowledgments-->
+    <v:String x:Key="Acknowledgments">Շնորհակալագրեր</v:String>
+    <v:String x:Key="ThanksList">Շնորհակալության ցուցակ:</v:String>
+    <v:String x:Key="Donat">ԴՈՆԱԹՍ:</v:String>
+    <v:String x:Key="ClickOlib">Օլիբ կոճակի վրա կտտացումների քանակը:</v:String>
+    <!--end Acknowledgments-->
+</ResourceDictionary>

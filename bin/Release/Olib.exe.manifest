@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Olib" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Olib" version="2.2.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Olib.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,38 +43,146 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="882688">
-      <assemblyIdentity name="Olib" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="libvideo.dll" size="38400">
+      <assemblyIdentity name="libvideo" version="2.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>E+eaMghWVOcu3XAC9pvJE8CqeiniUmzhNueeW+XiLtQ=</dsig:DigestValue>
+        <dsig:DigestValue>iSseJ6JmStboreUmtetEzV6U6diuLeuAFeDDeRZQzFY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr-FR\Olib.resources.dll" size="17920">
-      <assemblyIdentity name="Olib.resources" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="fr-FR" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.AppCenter.dll" size="133992">
+      <assemblyIdentity name="Microsoft.AppCenter" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cU5ACGhf8ZXEkeBmZY+rqbcvezUsu5oEfQWLmDDaeUE=</dsig:DigestValue>
+        <dsig:DigestValue>1xPz2FZp7oVWqHzDfi2CsqhY3so8rPhG3EWDeUeCgyc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru-RU\Olib.resources.dll" size="21504">
-      <assemblyIdentity name="Olib.resources" version="2.1.0.0" publicKeyToken="DD760AA9740B493B" language="ru-RU" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.AppCenter.Analytics.dll" size="22592">
+      <assemblyIdentity name="Microsoft.AppCenter.Analytics" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uTMSm92dbtBIlTlUKNiRknbdPyksJB3Bo1HsLSEuksU=</dsig:DigestValue>
+        <dsig:DigestValue>K4U55tijqxnDqGjVf+dXikFlYLuipG+8ALpBXF33I50=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.AppCenter.Crashes.dll" size="51048">
+      <assemblyIdentity name="Microsoft.AppCenter.Crashes" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>s9yhH96/X8H1hk1Zkokdg//KmaOHqQJzVli2dTqOCGY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="675752">
+      <assemblyIdentity name="Newtonsoft.Json" version="12.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>NZjMytW1Nf6m+TZiEHpBg7/WFnvx0PgCYENgk+3C468=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Olib.exe" size="641536">
+      <assemblyIdentity name="Olib" version="2.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>y7mJ0GKg1FeM8715RyF0j9dRh8/pxg2hcEKkMwEE6aQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SQLite-net.dll" size="70144">
+      <assemblyIdentity name="SQLite-net" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ZzliBIN1HEIsq6cFo++sPJ7OQDgcJLup/TrGkPuGj1Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SQLitePCLRaw.batteries_green.dll" size="5120">
+      <assemblyIdentity name="SQLitePCLRaw.batteries_green" version="1.1.14.520" publicKeyToken="A84B7DCFB1391F7F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jdZAzjzriiJcw9IR7D2mwtnZ+Pt9SoB8/99VnA1qk1c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SQLitePCLRaw.batteries_v2.dll" size="5120">
+      <assemblyIdentity name="SQLitePCLRaw.batteries_v2" version="1.1.14.520" publicKeyToken="8226EA5DF37BCAE9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>TJybKjSW3oi5W7FVKjNc2fEmFuQTafJMhy7nnlFlqcg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SQLitePCLRaw.core.dll" size="38400">
+      <assemblyIdentity name="SQLitePCLRaw.core" version="1.1.14.520" publicKeyToken="1488E028CA7AB535" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>DBzwqTqou2O+DxF/fI3SvBiCCkKvjJa6NLdt4oxGkHI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SQLitePCLRaw.provider.e_sqlite3.dll" size="39936">
+      <assemblyIdentity name="SQLitePCLRaw.provider.e_sqlite3" version="1.1.14.520" publicKeyToken="9C301DB686D0BD12" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>RR0mit/HDb9fJ8kKRgMEnCKO/X/XrzW930m6AkqgMqQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Diagnostics.DiagnosticSource.dll" size="35760">
+      <assemblyIdentity name="System.Diagnostics.DiagnosticSource" version="4.0.1.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0iEzgYowMT4L7PAQ14pValazTqNh29M1iMmBdjH+1UA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,22 +195,40 @@
       <dsig:DigestValue>Pss8AKTqR980liG6ZoZvUK/rFnajud3o+6UemQSYILg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Olib.exe.config" size="3416">
+  <file name="Olib.exe.config" size="5355">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>R6fJU4VJaa8H+GdP88rTGczm7uLviwLGQ1/opO9G/JU=</dsig:DigestValue>
+      <dsig:DigestValue>VGwsB78nBkbGRsr1a30Unkx/g/7B9p/gyLxPKrHFwKg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Sounds\sound_click.wav" size="812">
+  <file name="Sounds\sound_click.wav" size="6042">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>u52EZk65oGgA04fGRV7uR/xE/Q+aFDRzLVWedJ3ADwo=</dsig:DigestValue>
+      <dsig:DigestValue>jepSzxdVT4J1HpiOAXwHynYswblROFyPOciLb/maBYo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x64\e_sqlite3.dll" size="1322496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JxbPC+xmFPGDQlMhGlQjH+cTsOnTTC9+8npcNUBMSLY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x86\e_sqlite3.dll" size="1021440">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GRhPGDbbGkBRHRG0tvOsQWX96tRZ+hNtO7NEz6ctx/g=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

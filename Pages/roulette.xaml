@@ -4,10 +4,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Olib.Pages"
-      xmlns:loc="clr-namespace:Olib.Local"
+      xmlns:c="clr-namespace:Olib.Core"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Рулетка">
+      Title="{StaticResource Roulette}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,22 +18,22 @@
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="name" FontSize="14" Width="200" HorizontalContentAlignment="Center"/>
-                <Button Style="{DynamicResource GlobalButton}" Margin="5,0,0,0" Content="{x:Static loc:Local.RandomButtonCheckName}" Click="Rename" Padding="10,0" FontSize="14"/>
+                <TextBox x:Name="name" FontSize="14" Width="200" c:TextboxExtensions.Placeholder="{StaticResource Name}" HorizontalContentAlignment="Center"/>
+                <Button Style="{DynamicResource GlobalButton}" Margin="5,0,0,0" Content="{StaticResource Withdraw}" Click="Rename" Padding="10,0" FontSize="14"/>
             </StackPanel>
-            <Label x:Name="NameL" Content="Будем крутить для: Вы" HorizontalContentAlignment="Center" FontSize="14"/>
-            <TextBox x:Name="RdmGlobal" Text="{x:Static loc:Local.RandomTextBoxRdmGlobal}" Width="400" Height="150" FontSize="16" HorizontalContentAlignment="Center"/>
+            <Label x:Name="NameL" Content="" Foreground="{StaticResource ForWindowColor}" HorizontalContentAlignment="Center" FontSize="14"/>
+            <TextBox x:Name="RdmGlobal" Text="{StaticResource TextBox}" Width="400" Height="130" FontSize="16" HorizontalContentAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
-                <Button Style="{DynamicResource GlobalButton}" Content="{x:Static loc:Local.RandomButtonTwist}" FontSize="14" Padding="10,0" Click="RandomObject"/>
-                <Button Style="{DynamicResource GlobalButton}" Content="{x:Static loc:Local.RandomButtonZeroOut}" FontSize="14" Margin="5,0,0,0" Padding="10,0" Click="RdmClear"/>
+                <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource Twist}" FontSize="14" Padding="10,0" Click="RandomObject"/>
+                <Button Style="{DynamicResource GlobalButton}" Content="{StaticResource ZeroOut}" FontSize="14" Margin="5,0,0,0" Padding="10,0" Click="RdmClear"/>
             </StackPanel>
-            <Label x:Name="Var" Content="Всего вариантов выпадения:" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Var" Content="Всего вариантов выпадения:" Foreground="{StaticResource ForWindowColor}" HorizontalContentAlignment="Center"/>
         </StackPanel>
         <Button Style="{DynamicResource GlobalButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="Button_Click">
             <Button.Content>
                 <StackPanel Orientation="Horizontal" Margin="10,0">
                     <Image Source="{StaticResource rouletteDrawingImage}" Width="25" Margin="0,0,5,0"/>
-                    <TextBlock Text="{x:Static loc:Local.RandomButtonFreeMode}" FontSize="18" />
+                    <TextBlock Text="{StaticResource FreeMode}" FontSize="18" />
                 </StackPanel>
             </Button.Content>
         </Button>

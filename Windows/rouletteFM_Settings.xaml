@@ -4,7 +4,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:loc="clr-namespace:Olib.Local"
         xmlns:local="clr-namespace:Olib.Windows"
         mc:Ignorable="d"
         Title="Настройки" Height="270" Width="420" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
@@ -12,6 +11,8 @@
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleX" From="0.8" To="1" DecelerationRatio="1" Duration="0:0:0.3"/>
+                    <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleY" From="0.8" To="1" DecelerationRatio="1"  Duration="0:0:0.3"/>
                     <DoubleAnimation Storyboard.TargetName="Setting" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3" />
                 </Storyboard>
             </BeginStoryboard>
@@ -23,12 +24,17 @@
             <Setter Property="Margin" Value="0,5"/>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform x:Name="ScaleWindow" ScaleX="1" ScaleY="1"/>
+            </TransformGroup>
+        </Grid.RenderTransform>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border CornerRadius="3" Background="{DynamicResource backgroundControl}" Grid.Row="0">
+        <Border CornerRadius="3" Background="{StaticResource BackgroundControl}" Grid.Row="0">
             <Border.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="20" RenderingBias="Quality" ShadowDepth="3" Opacity="0.4"/>
             </Border.Effect>
@@ -44,7 +50,7 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0">
                     <Image Source="{StaticResource OlibDrawingImage}" Width="16" Margin="0,0,2,0"/>
-                    <TextBlock Text="Olib" Foreground="{DynamicResource foregroundControl}" VerticalAlignment="Center" FontFamily="{StaticResource Bauhaus93}" FontSize="14"/>
+                    <TextBlock Text="Olib" Foreground="{StaticResource ForegroundColor}" VerticalAlignment="Center" FontFamily="{StaticResource Bauhaus93}" FontSize="14"/>
                 </StackPanel>
                 <Border Grid.ColumnSpan="3" MouseLeftButtonDown="Drag" Background="#00000000">
                     <Border.ContextMenu>
@@ -57,14 +63,16 @@
                         </ContextMenu>
                     </Border.ContextMenu>
                 </Border>
-                <Label x:Name="textHeader" Content="Настройки" Panel.ZIndex="-1" Grid.Column="1" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" />
+                <Label x:Name="textHeader" Content="{StaticResource Settings}" Panel.ZIndex="-1" Grid.Column="1" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" />
                 <StackPanel Orientation="Horizontal" Grid.Column="2">
                     <Button Style="{DynamicResource HeadeButton}" Width="40" Background="White">
                         <Button.Triggers>
                             <EventTrigger RoutedEvent="Button.Click">
                                 <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Completed="DoubleAnimation_Completed" Storyboard.TargetName="Setting" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
+                                    <Storyboard Completed="DoubleAnimation_Completed">
+                                        <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleX" From="1" To="0.8" AccelerationRatio="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="ScaleWindow" Storyboard.TargetProperty="ScaleY" From="1" To="0.8" AccelerationRatio="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="Setting" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -74,18 +82,18 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <Border Grid.RowSpan="2" Background="{DynamicResource backgroundBlack}" CornerRadius="3" Panel.ZIndex="-10" Visibility="Visible" Grid.ColumnSpan="2"/>
+        <Border Grid.RowSpan="2" Background="{StaticResource BackgroundWindow}" CornerRadius="3" Panel.ZIndex="-10" Visibility="Visible" Grid.ColumnSpan="2"/>
         <ScrollViewer Grid.Row="1" Margin="10,0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
             <StackPanel>
-                <CheckBox x:Name="Check1" Foreground="{DynamicResource foregroundControl}" Content="{x:Static loc:Local.RouletteFXCheckBox1}"/>
-                <CheckBox x:Name="Check2" Foreground="{DynamicResource foregroundControl}" Content="{x:Static loc:Local.RouletteFXCheckBox2}"/>
-                <CheckBox x:Name="Check3" Foreground="{DynamicResource foregroundControl}" Content="{x:Static loc:Local.RouletteFXCheckBox3}"/>
+                <CheckBox x:Name="Check1" Foreground="{StaticResource ForWindowColor}" Content="{StaticResource CB1}"/>
+                <CheckBox x:Name="Check2" Foreground="{StaticResource ForWindowColor}" Content="{StaticResource CB2}"/>
+                <CheckBox x:Name="Check3" Foreground="{StaticResource ForWindowColor}" Content="{StaticResource CB3}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Label Content="{x:Static loc:Local.RouletteFXSelections}"/>
+                    <Label Content="{StaticResource TimeSec}" Foreground="{StaticResource ForWindowColor}"/>
                     <TextBox x:Name="SelectTime" Width="190" TextChanged="SelectTime_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5">
-                    <Label Content="{x:Static loc:Local.RouletteFXNumber}"/>
+                    <Label Content="{StaticResource Number}" Foreground="{StaticResource ForWindowColor}"/>
                     <TextBox x:Name="NumberItems" Width="190" TextChanged="NumberItems_TextChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

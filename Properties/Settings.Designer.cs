@@ -144,5 +144,41 @@ namespace Olib.Properties {
                 this["TopSecret"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
+        public global::System.Globalization.CultureInfo DefaultLanguage {
+            get {
+                return ((global::System.Globalization.CultureInfo)(this["DefaultLanguage"]));
+            }
+            set {
+                this["DefaultLanguage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstLanguage {
+            get {
+                return ((bool)(this["FirstLanguage"]));
+            }
+            set {
+                this["FirstLanguage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ClickOlib {
+            get {
+                return ((double)(this["ClickOlib"]));
+            }
+            set {
+                this["ClickOlib"] = value;
+            }
+        }
     }
 }

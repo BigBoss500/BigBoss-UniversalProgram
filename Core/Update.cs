@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Net;
-using System.Windows;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using System.Diagnostics;
 
 namespace Olib.Core
 {
-    static class Update
+    internal static class Update
     {
         private static string str;
         public static async Task CheckUpdate(Button b)
         {
-            using (var wb = new WebClient())
+            using (WebClient wb = new WebClient())
             {
                 wb.DownloadStringCompleted += (s, e) => str = e.Result;
                 await wb.DownloadStringTaskAsync(new Uri($"https://raw.githubusercontent.com/BigBoss500/Olib/master/versions/version.xml"));

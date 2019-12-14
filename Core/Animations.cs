@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
+using System.Linq;
 
 namespace Olib.Core
 {
-    class Animations
+    internal class Animations
     {
         /// <summary>
         /// Активирует анимацию для текста
@@ -13,13 +16,14 @@ namespace Olib.Core
         /// <param name="control">Элемент, для которого нужно активировать анимацию, в данном случае DropShadow</param>
         public static void AnimationText(DropShadowEffect control)
         {
-            var anim = new DoubleAnimation
+            DoubleAnimation anim = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(1),
                 To = 10,
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = true
             };
+            Timeline.SetDesiredFrameRate(anim, 60);
             control.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
         }
         /// <summary>
@@ -29,13 +33,14 @@ namespace Olib.Core
         /// <param name="control1">Второй элемент, для которого нужно активировать анимацию/param>
         public static void AnimationText(DropShadowEffect control, DropShadowEffect control1)
         {
-            var anim = new DoubleAnimation
+            DoubleAnimation anim = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(1),
                 To = 10,
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = true
             };
+            Timeline.SetDesiredFrameRate(anim, 60);
             control.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
             control1.BeginAnimation(DropShadowEffect.BlurRadiusProperty, anim);
         }

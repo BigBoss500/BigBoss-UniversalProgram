@@ -165,6 +165,38 @@
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <AccessText Text="Треугольник" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </TabItem.Header>
+                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" HorizontalAlignment="Stretch">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="a:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleA" TextChanged="TextChangedTriangle"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+                                <TextBlock Text="b:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleB" TextChanged="TextChangedTriangle"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="c:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleC" TextChanged="TextChangedTriangle"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+                                <TextBlock Text="∠:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleAngle" TextChanged="TextChangedTriangle"/>
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,5">
+                                <TextBlock Text="P:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleP" IsReadOnly="True"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="S:" VerticalAlignment="Center"/>
+                                <TextBox x:Name="TriangleS" IsReadOnly="True"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
                 </TabControl>
             </TabItem>
         </TabControl>

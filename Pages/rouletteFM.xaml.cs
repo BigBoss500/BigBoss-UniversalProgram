@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml.Linq;
 
 namespace Olib.Pages
@@ -35,7 +32,7 @@ namespace Olib.Pages
         }
         private int index, time = 1;
         private readonly string l = Environment.NewLine;
-        private const long dot = 80000;
+        private const long dot = 50000;
         private float b = 0;
 
         private void Button_Click(object sender, RoutedEventArgs e) => new Windows.rouletteFM_Settings().Show();
@@ -112,7 +109,7 @@ namespace Olib.Pages
         }
         private void Button_Click_2(object sender, RoutedEventArgs e) => RdmGlobal.Text = (string)Application.Current.Resources["ClickTwist"];
         private void MenuRe_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             if (List.SelectedItem != null)
             {
                 List.Items.Remove(List.SelectedItem);
@@ -170,39 +167,39 @@ namespace Olib.Pages
             SaveFileDialog d = new SaveFileDialog { Filter = "XML-files (*.xml)|*.xml|TXT-files (*.txt)|*.txt" };
             if ((bool)d.ShowDialog())
             {
-                switch (System.IO.Path.GetExtension(d.FileName))
+                switch (Path.GetExtension(d.FileName))
                 {
                     case ".txt":
-                            try
+                        try
+                        {
+                            List<string> list = new List<string>();
+                            foreach (var i in string_array)
                             {
-                                List<string> list = new List<string>();
-                                foreach (var i in string_array)
-                                {
-                                    list.Add(i);
-                                }
-                                File.AppendAllLines(d.FileName, list.ToArray());
-                                Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
+                                list.Add(i);
                             }
-                            catch (Exception ex)
-                            {
-                                Error.Content = $"{ex.Message}";
-                            }
-                            break;
+                            File.AppendAllLines(d.FileName, list.ToArray());
+                            Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
+                        }
+                        catch (Exception ex)
+                        {
+                            Error.Content = $"{ex.Message}";
+                        }
+                        break;
                     case ".xml":
-                            try
-                            {
-                                XDocument doc = new XDocument(
-                                new XElement("Elements",
-                                    from n in string_array select new XElement("Element", n)
-                                ));
-                                doc.Save(d.FileName);
-                                Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
-                            }
-                            catch (Exception ex)
-                            {
-                                Error.Content = $"{ex.Message}";
-                            }
-                            break;
+                        try
+                        {
+                            XDocument doc = new XDocument(
+                            new XElement("Elements",
+                                from n in string_array select new XElement("Element", n)
+                            ));
+                            doc.Save(d.FileName);
+                            Complete.Content = $"{(string)Application.Current.Resources["SaveFile"]}";
+                        }
+                        catch (Exception ex)
+                        {
+                            Error.Content = $"{ex.Message}";
+                        }
+                        break;
                 }
             }
 
@@ -232,7 +229,7 @@ namespace Olib.Pages
         {
             if (List.SelectedItem != null)
             {
-                if(e.Key == Key.Delete)
+                if (e.Key == Key.Delete)
                 {
                     List.Items.Remove(List.SelectedItem);
                     Properties.Settings.Default.ListItem.Clear();
@@ -253,7 +250,7 @@ namespace Olib.Pages
             OpenFileDialog d = new OpenFileDialog { Filter = "XML-files (*.xml)|*.xml|TXT-files (*.txt)|*.txt" };
             if ((bool)d.ShowDialog())
             {
-                switch (System.IO.Path.GetExtension(d.FileName))
+                switch (Path.GetExtension(d.FileName))
                 {
                     case ".txt":
                         try
@@ -271,7 +268,7 @@ namespace Olib.Pages
                                 Properties.Settings.Default.ListItem.Add(i);
                             }
                             Complete.Content = (string)Application.Current.Resources["LoadFile"];
-                            if (Properties.Settings.Default.CheckBox2) ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
+                            if (Properties.Settings.Default.CheckBox2) ListName.Content = Path.GetFileNameWithoutExtension(d.FileName);
                         }
                         catch (Exception ex)
                         {
@@ -296,7 +293,7 @@ namespace Olib.Pages
                                 Properties.Settings.Default.ListItem.Add(i);
                             }
                             Complete.Content = (string)Application.Current.Resources["LoadFile"];
-                            if (Properties.Settings.Default.CheckBox2) ListName.Content = System.IO.Path.GetFileNameWithoutExtension(d.FileName);
+                            if (Properties.Settings.Default.CheckBox2) ListName.Content = Path.GetFileNameWithoutExtension(d.FileName);
                         }
                         catch (Exception ex)
                         {

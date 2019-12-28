@@ -38,12 +38,14 @@ namespace Olib
                 {
                     MaxHeight = double.PositiveInfinity;
                     MaxWidth = double.PositiveInfinity;
+                    WindowGrid.Margin = new Thickness(0);
                     WindowState = WindowState.Normal;
                 }
                 else
                 {
                     MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                     MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+                    WindowGrid.Margin = new Thickness(5);
                     WindowState = WindowState.Maximized;
                 }
             }
@@ -52,7 +54,15 @@ namespace Olib
                 MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                 MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
                 mRestoreForDragMove = WindowState == WindowState.Maximized;
+                
                 DragMove();
+            }
+        }
+        private void mainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (WindowState != WindowState.Normal)
+            {
+                WindowGrid.Margin = new Thickness(5);
             }
         }
         private void OnMouseMove(object sender, MouseEventArgs e)
@@ -68,6 +78,7 @@ namespace Olib
 
                 MaxHeight = double.PositiveInfinity;
                 MaxWidth = double.PositiveInfinity;
+                WindowGrid.Margin = new Thickness(0);
                 WindowState = WindowState.Normal;
                 try
                 {
@@ -85,6 +96,7 @@ namespace Olib
                 FullMenu.Header = Application.Current.Resources["Expand"];
                 MaxHeight = double.PositiveInfinity;
                 MaxWidth = double.PositiveInfinity;
+                WindowGrid.Margin = new Thickness(0);
                 WindowState = WindowState.Normal;
             }
             else
@@ -92,6 +104,7 @@ namespace Olib
                 FullMenu.Header = Application.Current.Resources["Restore"];
                 MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                 MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+                WindowGrid.Margin = new Thickness(5);
                 WindowState = WindowState.Maximized;
             }
         }

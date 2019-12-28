@@ -44,7 +44,6 @@ namespace Olib.Pages
                 Error.Content = ex.Message;
             }
         }
-
         private void IntersectionPoint(object sender, TextChangedEventArgs e)
         {
             double x1, y1, a1, x2, y2, a2;
@@ -102,6 +101,53 @@ namespace Olib.Pages
             {
                 Error.Content = ex.Message;
             }
+        }
+
+        private void TextChangedTriangle(object sender, TextChangedEventArgs e)
+        {
+            double a, b, c, p, angle;
+            try
+            {
+                a = double.Parse(TriangleA.Text);
+                b = double.Parse(TriangleB.Text);
+                c = double.Parse(TriangleC.Text);
+
+                TriangleP.Text = "0";
+                if (a != 0 || b != 0 || c != 0)
+                {
+                    TriangleP.Text = (a + b + c).ToString();
+                }
+
+                if (TriangleAngle.Text != string.Empty)
+                {
+                    angle = double.Parse(TriangleAngle.Text);
+
+                    if (TriangleA.Text != string.Empty && TriangleB.Text != string.Empty)
+                    {
+                        TriangleS.Text = ((a * b * Math.Sin(Math.PI / 180 * angle)) / 2).ToString();
+                    }
+                    else if (TriangleB.Text != string.Empty && TriangleC.Text != string.Empty)
+                    {
+                        TriangleS.Text = ((b * c * Math.Sin(Math.PI / 180 * angle)) / 2).ToString();
+                    }
+                    else if (TriangleA.Text != string.Empty && TriangleC.Text != string.Empty)
+                    {
+                        TriangleS.Text = ((a * c * Math.Sin(Math.PI / 180 * angle)) / 2).ToString();
+                    }
+                }
+                else
+                {
+                    p = (a + b + c) / 2;
+                    
+                    TriangleS.Text = Math.Sqrt(p * (p - a) * (p - b) * (p - c)).ToString();
+                }
+                Error.Content = null;
+            }
+            catch(Exception ex)
+            {
+                Error.Content = ex.Message;
+            }
+
         }
     }
 }

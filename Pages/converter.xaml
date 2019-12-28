@@ -44,15 +44,15 @@
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
                     <StackPanel>
                         <Label Content="°C:"/>
-                        <TextBox x:Name="Celcion" TextChanged="CelcionC"/>
+                        <TextBox x:Name="Celcion" TextChanged="TemperatureC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="°F:"/>
-                        <TextBox x:Name="Farengate" TextChanged="FarengateC"/>
+                        <TextBox x:Name="Farengate" TextChanged="TemperatureC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="°K:"/>
-                        <TextBox x:Name="Kelvin" TextChanged="KelvinC"/>
+                        <TextBox x:Name="Kelvin" TextChanged="TemperatureC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -66,19 +66,19 @@
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
                     <StackPanel>
                         <Label Content="mg:"/>
-                        <TextBox x:Name="Miligramm" TextChanged="MiligrammC"/>
+                        <TextBox x:Name="Miligramm" TextChanged="MassC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="g:"/>
-                        <TextBox x:Name="Gramm" TextChanged="GrammC"/>
+                        <TextBox x:Name="Gramm" TextChanged="MassC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="kg:"/>
-                        <TextBox x:Name="Kilogramm" TextChanged="KilogrammC"/>
+                        <TextBox x:Name="Kilogramm" TextChanged="MassC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="t:"/>
-                        <TextBox x:Name="Tonn" TextChanged="TonnC"/>
+                        <TextBox x:Name="Tonn" TextChanged="MassC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -94,45 +94,45 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel>
                                 <Label Content="B:"/>
-                                <TextBox x:Name="Byte" TextChanged="ByteC"/>
+                                <TextBox x:Name="Byte" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel Margin="0,5">
                                 <Label Content="KB:"/>
-                                <TextBox x:Name="KiloByte" TextChanged="KilobyteC"/>
+                                <TextBox x:Name="KiloByte" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel>
                                 <Label Content="MB:"/>
-                                <TextBox x:Name="MegaByte" TextChanged="MegabyteC"/>
+                                <TextBox x:Name="MegaByte" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel Margin="0,5">
                                 <Label Content="GB:"/>
-                                <TextBox x:Name="GigaByte" TextChanged="GigabyteC"/>
+                                <TextBox x:Name="GigaByte" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel>
                                 <Label Content="TB:"/>
-                                <TextBox x:Name="TeraByte" TextChanged="TerabyteC"/>
+                                <TextBox x:Name="TeraByte" TextChanged="DataC"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Margin="5,0,0,0" Orientation="Vertical">
                             <StackPanel>
                                 <Label Content="b:"/>
-                                <TextBox x:Name="Bit" TextChanged="BitC"/>
+                                <TextBox x:Name="Bit" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel Margin="0,5">
                                 <Label Content="Kb:"/>
-                                <TextBox x:Name="KiloBit" TextChanged="KilobitC"/>
+                                <TextBox x:Name="KiloBit" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel>
                                 <Label Content="Mb:"/>
-                                <TextBox x:Name="MegaBit" TextChanged="MegabitC"/>
+                                <TextBox x:Name="MegaBit" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel Margin="0,5">
                                 <Label Content="Gb:"/>
-                                <TextBox x:Name="GigaBit" TextChanged="GigabitC"/>
+                                <TextBox x:Name="GigaBit" TextChanged="DataC"/>
                             </StackPanel>
                             <StackPanel>
                                 <Label Content="Tb:"/>
-                                <TextBox x:Name="TeraBit" TextChanged="TerabitC"/>
+                                <TextBox x:Name="TeraBit" TextChanged="DataC"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -148,23 +148,23 @@
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center" >
                     <StackPanel>
                         <Label Content="mm:"/>
-                        <TextBox x:Name="Millimetr" TextChanged="MillimetrC"/>
+                        <TextBox x:Name="Millimetr" TextChanged="LengthC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="cm:"/>
-                        <TextBox x:Name="Santimetr" TextChanged="SantimetrC"/>
+                        <TextBox x:Name="Santimetr" TextChanged="LengthC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="m:"/>
-                        <TextBox x:Name="Metr" TextChanged="MetrC"/>
+                        <TextBox x:Name="Metr" TextChanged="LengthC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="km:"/>
-                        <TextBox x:Name="Kilometr" TextChanged="KilometrC"/>
+                        <TextBox x:Name="Kilometr" TextChanged="LengthC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Step:"/>
-                        <TextBox x:Name="Step" TextChanged="StepC"/>
+                        <TextBox x:Name="Step" TextChanged="LengthC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -176,10 +176,10 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBox x:Name="Number" TextChanged="Number_TextChanged"/>
+                    <TextBox x:Name="Number" TextChanged="CurrC"/>
                     <StackPanel>
-                        <ComboBox x:Name="Curr1" Width="180" BorderThickness="0" SelectionChanged="Curr1_SelectionChanged" Margin="0,10,20,10"/>
-                        <ComboBox x:Name="Curr2" Width="180" BorderThickness="0" SelectionChanged="Curr2_SelectionChanged" Margin="0,10"/>
+                        <ComboBox x:Name="Curr1" Width="180" BorderThickness="0" SelectionChanged="CurrC" Margin="0,10,20,10"/>
+                        <ComboBox x:Name="Curr2" Width="180" BorderThickness="0" SelectionChanged="CurrC" Margin="0,10"/>
                     </StackPanel>
                     <Label Content="=" HorizontalContentAlignment="Center" FontSize="16"/>
                     <Label x:Name="Res" Content="..." HorizontalContentAlignment="Center" FontSize="16"/>
@@ -195,11 +195,11 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel Margin="0,0,10,0" Orientation="Vertical">
                         <Label Content="{StaticResource Decimal}" HorizontalContentAlignment="Center"/>
-                        <TextBox x:Name="Decimal" TextChanged="DecimalC"/>
+                        <TextBox x:Name="Decimal" TextChanged="BinaryC"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
                         <Label Content="{StaticResource Binary}" HorizontalContentAlignment="Center"/>
-                        <TextBox x:Name="Double" TextChanged="DoubleC"/>
+                        <TextBox x:Name="Double" TextChanged="BinaryC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -213,19 +213,19 @@
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
                     <StackPanel>
                         <Label Content="Pa:"/>
-                        <TextBox x:Name="Paskal" TextChanged="PaskalC"/>
+                        <TextBox x:Name="Paskal" TextChanged="PressureC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="bar:"/>
-                        <TextBox x:Name="Bar" TextChanged="BarC"/>
+                        <TextBox x:Name="Bar" TextChanged="PressureC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="atm:"/>
-                        <TextBox x:Name="Atmospfere" TextChanged="AtmospfereC"/>
+                        <TextBox x:Name="Atmospfere" TextChanged="PressureC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="Torr:"/>
-                        <TextBox x:Name="Torr" TextChanged="TorrC"/>
+                        <TextBox x:Name="Torr" TextChanged="PressureC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -239,23 +239,23 @@
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Center">
                     <StackPanel>
                         <Label Content="см²:"/>
-                        <TextBox x:Name="SantimetrSquare" TextChanged="SantimetrSquareC"/>
+                        <TextBox x:Name="SantimetrSquare" TextChanged="AreaC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="м²:"/>
-                        <TextBox x:Name="MetrSquare" TextChanged="MetrSquareC"/>
+                        <TextBox x:Name="MetrSquare" TextChanged="AreaC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="км²:"/>
-                        <TextBox x:Name="KilometrSquare" TextChanged="KilometrSquareC"/>
+                        <TextBox x:Name="KilometrSquare" TextChanged="AreaC"/>
                     </StackPanel>
                     <StackPanel Margin="0,5">
                         <Label Content="ha:"/>
-                        <TextBox x:Name="HarSquare" TextChanged="HarSquareC"/>
+                        <TextBox x:Name="HarSquare" TextChanged="AreaC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="mi²:"/>
-                        <TextBox x:Name="MileSquare" TextChanged="MileSquareC"/>
+                        <TextBox x:Name="MileSquare" TextChanged="AreaC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -269,15 +269,15 @@
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel>
                         <Label Content="ml:"/>
-                        <TextBox x:Name="MiliLitre" TextChanged="MililitreC"/>
+                        <TextBox x:Name="MiliLitre" TextChanged="VolumeC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="l:"/>
-                        <TextBox x:Name="Litre" TextChanged="LitreC"/>
+                        <TextBox x:Name="Litre" TextChanged="VolumeC"/>
                     </StackPanel>
                     <StackPanel>
                         <Label Content="m³:"/>
-                        <TextBox x:Name="MetrCube" TextChanged="MetrCubeC"/>
+                        <TextBox x:Name="MetrCube" TextChanged="VolumeC"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

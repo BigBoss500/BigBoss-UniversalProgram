@@ -53,8 +53,8 @@ namespace Olib
             base.OnStartup(e);
             string countryCode = RegionInfo.CurrentRegion.TwoLetterISORegionName;
             AppCenter.SetCountryCode(countryCode);
-            Analytics.SetEnabledAsync(true);
-            Crashes.SetEnabledAsync(true);
+            Analytics.SetEnabledAsync(false);
+            Crashes.SetEnabledAsync(false);
             AppCenter.Start("9a1cf24d-fb85-4707-be9e-44899806bde2",
                    typeof(Analytics), typeof(Crashes));
         }
